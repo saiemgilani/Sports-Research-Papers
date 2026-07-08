@@ -3,6 +3,19 @@
   "download_root": "library",
   "sources": [
     {
+      "id": "jqas-degruyter",
+      "parent_source_id": "jqas",
+      "name": "Journal of Quantitative Analysis in Sports - De Gruyter",
+      "category_path": ["journals", "Journal of Quantitative Analysis in Sports"],
+      "feed_url": "https://www.degruyterbrill.com/journal/key/jqas/html",
+      "feed_type": "html_index",
+      "include_href_patterns": ["/document/doi/"],
+      "exclude_href_patterns": [],
+      "requires_auth": true,
+      "download_policy": "authorized_pdf_only",
+      "license_note": "Uses authorized institutional cookies to download JQAS PDFs for private use subject to your institution's terms."
+    },
+    {
       "id": "jssm-current",
       "parent_source_id": "jssm",
       "name": "Journal of Sports Science and Medicine - Current Content",

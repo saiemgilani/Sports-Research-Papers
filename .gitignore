@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+.auth/
+cookies.txt
+storage_state.json

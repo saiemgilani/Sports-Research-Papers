@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Download public sports analytics papers from configured feeds.
+"""Download sports analytics papers from configured feeds.
 
 The script is deliberately conservative:
 - it only writes files that are verified as PDF bytes;
-- it does not attempt authentication, paywall bypass, or browser automation;
+- it only uses authentication cookies explicitly supplied by the user;
 - it records each download in library/manifest.jsonl for deduplication.
 """
 
@@ -35,6 +35,14 @@ USER_AGENT = (
 PDF_MAGIC = b"%PDF"
 DEFAULT_CONFIG = Path("feeds/download-sources.json")
 DEFAULT_MANIFEST = Path("library/manifest.jsonl")
+DEFAULT_COOKIE_DOMAINS = {
+    "degruyter.com",
+    "www.degruyter.com",
+    "degruyterbrill.com",
+    "www.degruyterbrill.com",
+}
+AUTH_COOKIE_HEADER = ""
+AUTH_COOKIE_DOMAINS: set[str] = set()
 
 
 @dataclass
@@ -62,13 +70,32 @@ class DownloadResult:
     doi: str = ""
 
 
+def cookie_domain_matches(host: str, domain: str) -> bool:
+    domain = domain.lstrip(".").lower()
+    host = host.lower()
+    return host == domain or host.endswith(f".{domain}")
+
+
+def auth_cookie_for_url(url: str) -> str:
+    if not AUTH_COOKIE_HEADER:
+        return ""
+    host = urllib.parse.urlparse(url).hostname or ""
+    if any(cookie_domain_matches(host, domain) for domain in AUTH_COOKIE_DOMAINS):
+        return AUTH_COOKIE_HEADER
+    return ""
+
+
 def fetch(url: str, timeout: int = 30, accept: str = "*/*") -> tuple[bytes, str, str]:
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": accept,
+    }
+    cookie_header = auth_cookie_for_url(url)
+    if cookie_header:
+        headers["Cookie"] = cookie_header
     request = urllib.request.Request(
         url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": accept,
-        },
+        headers=headers,
     )
     with urllib.request.urlopen(request, timeout=timeout) as response:
         content_type = response.headers.get("Content-Type", "")
@@ -167,6 +194,19 @@ def meta_values(page: str, name: str) -> list[str]:
     return [html.unescape(match.group(1)).strip() for match in pattern.finditer(page)]
 
 
+def tag_text(page: str, tag_name: str, href: str) -> str:
+    pattern = re.compile(
+        r"<a\b[^>]*href\s*=\s*['\"]"
+        + re.escape(href)
+        + r"['\"][^>]*>(.*?)</a>",
+        re.IGNORECASE | re.DOTALL,
+    )
+    match = pattern.search(page)
+    if not match:
+        return ""
+    return clean_text(match.group(1))
+
+
 def href_values(page: str) -> list[str]:
     pattern = re.compile(r"href\s*=\s*['\"]([^'\"]+)['\"]", re.IGNORECASE)
     return [html.unescape(match.group(1)).strip() for match in pattern.finditer(page)]
@@ -175,6 +215,9 @@ def href_values(page: str) -> list[str]:
 def find_pdf_candidates(page: str, base_url: str) -> list[str]:
     candidates: list[str] = []
     candidates.extend(meta_values(page, "citation_pdf_url"))
+    parsed_base = urllib.parse.urlparse(base_url)
+    if "/document/doi/" in parsed_base.path and parsed_base.path.endswith("/html"):
+        candidates.append(urllib.parse.urlunparse(parsed_base._replace(path=parsed_base.path[:-5] + "/pdf")))
     for href in href_values(page):
         lowered = href.lower()
         if ".pdf" in lowered or "doi/pdf" in lowered or "hfpdf.php" in lowered:
@@ -188,6 +231,42 @@ def find_pdf_candidates(page: str, base_url: str) -> list[str]:
             seen.add(url)
             absolute.append(url)
     return absolute
+
+
+def doi_from_url(url: str) -> str:
+    match = re.search(r"/document/doi/(10\.[^/]+/[^/]+)/", url)
+    if match:
+        return urllib.parse.unquote(match.group(1))
+    return ""
+
+
+def parse_html_index(data: bytes, base_url: str, source: dict) -> list[FeedItem]:
+    page = text_from_bytes(data)
+    include_patterns = source.get("include_href_patterns") or ["/document/doi/"]
+    exclude_patterns = source.get("exclude_href_patterns") or []
+    seen: set[str] = set()
+    items: list[FeedItem] = []
+
+    for href in href_values(page):
+        if not any(pattern in href for pattern in include_patterns):
+            continue
+        if any(pattern in href for pattern in exclude_patterns):
+            continue
+        url = urllib.parse.urljoin(base_url, href)
+        url = re.sub(r"/pdf(?:\?.*)?$", "/html", url)
+        if url in seen:
+            continue
+        seen.add(url)
+        title = tag_text(page, "a", href) or doi_from_url(url) or url
+        items.append(
+            FeedItem(
+                title=title,
+                link=url,
+                doi=doi_from_url(url),
+            )
+        )
+
+    return items
 
 
 def enrich_from_page(item: FeedItem, page: str) -> FeedItem:
@@ -256,6 +335,10 @@ def destination_for(root: Path, source: dict, item: FeedItem) -> Path:
     author = safe_component(first_author_label(item.authors or []), 60)
     filename = f"{year} - {title} - {author}.pdf"
     return root.joinpath(*category, year, filename)
+
+
+def source_requires_auth(source: dict) -> bool:
+    return bool(source.get("requires_auth"))
 
 
 def load_manifest(path: Path) -> dict[str, dict]:
@@ -378,6 +461,7 @@ def process_item(
 
 
 def run(args: argparse.Namespace) -> int:
+    configure_auth(args)
     config = json.loads(args.config.read_text(encoding="utf-8"))
     root = Path(config.get("download_root", "library"))
     manifest_path = args.manifest
@@ -389,9 +473,21 @@ def run(args: argparse.Namespace) -> int:
         if source_filter and source["id"] not in source_filter:
             continue
         print(f"source: {source['id']} - {source['name']}")
+        if source_requires_auth(source) and not AUTH_COOKIE_HEADER:
+            print(
+                f"skip source requires auth cookies: {source['id']} "
+                "(set JQAS_COOKIE, JQAS_COOKIE_FILE, or JQAS_STORAGE_STATE)"
+            )
+            continue
         try:
-            feed_bytes, _, _ = fetch(source["feed_url"], accept="application/rss+xml,application/xml,text/xml,*/*")
-            items = parse_feed(feed_bytes)
+            feed_bytes, _, feed_url = fetch(
+                source["feed_url"],
+                accept="application/rss+xml,application/xml,text/xml,text/html,*/*",
+            )
+            if source.get("feed_type") == "html_index":
+                items = parse_html_index(feed_bytes, feed_url, source)
+            else:
+                items = parse_feed(feed_bytes)
         except (ET.ParseError, urllib.error.URLError, TimeoutError) as exc:
             print(f"skip source failed: {source['id']} ({exc})")
             continue
@@ -416,6 +512,57 @@ def run(args: argparse.Namespace) -> int:
     return 0
 
 
+def cookie_header_from_netscape(path: Path, domains: set[str]) -> str:
+    pairs: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("\t")
+        if len(parts) < 7:
+            continue
+        domain, _, _, _, _, name, value = parts[:7]
+        if any(cookie_domain_matches(domain.lstrip("."), allowed) for allowed in domains):
+            pairs[name] = value
+    return "; ".join(f"{name}={value}" for name, value in sorted(pairs.items()))
+
+
+def cookie_header_from_storage_state(path: Path, domains: set[str]) -> str:
+    state = json.loads(path.read_text(encoding="utf-8"))
+    pairs: dict[str, str] = {}
+    for cookie in state.get("cookies", []):
+        domain = str(cookie.get("domain", "")).lstrip(".")
+        if any(cookie_domain_matches(domain, allowed) for allowed in domains):
+            name = str(cookie.get("name", ""))
+            value = str(cookie.get("value", ""))
+            if name:
+                pairs[name] = value
+    return "; ".join(f"{name}={value}" for name, value in sorted(pairs.items()))
+
+
+def configure_auth(args: argparse.Namespace) -> None:
+    global AUTH_COOKIE_DOMAINS, AUTH_COOKIE_HEADER
+    domains = set(DEFAULT_COOKIE_DOMAINS)
+    env_domains = os.environ.get("JQAS_COOKIE_DOMAINS", "")
+    domains.update(domain.strip() for domain in env_domains.split(",") if domain.strip())
+    AUTH_COOKIE_DOMAINS = domains
+
+    if args.cookie:
+        AUTH_COOKIE_HEADER = args.cookie.strip()
+    elif args.cookie_file:
+        AUTH_COOKIE_HEADER = cookie_header_from_netscape(args.cookie_file, domains)
+    elif args.storage_state:
+        AUTH_COOKIE_HEADER = cookie_header_from_storage_state(args.storage_state, domains)
+    elif os.environ.get("JQAS_COOKIE"):
+        AUTH_COOKIE_HEADER = os.environ["JQAS_COOKIE"].strip()
+    elif os.environ.get("JQAS_COOKIE_FILE"):
+        AUTH_COOKIE_HEADER = cookie_header_from_netscape(Path(os.environ["JQAS_COOKIE_FILE"]), domains)
+    elif os.environ.get("JQAS_STORAGE_STATE"):
+        AUTH_COOKIE_HEADER = cookie_header_from_storage_state(Path(os.environ["JQAS_STORAGE_STATE"]), domains)
+
+    if AUTH_COOKIE_HEADER:
+        print(f"auth cookies enabled for domains: {', '.join(sorted(domains))}")
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
@@ -423,6 +570,9 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--source", action="append", help="Only process this source id. May be repeated.")
     parser.add_argument("--max-items", type=int, default=0, help="Limit items per source.")
     parser.add_argument("--sleep", type=float, default=0.5, help="Delay between item requests.")
+    parser.add_argument("--cookie", help="Cookie header for authorized JQAS/De Gruyter access.")
+    parser.add_argument("--cookie-file", type=Path, help="Netscape cookies.txt file for authorized access.")
+    parser.add_argument("--storage-state", type=Path, help="Playwright storage_state.json file for authorized access.")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args(argv)
 

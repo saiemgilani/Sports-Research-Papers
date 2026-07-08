@@ -32,6 +32,8 @@ jobs:
 
       - name: Download public papers from feeds
         shell: bash
+        env:
+          JQAS_COOKIE: ${{ secrets.JQAS_COOKIE }}
         run: |
           args=()
           if [ -n "${{ inputs.max_items }}" ]; then
