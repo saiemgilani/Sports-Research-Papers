@@ -7,10 +7,69 @@
       "parent_source_id": "jqas",
       "name": "Journal of Quantitative Analysis in Sports - De Gruyter",
       "category_path": ["journals", "Journal of Quantitative Analysis in Sports"],
-      "feed_url": "https://www.degruyterbrill.com/journal/key/jqas/html",
+      "feed_urls": [
+        "https://www.degruyterbrill.com/journal/key/jqas/8/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/8/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/8/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/8/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/9/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/9/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/9/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/9/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/10/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/10/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/10/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/10/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/11/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/11/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/11/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/11/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/12/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/12/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/12/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/12/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/13/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/13/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/13/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/13/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/14/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/14/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/14/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/14/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/15/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/15/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/15/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/15/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/16/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/16/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/16/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/16/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/17/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/17/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/17/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/17/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/18/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/18/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/18/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/18/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/19/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/19/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/19/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/19/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/20/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/20/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/20/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/20/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/21/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/21/2/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/21/3/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/21/4/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/22/1/html",
+        "https://www.degruyterbrill.com/journal/key/jqas/22/2/html"
+      ],
       "feed_type": "html_index",
       "include_href_patterns": ["/document/doi/"],
-      "exclude_href_patterns": [],
+      "exclude_href_patterns": ["frontmatter", "masthead"],
       "requires_auth": true,
       "download_policy": "authorized_pdf_only",
       "license_note": "Uses authorized institutional cookies to download JQAS PDFs for private use subject to your institution's terms."
@@ -44,6 +103,127 @@
       "feed_type": "rss",
       "download_policy": "public_pdf_only",
       "license_note": "Download only when the publisher exposes a public PDF without authentication."
+    },
+    {
+      "id": "jsa-crossref-2016",
+      "parent_source_id": "jsa",
+      "name": "Journal of Sports Analytics - Crossref Archive 2016+",
+      "category_path": ["journals", "Journal of Sports Analytics"],
+      "feed_url": "https://api.crossref.org/journals/2215-020X/works?filter=from-pub-date:2015-01-01,type:journal-article&rows=1000&sort=published&order=asc&select=DOI,title,published-print,published-online,published,issued,container-title,volume,issue,page,author,type,link",
+      "feed_type": "crossref",
+      "article_url_template": "https://journals.sagepub.com/doi/abs/{doi}",
+      "min_volume": 2,
+      "exclude_title_patterns": ["Author Index"],
+      "download_policy": "public_pdf_only",
+      "license_note": "JSA article pages are open access when SAGE exposes the public PDF; automated downloads may still require passing SAGE/IOS Press Cloudflare verification."
+    },
+    {
+      "id": "cmsac-conference-papers",
+      "parent_source_id": "cmsac",
+      "name": "Carnegie Mellon Sports Analytics Conference - Public Paper PDFs",
+      "category_path": ["conferences", "Carnegie Mellon Sports Analytics Conference"],
+      "feed_urls": [
+        "https://www.stat.cmu.edu/cmsac/conference/2019/",
+        "https://www.stat.cmu.edu/cmsac/conference/2020/",
+        "https://www.stat.cmu.edu/cmsac/conference/2021/",
+        "https://www.stat.cmu.edu/cmsac/conference/2022/",
+        "https://www.stat.cmu.edu/cmsac/conference/2023/",
+        "https://www.stat.cmu.edu/cmsac/conference/2024/"
+      ],
+      "feed_type": "html_index",
+      "include_href_patterns": [".pdf"],
+      "exclude_href_patterns": ["Sponsorship", "sponsorship", "Sponsor", "SMT_Judge_List"],
+      "download_policy": "public_pdf_only",
+      "license_note": "Downloads public PDFs linked from official CMSAC conference archive pages."
+    },
+    {
+      "id": "nessis-presentations-posters",
+      "parent_source_id": "nessis",
+      "name": "New England Symposium on Statistics in Sports - Public Presentations and Posters",
+      "category_path": ["conferences", "New England Symposium on Statistics in Sports"],
+      "feed_urls": [
+        "https://www.nessis.org/nessis07.html",
+        "https://www.nessis.org/nessis09.html",
+        "https://www.nessis.org/nessis11.html",
+        "https://www.nessis.org/nessis13.html",
+        "https://www.nessis.org/nessis15.html",
+        "https://www.nessis.org/nessis17.html",
+        "https://www.nessis.org/nessis19.html",
+        "https://www.nessis.org/nessis21.html",
+        "https://www.nessis.org/nessis23.html",
+        "https://www.nessis.org/nessis25.html"
+      ],
+      "feed_type": "html_index",
+      "include_href_patterns": [".pdf"],
+      "exclude_href_patterns": ["program"],
+      "download_policy": "public_pdf_only",
+      "license_note": "Downloads public PDF presentations, talk abstracts, and posters linked from official NESSIS archive pages."
+    },
+    {
+      "id": "mit-ssac-research-papers-seed",
+      "parent_source_id": "mit-ssac-research-paper-competition",
+      "name": "MIT Sloan Sports Analytics Conference - Verified Research Paper PDFs",
+      "category_path": ["conferences", "MIT Sloan Sports Analytics Conference", "Research Paper Competition"],
+      "feed_type": "static_items",
+      "download_policy": "public_pdf_only",
+      "license_note": "Downloads verified public CDN PDFs linked from official SSAC research paper pages. The SSAC HTML site may return 403 to raw automation, so this source stores verified item and PDF URLs.",
+      "items": [
+        {
+          "title": "Deep Reinforcement Learning for NBA Player Valuation: A Temporal Difference Approach with Shapley Attribution",
+          "authors": ["Ben Jenkins"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/deep-reinforcement-learning-for-nba-player-valuation-a-temporal-difference-approach-with-shapley-attribution",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0fc784ddace11b3f824f_Final%20NBA%20DRL%20Sloan%20Paper.docx.pdf"
+        },
+        {
+          "title": "Risk of Collusion: Will Groups of 3 Ruin the FIFA World Cup?",
+          "authors": ["Julien Guyon"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/risk-of-collusion-will-groups-of-3-ruin-the-fifa-world-cup",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080667_JulienGuyon-FIFACollusion-RPpaper.pdf"
+        },
+        {
+          "title": "Approaching In-Venue Quality Tracking from Broadcast Video using Generative AI",
+          "authors": ["Harry Hughes", "Michael Horton", "Felix Wei", "Michael Stokl", "Harshala Gammulle", "Clinton Fookes", "Sridha Sridharan", "Sateesh Pedagadi", "Patrick Lucey"],
+          "year": "2024",
+          "item_url": "https://www.sloansportsconference.com/research-papers/approaching-in-venue-quality-tracking-from-broadcast-video-using-generative-ai",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220807dd_193972%20-%20Approaching%20In-Venue%20Quality%20Tracking%20from%20Broadcast%20Video%20using%20Generative%20AI.pdf"
+        },
+        {
+          "title": "Player Tracking Facilitates Valid Causal Inference: The Average Treatment Effect of Defender Proximity on Scoring",
+          "authors": ["Matthew S. Tenan", "Ali R. Rezai"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/player-tracking-facilitates-valid-causal-inference-the-average-treatment-effect-of-defender-proximity-on-scoring",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080798_Player%20Tracking%20Facilitates%20Valid%20Causal%20Inference%20-%20The%20Average%20Treatment%20Effect.pdf"
+        },
+        {
+          "title": "A Machine Learning Approach to Player Value and Decision Making in Professional Ultimate Frisbee",
+          "authors": ["Braden Eberhard", "Jacob Miller", "Nate Sandholtz"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/a-machine-learning-approach-to-throw-value-estimation-in-professional-ultimate-frisbee",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220808e7_Player%20Value%20and%20Decision%20Making%20in%20Professional%20Ultimate%20Frisbee.pdf"
+        },
+        {
+          "title": "Evaluating Player Actions in Professional Counter Strike using Temporal Heterogeneous Graph Neural Networks",
+          "authors": ["Patrik Peter Szmida", "Laszlo Toka"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/evaluating-player-actions-in-professional-counter-strike-using-temporal-heterogeneous-graph-neural-networks",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220808e8_Evaluating%20Player%20Actions%20in%20Professional%20Counter%20Strike.pdf"
+        },
+        {
+          "title": "A model-based risk-impact analysis of dribble actions in women's soccer",
+          "authors": ["Tobias Beckman", "Gerhard Waldhart", "Stefan Thiem", "Oliver Wohak"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/a-model-based-risk-impact-analysis-of-dribble-actions-in-womens-soccer",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080812_193959%20-%20A%20model-based%20risk-impact%20analysis%20of%20dribble%20actions%20in%20women%E2%80%99s%20soccer.pdf"
+        },
+        {
+          "title": "Doinkalytics: A New Paradigm in National Football League (NFL) Placekicking Evaluation",
+          "authors": ["Lorenzo Dube", "Samuel Queralt", "Joshua Fink", "Kirk Goldsberry", "Vanna Bushong"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/doinkalytics-a-new-paradigm-in-national-football-league-nfl-placekicking-evaluation",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220808ee_Doinkalytics.pdf"
+        },
+        {
+          "title": "High-resolution shot capture reveals systematic biases and an improved method for shooter evaluation",
+          "authors": ["Rachel Marty"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/high-resolution-shot-capture-reveals-systematic-biases-and-an-improved-method-for-shooter-evaluation",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080636_An%20improved%20method%20for%20shooter%20evaluation.pdf"
+        }
+      ]
     }
   ]
 }
