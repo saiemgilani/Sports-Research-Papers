@@ -1,0 +1,53 @@
+name: Update Sports Analytics Library
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: "Optional item limit per source"
+        required: false
+        default: ""
+  schedule:
+    - cron: "17 10 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-sports-analytics-library
+  cancel-in-progress: false
+
+jobs:
+  update-library:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Download public papers from feeds
+        shell: bash
+        run: |
+          args=()
+          if [ -n "${{ inputs.max_items }}" ]; then
+            args+=(--max-items "${{ inputs.max_items }}")
+          fi
+          python scripts/update_sports_analytics_library.py "${args[@]}"
+
+      - name: Commit library updates
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add library scripts/update_sports_analytics_library.py feeds/download-sources.json feeds/sports-analytics-feed.md feeds/sports-analytics-sources.yml README.md
+          if git diff --cached --quiet; then
+            echo "No new public papers found."
+            exit 0
+          fi
+          git commit -m "Update sports analytics paper library"
+          git push

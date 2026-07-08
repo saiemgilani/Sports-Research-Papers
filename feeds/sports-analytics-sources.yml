@@ -1,0 +1,425 @@
+schema_version: 1
+last_verified: 2026-07-08
+scope:
+  description: >
+    Curated seed catalog for a sports analytics research paper feed and
+    opportunity feed covering journals, conference CFPs, paper competitions,
+    posters, presentations, hackathons, data challenges, and Kaggle competitions.
+  inclusion_rules:
+    - Prefer official journal, conference, publisher, society, or competition pages.
+    - Use true RSS or XML feeds where available.
+    - For sources without RSS, poll the listed URL and watch for changes in calls, programs, proceedings, and submission pages.
+    - Treat dates as perishable; re-check active opportunities before submitting.
+
+journal_sources:
+  - id: jqas
+    name: Journal of Quantitative Analysis in Sports
+    publisher: De Gruyter Brill
+    type: journal
+    priority: core
+    homepage: https://www.degruyterbrill.com/journal/key/jqas/html
+    latest_issue_url: https://www.degruyterbrill.com/journal/key/jqas/html
+    submission_url: https://mc.manuscriptcentral.com/dgjqas
+    secondary_index_url: https://ideas.repec.org/s/bpj/jqsprt.html
+    feed_kind: poll
+    feed_url:
+    cadence: quarterly
+    notes:
+      - Official journal of the American Statistical Association.
+      - Current volume was listed as open access via Subscribe to Open when verified.
+      - RePEc/IDEAS provides a compact issue index useful for article discovery, but not a primary publisher feed.
+    tags: [journal, statistics, operations-research, machine-learning, sports-management]
+
+  - id: jsa
+    name: Journal of Sports Analytics
+    publisher: SAGE Journals
+    type: journal
+    priority: core
+    homepage: https://journals.sagepub.com/home/san
+    alerts_url: https://journals.sagepub.com/connected/san
+    feed_kind: rss
+    feed_url: https://journals.sagepub.com/action/showFeed?ai=2b4&feed=rss&jc=san&mi=ehikzz&type=etoc&ui=0
+    submission_url: https://journals.sagepub.com/author-instructions/SAN
+    cadence: rolling_and_issue
+    notes:
+      - SAGE exposes recent-article RSS for this title.
+      - The journal positions itself around practical sports analytics applications for teams, leagues, fans, and academics.
+    tags: [journal, applied-analytics, sports-business, strategy]
+
+  - id: ijcss
+    name: International Journal of Computer Science in Sport
+    publisher: Paradigm Publishing Services / International Association of Computer Science in Sport
+    type: journal
+    priority: core
+    homepage: https://reference-global.com/journal/IJCSS
+    secondary_index_url: https://dblp.org/db/journals/ijcssport/index
+    feed_kind: xml_index
+    feed_url: https://dblp.org/db/journals/ijcssport/index.xml
+    submission_url: https://reference-global.com/journal/IJCSS
+    cadence: biannual
+    notes:
+      - Publisher page exposes a journal RSS link in the footer, but the verified HTML pointed to an internal Sciendo host.
+      - DBLP XML is a practical machine-readable fallback for article metadata.
+    tags: [journal, computer-science, sport-informatics, modeling, data-acquisition]
+
+  - id: jssm
+    name: Journal of Sports Science and Medicine
+    publisher: Journal of Sports Science and Medicine
+    type: journal
+    priority: adjacent
+    homepage: https://www.jssm.org/
+    feed_kind: rss
+    feed_url: https://www.jssm.org/rss/content.php
+    additional_feeds:
+      - label: Articles in press
+        url: https://www.jssm.org/rss/inpres.php
+    submission_url: https://www.jssm.org/authors.php
+    cadence: quarterly
+    notes:
+      - Broader sports science and sports medicine scope, but useful for quantitative performance, training, and biomechanics papers.
+      - Publishes open access research, case studies, review articles, and congress/symposium abstracts.
+    tags: [journal, sports-science, sports-medicine, biomechanics, performance]
+
+  - id: ijsse
+    name: International Journal of Sports Science and Engineering
+    publisher: World Academic Union
+    type: journal
+    priority: monitor
+    homepage: http://www.worldacademicunion.com/journal/SSCI/
+    feed_kind: poll
+    feed_url:
+    submission_url: http://www.worldacademicunion.com/journal/SSCI/
+    cadence: unknown
+    notes:
+      - Included because it appears in ASA Statistics in Sports journal listings and the user-supplied seed list.
+      - The publisher URL did not resolve cleanly during verification; keep as monitor-only until refreshed.
+    tags: [journal, sports-science, sports-engineering, monitor]
+
+  - id: oxford-anthology-statistics-sports
+    name: The Oxford Anthology of Statistics in Sports
+    publisher: Oxford University Press
+    type: book
+    priority: reference
+    homepage: https://global.oup.com/academic/product/the-oxford-anthology-of-statistics-in-sports-9780198724926?cc=us&lang=en
+    feed_kind: reference
+    feed_url:
+    notes:
+      - Static reference volume rather than a feed source.
+    tags: [book, reference, statistics]
+
+  - id: handbook-statistical-methods-sports
+    name: Handbook of Statistical Methods and Analyses in Sports
+    publisher: Chapman and Hall/CRC
+    type: book
+    priority: reference
+    homepage: https://www.amazon.com/Handbook-Statistical-Methods-Analyses-Handbooks/dp/1498737366
+    feed_kind: reference
+    feed_url:
+    notes:
+      - Static reference volume rather than a feed source.
+    tags: [book, reference, statistics]
+
+conference_and_opportunity_sources:
+  - id: mit-ssac-research-paper-competition
+    name: MIT Sloan Sports Analytics Conference Research Paper Competition
+    organization: MIT Sloan Sports Analytics Conference
+    type: paper_competition
+    priority: core
+    homepage: https://www.sloansportsconference.com/research-paper-competition
+    submission_url: https://www.sloansportsconference.com/research-paper-competition
+    archive_url: https://www.sloansportsconference.com/past-conferences
+    feed_kind: poll
+    cadence: annual
+    current_cycle:
+      name: SSAC27
+      conference_dates: 2027-02-25/2027-02-26
+      abstract_deadline: 2026-10-01T23:59:00-05:00
+      full_paper_deadline_if_selected: 2026-12-04T23:59:00-05:00
+    opportunities: [abstracts, full-papers, presentations, posters]
+    notes:
+      - Open-source repository link required for submissions in the verified cycle.
+      - Full manuscripts are invitation-only after abstract review.
+    tags: [conference, paper-competition, presentation, poster, open-source]
+
+  - id: mit-ssac-competitions
+    name: MIT Sloan Sports Analytics Conference Competitions
+    organization: MIT Sloan Sports Analytics Conference
+    type: hackathon_and_competitions
+    priority: core
+    homepage: https://www.sloansportsconference.com/competitions
+    feed_kind: poll
+    cadence: annual
+    opportunities: [hackathon, competitions]
+    notes:
+      - SSAC has hosted annual hackathon and competition programming; verify each cycle for tracks, eligibility, and deadlines.
+    tags: [conference, hackathon, competition, sports-business]
+
+  - id: nessis
+    name: New England Symposium on Statistics in Sports
+    organization: NESSIS
+    type: symposium
+    priority: core
+    homepage: https://www.nessis.org/
+    call_url: https://www.nessis.org/call.html
+    archive_url: https://www.nessis.org/
+    feed_kind: poll
+    cadence: biennial_odd_years
+    current_cycle:
+      last_event_date: 2025-09-27
+      next_event_note: See you at the next NESSIS in 2027.
+      next_abstract_window_note: Abstract submissions will open in early 2027.
+    opportunities: [talks, posters, presentations, videos]
+    notes:
+      - Symposium format includes invited talks, a poster session, and a panel discussion.
+    tags: [conference, symposium, statistics, poster, presentation]
+
+  - id: cassis
+    name: Cascadia Symposium on Statistics in Sports
+    organization: CASSIS
+    type: symposium
+    priority: core
+    homepage: https://www.cascadiasports.com/
+    feed_kind: poll
+    cadence: biennial_even_years
+    current_cycle:
+      abstract_status: closed
+      registration_status: open_when_verified
+    opportunities: [abstracts, talks, posters, program]
+    notes:
+      - CASSIS alternates years with NESSIS.
+      - Program page listed oral presentations at verification.
+    tags: [conference, symposium, statistics, poster, presentation]
+
+  - id: cmsac
+    name: Carnegie Mellon Sports Analytics Conference
+    organization: Carnegie Mellon University Department of Statistics and Data Science
+    type: conference
+    priority: core
+    homepage: https://www.stat.cmu.edu/cmsac/
+    archive_url: https://www.stat.cmu.edu/cmsac/conference/2024/
+    feed_kind: poll
+    cadence: annual
+    opportunities: [talks, posters, student-posters, presentations]
+    notes:
+      - Annual academic conference highlighting sports research from statistics and data science.
+      - Past conference pages have included abstract/poster submission links and poster preview material.
+    tags: [conference, academic, statistics, data-science, poster]
+
+  - id: csas
+    name: Connecticut Sports Analytics Symposium
+    aliases: [UConn Sports Analytics Symposium, UCSAS]
+    organization: Connecticut Sports Analytics Symposium
+    type: symposium
+    priority: core
+    homepage: https://statds.org/events/csas2026/
+    archive_url: https://statds.org/events/csas2025/
+    feed_kind: poll
+    cadence: annual
+    current_cycle:
+      conference_dates: 2026-04-10/2026-04-11
+      location: University of Connecticut, Storrs, CT
+    opportunities: [data-challenge, posters, workshops, sessions]
+    notes:
+      - Formerly UCSAS; CSAS was built from the UConn Sports Analytics Symposium.
+      - Student-oriented event spanning high school, undergraduate, and graduate participants.
+    tags: [conference, student, data-challenge, poster, workshop]
+
+  - id: mlsa
+    name: Workshop on Machine Learning and Data Mining for Sports Analytics
+    organization: ECML PKDD workshop series
+    type: workshop
+    priority: core
+    homepage: https://dtai.cs.kuleuven.be/events/MLSA26
+    proceedings_url: https://link.springer.com/conference/mlsa
+    feed_kind: poll
+    cadence: annual
+    current_cycle:
+      paper_deadline: 2026-06-05
+      workshop_date: 2026-09-07
+      proceedings_note: Intended Springer CCIS proceedings.
+    opportunities: [papers, proceedings, presentations]
+    notes:
+      - Strong fit for ML, data mining, predictive modeling, valuation, injury prevention, scheduling, and betting odds modeling.
+    tags: [workshop, machine-learning, data-mining, proceedings, ecml-pkdd]
+
+  - id: mathsport-international
+    name: MathSport International
+    organization: MathSport International
+    type: conference_series
+    priority: core
+    homepage: https://www.mathsportinternational.com/
+    feed_kind: poll
+    cadence: biennial
+    current_cycle:
+      next_event_note: Next MathSport International meeting planned for 2027; exact date and location not set when verified.
+    opportunities: [abstracts, papers, presentations, proceedings]
+    notes:
+      - Broad mathematics and sport conference series.
+    tags: [conference, mathematics, operations-research, statistics]
+
+  - id: mathsport-asia
+    name: MathSport Asia
+    organization: MathSport Asia
+    type: conference
+    priority: monitor
+    homepage: https://iimk.ac.in/apps/mathsport26/
+    alternate_homepage: https://mathsportasia.com/
+    feed_kind: poll
+    current_cycle:
+      conference_dates: 2026-12-08/2026-12-10
+      location: IIM Kozhikode
+    opportunities: [abstracts, full-papers, proceedings, presentations]
+    notes:
+      - Verified page stated accepted abstracts may be followed by optional full papers for conference proceedings.
+    tags: [conference, mathematics, statistics, proceedings, asia]
+
+  - id: iacss
+    name: International Symposium on Computer Science in Sport
+    organization: International Association of Computer Science in Sport
+    type: symposium
+    priority: monitor
+    homepage: https://iacss.org/
+    conference_url: https://iacssconference.org/
+    feed_kind: poll
+    cadence: biennial_or_periodic
+    opportunities: [abstracts, full-papers, posters, proceedings]
+    notes:
+      - Closely aligned with IJCSS and sport informatics.
+      - IACSS site carries calls and partner conference notices.
+    tags: [conference, computer-science, sport-informatics, proceedings]
+
+  - id: icsports
+    name: International Conference on Sport Sciences Research and Technology Support
+    organization: SCITEPRESS
+    type: conference
+    priority: monitor
+    homepage: https://icsports.scitevents.org/
+    feed_kind: poll
+    cadence: annual
+    opportunities: [papers, posters, presentations, proceedings]
+    notes:
+      - Broader sport science and technology conference; useful for computer vision, sensors, performance analysis, and sports engineering.
+    tags: [conference, sports-technology, computer-science, proceedings]
+
+  - id: isace
+    name: International Sports Analytics Conference and Exhibition
+    organization: ISACE
+    type: conference
+    priority: monitor
+    homepage: https://formal-analysis.com/isace/2026/
+    feed_kind: poll
+    current_cycle:
+      conference_month: 2026-06
+      location: Shanghai
+    opportunities: [papers, presentations, exhibition]
+    notes:
+      - Newer conference series; verify reputation and proceedings details before prioritizing submissions.
+    tags: [conference, sports-analytics, papers, exhibition]
+
+  - id: hudl-statsbomb-research
+    name: Hudl StatsBomb / Hudl Performance Insights Research Competitions
+    organization: Hudl StatsBomb
+    type: research_competition
+    priority: monitor
+    homepage: https://www.hudl.com/blog/hudl-performance-insights-research-competition
+    archive_url: https://blogarchive.statsbomb.com/news/statsbomb-conference-2024-research-papers/
+    feed_kind: poll
+    cadence: annual_or_periodic
+    opportunities: [research-proposals, white-papers, posters, presentations]
+    notes:
+      - Strong soccer analytics source with published research papers and posters in prior cycles.
+      - Track both Hudl blog and StatsBomb archive because branding and URLs have changed.
+    tags: [competition, soccer, research-papers, posters, event-data]
+
+  - id: nfl-big-data-bowl
+    name: NFL Big Data Bowl
+    organization: National Football League / Kaggle
+    type: data_competition
+    priority: core
+    homepage: https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl
+    kaggle_search_url: https://www.kaggle.com/competitions?tagIds=4141-Sports
+    feed_kind: poll
+    cadence: annual
+    current_cycle:
+      cycle_name: 2026 Big Data Bowl
+      platforms: [Kaggle]
+      tracks_when_verified: [analytics, prediction]
+    opportunities: [kaggle, data-challenge, analytics-track, prediction-track, solution-writeups]
+    notes:
+      - Annual flagship sports tracking-data competition.
+      - Poll Kaggle sports competitions and NFL operations page in early fall.
+    tags: [competition, kaggle, nfl, tracking-data, machine-learning]
+
+  - id: kaggle-sports
+    name: Kaggle Sports Competitions
+    organization: Kaggle
+    type: competition_index
+    priority: core
+    homepage: https://www.kaggle.com/competitions?tagIds=4141-Sports
+    feed_kind: poll
+    cadence: continuous
+    opportunities: [kaggle, hackathons, competitions, notebooks, writeups]
+    notes:
+      - Kaggle does not expose a simple official RSS feed for this filtered view; poll by tag or use the Kaggle API if authenticated.
+    tags: [competition, kaggle, sports, hackathon]
+
+video_archive_sources:
+  - id: brendan-kent-sports-analytics-video-archives
+    name: Where to watch sports analytics conference video archives
+    author: Brendan Kent
+    type: video_archive_index
+    priority: core
+    homepage: https://www.brendankent.com/blog/where-to-watch-sports-analytics-conference-video-archives
+    feed_kind: poll
+    last_updated_on_page: 2021-03-17
+    published_on_page: 2020-09-17
+    opportunities: [videos, presentations, panels, talks]
+    linked_archives_named_on_page:
+      - MIT Sloan Sports Analytics Conference
+      - New England Symposium on Statistics in Sports
+      - OptaPro Forum
+      - Carnegie Mellon Sports Analytics Conference
+      - StatsBomb Innovation in Football Conference
+      - Seattle Hockey Analytics Conference
+      - Vancouver Hockey Analytics Conference
+      - Rochester Institute of Technology Sports Analytics Conference
+      - Ottawa Hockey Analytics Conference at Carleton
+      - UConn Sports Analytics Symposium
+      - MathSport International
+      - Great Lakes Analytics Conference
+      - Columbus Blue Jackets Hockey Analytics Conference
+      - Sports IDEAS Symposium
+    notes:
+      - Useful meta-source for finding free sports analytics conference videos and presentation archives.
+      - Direct shell fetch was blocked by Cloudflare during verification, but browser extraction showed the article title, date, summary, update note, and linked archive names.
+      - Treat downstream archive links as discovery leads and verify each target before indexing individual videos.
+    tags: [video, archive, conference, presentations, panels, meta-source]
+
+society_and_calendar_sources:
+  - id: asa-sis
+    name: ASA Statistics in Sports Section
+    organization: American Statistical Association
+    type: society
+    priority: core
+    homepage: https://community.amstat.org/sis/home
+    journals_url: https://community.amstat.org/sis/journals
+    meetings_url: https://community.amstat.org/sis/meetings
+    feed_kind: poll
+    cadence: continuous
+    notes:
+      - Useful meta-source for sports statistics journals, events, calls, discussions, and announcements.
+    tags: [society, statistics, calendar, journals, meetings]
+
+monitoring_queries:
+  - '"sports analytics" "call for papers"'
+  - '"sports analytics" "poster" "submission"'
+  - '"sports analytics" "data challenge"'
+  - '"sports analytics" "hackathon"'
+  - '"sports analytics" "research paper competition"'
+  - '"sports statistics" "symposium" "abstract"'
+  - '"player tracking" "competition" "Kaggle"'
+  - '"Big Data Bowl" "Kaggle"'
+  - '"Machine Learning and Data Mining for Sports Analytics"'
+  - '"MathSport" "call for papers"'
+  - '"sports analytics conference" "video archive"'
+  - '"sports analytics" "YouTube" "conference"'

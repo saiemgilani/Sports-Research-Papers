@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Sports Analytics Research Feeds</title>
+    <dateCreated>Wed, 08 Jul 2026 00:00:00 -0400</dateCreated>
+    <ownerName>Sports-Research-Papers</ownerName>
+  </head>
+  <body>
+    <outline text="Sports Analytics Journals">
+      <outline
+        text="Journal of Sports Analytics - Recent Articles"
+        title="Journal of Sports Analytics - Recent Articles"
+        type="rss"
+        xmlUrl="https://journals.sagepub.com/action/showFeed?ai=2b4&amp;feed=rss&amp;jc=san&amp;mi=ehikzz&amp;type=etoc&amp;ui=0"
+        htmlUrl="https://journals.sagepub.com/home/san" />
+      <outline
+        text="Journal of Sports Science and Medicine - Current Content"
+        title="Journal of Sports Science and Medicine - Current Content"
+        type="rss"
+        xmlUrl="https://www.jssm.org/rss/content.php"
+        htmlUrl="https://www.jssm.org/" />
+      <outline
+        text="Journal of Sports Science and Medicine - In Press"
+        title="Journal of Sports Science and Medicine - In Press"
+        type="rss"
+        xmlUrl="https://www.jssm.org/rss/inpres.php"
+        htmlUrl="https://www.jssm.org/" />
+      <outline
+        text="International Journal of Computer Science in Sport - DBLP XML"
+        title="International Journal of Computer Science in Sport - DBLP XML"
+        type="rss"
+        xmlUrl="https://dblp.org/db/journals/ijcssport/index.xml"
+        htmlUrl="https://reference-global.com/journal/IJCSS" />
+    </outline>
+  </body>
+</opml>
+

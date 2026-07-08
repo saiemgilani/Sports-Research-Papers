@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "download_root": "library",
+  "sources": [
+    {
+      "id": "jssm-current",
+      "parent_source_id": "jssm",
+      "name": "Journal of Sports Science and Medicine - Current Content",
+      "category_path": ["journals", "Journal of Sports Science and Medicine"],
+      "feed_url": "https://www.jssm.org/rss/content.php",
+      "feed_type": "rss",
+      "download_policy": "public_pdf_only",
+      "license_note": "JSSM describes itself as an open access journal."
+    },
+    {
+      "id": "jssm-inpress",
+      "parent_source_id": "jssm",
+      "name": "Journal of Sports Science and Medicine - Articles in Press",
+      "category_path": ["journals", "Journal of Sports Science and Medicine", "In Press"],
+      "feed_url": "https://www.jssm.org/rss/inpres.php",
+      "feed_type": "rss",
+      "download_policy": "public_pdf_only",
+      "license_note": "JSSM describes itself as an open access journal."
+    },
+    {
+      "id": "jsa-recent",
+      "parent_source_id": "jsa",
+      "name": "Journal of Sports Analytics - Recent Articles",
+      "category_path": ["journals", "Journal of Sports Analytics"],
+      "feed_url": "https://journals.sagepub.com/action/showFeed?ai=2b4&feed=rss&jc=san&mi=ehikzz&type=etoc&ui=0",
+      "feed_type": "rss",
+      "download_policy": "public_pdf_only",
+      "license_note": "Download only when the publisher exposes a public PDF without authentication."
+    }
+  ]
+}
