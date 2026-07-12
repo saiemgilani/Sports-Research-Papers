@@ -192,7 +192,7 @@ conference_and_opportunity_sources:
     current_cycle:
       name: SSAC27
       conference_dates: 2027-02-25/2027-02-26
-      abstract_deadline: 2026-10-01T23:59:00-05:00
+      abstract_deadline: 2026-10-01T23:59:00-04:00
       full_paper_deadline_if_selected: 2026-12-04T23:59:00-05:00
     opportunities: [abstracts, full-papers, presentations, posters]
     notes:
@@ -242,8 +242,10 @@ conference_and_opportunity_sources:
     feed_kind: poll
     cadence: biennial_even_years
     current_cycle:
+      conference_date: 2026-09-12
+      location: Vancouver, Canada
       abstract_status: closed
-      registration_status: open_when_verified
+      registration_status: open
     opportunities: [abstracts, talks, posters, program]
     notes:
       - CASSIS alternates years with NESSIS.
@@ -256,7 +258,8 @@ conference_and_opportunity_sources:
     organization: Carnegie Mellon University Department of Statistics and Data Science
     type: conference
     priority: core
-    homepage: https://www.stat.cmu.edu/cmsac/
+    homepage: https://www.cmsaconference.com/
+    legacy_homepage: https://www.stat.cmu.edu/cmsac/
     archive_url: https://www.stat.cmu.edu/cmsac/conference/2024/
     feed_kind: poll
     cadence: annual
@@ -340,6 +343,10 @@ conference_and_opportunity_sources:
     current_cycle:
       conference_dates: 2026-12-08/2026-12-10
       location: IIM Kozhikode
+      abstract_deadline: 2026-08-03
+      early_registration_deadline: 2026-09-30
+      final_registration_deadline: 2026-11-02
+      complete_paper_deadline: 2027-02-28
     opportunities: [abstracts, full-papers, proceedings, presentations]
     notes:
       - Verified page stated accepted abstracts may be followed by optional full papers for conference proceedings.
@@ -400,6 +407,7 @@ conference_and_opportunity_sources:
     current_cycle:
       cycle_name: Hudl Performance Insights 2026 Research Competition
       proposal_call_url: https://www.hudl.com/blog/hpi-2026-research-competition
+      proposal_deadline: 2026-07-03
       event_date: 2026-11-13
       location: Emirates Stadium, London
     downloadable_archive_source_id: hudl-statsbomb-research-papers
@@ -441,6 +449,7 @@ conference_and_opportunity_sources:
     opportunities: [kaggle, hackathons, competitions, notebooks, writeups]
     notes:
       - Kaggle does not expose a simple official RSS feed for this filtered view; poll by tag or use the Kaggle API if authenticated.
+      - The automated opportunity poller uses `KAGGLE_USERNAME` and `KAGGLE_KEY` when configured and otherwise reports the API as authentication-required.
     tags: [competition, kaggle, sports, hackathon]
 
 video_archive_sources:

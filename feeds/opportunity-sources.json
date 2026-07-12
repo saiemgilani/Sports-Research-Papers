@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "feed": {
+    "title": "Sports Analytics Opportunities",
+    "home_page_url": "https://github.com/saiemgilani/Sports-Research-Papers",
+    "feed_url": "https://raw.githubusercontent.com/saiemgilani/Sports-Research-Papers/main/feeds/sports-analytics-opportunities.json",
+    "description": "Calls for papers, abstracts, posters, presentations, hackathons, research competitions, and sports data challenges."
+  },
+  "sources": [
+    {
+      "id": "mit-ssac-research-paper-competition",
+      "name": "MIT Sloan Sports Analytics Conference Research Paper Competition",
+      "organization": "MIT Sloan Sports Analytics Conference",
+      "type": "paper_competition",
+      "priority": "core",
+      "url": "https://www.sloansportsconference.com/research-paper-competition",
+      "required_markers": ["Research Paper Competition", "SSAC27"],
+      "records": [
+        {
+          "id": "ssac27-abstracts",
+          "title": "SSAC27 Research Paper Competition abstract submission",
+          "kind": "abstract_submission",
+          "deadline": "2026-10-01T23:59:00-04:00",
+          "timezone": "America/New_York",
+          "event_start": "2027-02-25T00:00:00-05:00",
+          "event_end": "2027-02-26T23:59:59-05:00",
+          "eligibility": "open",
+          "summary": "Abstracts must report completed results and include an open-source repository link.",
+          "tags": ["conference", "research-paper", "abstract", "open-source"]
+        },
+        {
+          "id": "ssac27-full-papers",
+          "title": "SSAC27 invited full paper submission",
+          "kind": "full_paper_submission",
+          "deadline": "2026-12-04T23:59:00-05:00",
+          "timezone": "America/New_York",
+          "event_start": "2027-02-25T00:00:00-05:00",
+          "event_end": "2027-02-26T23:59:59-05:00",
+          "eligibility": "invitation_only",
+          "status_override": "invitation_only",
+          "summary": "Full manuscripts are accepted only from authors selected after abstract review.",
+          "tags": ["conference", "research-paper", "full-paper", "invitation-only"]
+        }
+      ]
+    },
+    {
+      "id": "mit-ssac-competitions",
+      "name": "MIT Sloan Sports Analytics Conference Competitions",
+      "organization": "MIT Sloan Sports Analytics Conference",
+      "type": "hackathon_and_competitions",
+      "priority": "core",
+      "url": "https://www.sloansportsconference.com/competitions",
+      "required_markers": ["Competitions", "Hackathon"],
+      "records": [
+        {
+          "id": "ssac-competitions-next-cycle",
+          "title": "MIT Sloan hackathon and competition calls",
+          "kind": "competition_watch",
+          "status_override": "monitor",
+          "summary": "Monitor for the next hackathon, startup competition, and case competition application windows.",
+          "tags": ["conference", "hackathon", "case-competition", "startup"]
+        }
+      ]
+    },
+    {
+      "id": "nessis",
+      "name": "New England Symposium on Statistics in Sports",
+      "organization": "NESSIS",
+      "type": "symposium",
+      "priority": "core",
+      "url": "https://www.nessis.org/call.html",
+      "required_markers": ["Abstract Submission", "early 2027"],
+      "records": [
+        {
+          "id": "nessis-2027-abstracts",
+          "title": "NESSIS 2027 abstract submissions",
+          "kind": "abstract_submission",
+          "status_override": "monitor",
+          "summary": "The official call says abstract submissions will open in early 2027; no exact deadline is posted yet.",
+          "tags": ["symposium", "abstract", "poster", "presentation"]
+        }
+      ]
+    },
+    {
+      "id": "cassis",
+      "name": "Cascadia Symposium on Statistics in Sports",
+      "organization": "CASSIS",
+      "type": "symposium",
+      "priority": "core",
+      "url": "https://www.cascadiasports.com/",
+      "required_markers": ["September 12, 2026", "Abstract submissions have closed"],
+      "records": [
+        {
+          "id": "cassis-2026-abstracts",
+          "title": "CASSIS 2026 abstract submissions",
+          "kind": "abstract_submission",
+          "status_override": "closed",
+          "event_start": "2026-09-12T00:00:00-07:00",
+          "timezone": "America/Vancouver",
+          "summary": "The official page states that abstract submissions have closed.",
+          "tags": ["symposium", "abstract", "poster", "presentation"]
+        },
+        {
+          "id": "cassis-2026-registration",
+          "title": "CASSIS 2026 registration",
+          "kind": "registration",
+          "status_override": "open",
+          "event_start": "2026-09-12T00:00:00-07:00",
+          "timezone": "America/Vancouver",
+          "summary": "Registration is open for the September 12 symposium in Vancouver.",
+          "tags": ["symposium", "registration", "vancouver"]
+        }
+      ]
+    },
+    {
+      "id": "cmsac",
+      "name": "Carnegie Mellon Sports Analytics Conference",
+      "organization": "Carnegie Mellon University",
+      "type": "conference",
+      "priority": "core",
+      "url": "https://www.cmsaconference.com/",
+      "required_markers": ["CMSAC", "Research Competition"],
+      "records": [
+        {
+          "id": "cmsac-next-cycle",
+          "title": "CMSAC research competition and poster calls",
+          "kind": "conference_watch",
+          "status_override": "monitor",
+          "summary": "Monitor the official conference site for the next research competition, poster, and registration dates.",
+          "tags": ["conference", "research-competition", "poster", "student"]
+        }
+      ]
+    },
+    {
+      "id": "csas",
+      "name": "Connecticut Sports Analytics Symposium",
+      "organization": "Connecticut Sports Analytics Symposium",
+      "type": "symposium",
+      "priority": "core",
+      "url": "https://statds.org/events/csas2026/",
+      "required_markers": ["CSAS 2026", "Data Challenge"],
+      "records": [
+        {
+          "id": "csas-next-cycle",
+          "title": "CSAS/UCSAS data challenge, poster, and workshop calls",
+          "kind": "symposium_watch",
+          "status_override": "monitor",
+          "summary": "The 2026 symposium is complete; monitor for the next student data challenge, posters, and workshops.",
+          "tags": ["symposium", "data-challenge", "poster", "workshop", "student"]
+        }
+      ]
+    },
+    {
+      "id": "mlsa",
+      "name": "Workshop on Machine Learning and Data Mining for Sports Analytics",
+      "organization": "ECML PKDD workshop series",
+      "type": "workshop",
+      "priority": "core",
+      "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
+      "required_markers": ["MLSA 2026", "June 5, 2026", "September 7, 2026"],
+      "records": [
+        {
+          "id": "mlsa-2026-papers",
+          "title": "MLSA 2026 paper submission",
+          "kind": "paper_submission",
+          "deadline": "2026-06-05T23:59:59+02:00",
+          "timezone": "Europe/Rome",
+          "event_start": "2026-09-07T00:00:00+02:00",
+          "summary": "Paper submission for the ECML PKDD sports analytics workshop.",
+          "tags": ["workshop", "paper", "machine-learning", "data-mining"]
+        },
+        {
+          "id": "mlsa-2026-workshop",
+          "title": "MLSA 2026 workshop",
+          "kind": "event",
+          "event_start": "2026-09-07T00:00:00+02:00",
+          "timezone": "Europe/Rome",
+          "summary": "Full-day workshop co-located with ECML PKDD 2026 in Naples.",
+          "tags": ["workshop", "conference", "machine-learning", "naples"]
+        }
+      ]
+    },
+    {
+      "id": "mathsport-international",
+      "name": "MathSport International",
+      "organization": "MathSport International",
+      "type": "conference_series",
+      "priority": "core",
+      "url": "https://www.mathsportinternational.com/",
+      "required_markers": ["MathSport International", "2027"],
+      "records": [
+        {
+          "id": "mathsport-international-2027",
+          "title": "MathSport International 2027 conference call",
+          "kind": "conference_watch",
+          "status_override": "monitor",
+          "summary": "The next European MathSport meeting is planned for 2027; exact dates and location are not yet posted.",
+          "tags": ["conference", "mathematics", "statistics", "operations-research"]
+        }
+      ]
+    },
+    {
+      "id": "mathsport-asia",
+      "name": "MathSport Asia 2026",
+      "organization": "IIM Kozhikode",
+      "type": "conference",
+      "priority": "core",
+      "url": "https://iimk.ac.in/apps/mathsport26/",
+      "required_markers": ["MathSport Asia 2026", "August 03, 2026", "December 08-10, 2026"],
+      "records": [
+        {
+          "id": "mathsport-asia-2026-abstracts",
+          "title": "MathSport Asia 2026 abstract submission",
+          "kind": "abstract_submission",
+          "deadline": "2026-08-03T23:59:59+05:30",
+          "timezone": "Asia/Kolkata",
+          "event_start": "2026-12-08T00:00:00+05:30",
+          "event_end": "2026-12-10T23:59:59+05:30",
+          "eligibility": "open",
+          "summary": "Submit an English abstract of up to 500 words with three to five keywords.",
+          "tags": ["conference", "abstract", "mathematics", "statistics"]
+        },
+        {
+          "id": "mathsport-asia-2026-early-registration",
+          "title": "MathSport Asia 2026 early registration",
+          "kind": "registration",
+          "deadline": "2026-09-30T23:59:59+05:30",
+          "timezone": "Asia/Kolkata",
+          "event_start": "2026-12-08T00:00:00+05:30",
+          "event_end": "2026-12-10T23:59:59+05:30",
+          "summary": "Early registration deadline for MathSport Asia 2026.",
+          "tags": ["conference", "registration", "india"]
+        },
+        {
+          "id": "mathsport-asia-2026-final-registration",
+          "title": "MathSport Asia 2026 final registration",
+          "kind": "registration",
+          "deadline": "2026-11-02T23:59:59+05:30",
+          "timezone": "Asia/Kolkata",
+          "event_start": "2026-12-08T00:00:00+05:30",
+          "event_end": "2026-12-10T23:59:59+05:30",
+          "summary": "Final registration deadline at the higher fee.",
+          "tags": ["conference", "registration", "india"]
+        },
+        {
+          "id": "mathsport-asia-2027-complete-paper",
+          "title": "MathSport Asia complete paper submission",
+          "kind": "full_paper_submission",
+          "deadline": "2027-02-28T23:59:59+05:30",
+          "timezone": "Asia/Kolkata",
+          "eligibility": "accepted_abstracts",
+          "status_override": "invitation_only",
+          "summary": "Optional complete papers may be submitted for proceedings after abstract acceptance.",
+          "tags": ["conference", "full-paper", "proceedings"]
+        }
+      ]
+    },
+    {
+      "id": "hudl-performance-insights",
+      "name": "Hudl Performance Insights Research Competition",
+      "organization": "Hudl",
+      "type": "research_competition",
+      "priority": "core",
+      "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
+      "required_markers": ["Hudl Performance Insights 2026", "Friday 3rd July 2026", "Friday 13th November"],
+      "records": [
+        {
+          "id": "hudl-performance-insights-2026-proposals",
+          "title": "Hudl Performance Insights 2026 research proposals",
+          "kind": "research_proposal",
+          "deadline": "2026-07-03T23:59:59+01:00",
+          "timezone": "Europe/London",
+          "event_start": "2026-11-13T00:00:00+00:00",
+          "eligibility": "open",
+          "summary": "Selected researchers receive Hudl data and present completed work at Emirates Stadium.",
+          "tags": ["competition", "soccer", "research-proposal", "tracking-data"]
+        },
+        {
+          "id": "hudl-performance-insights-2026-event",
+          "title": "Hudl Performance Insights 2026 finalist presentations",
+          "kind": "event",
+          "event_start": "2026-11-13T00:00:00+00:00",
+          "timezone": "Europe/London",
+          "eligibility": "selected_finalists",
+          "summary": "Selected research finalists present at Emirates Stadium in London.",
+          "tags": ["competition", "soccer", "presentation", "london"]
+        }
+      ]
+    },
+    {
+      "id": "nfl-big-data-bowl",
+      "name": "NFL Big Data Bowl",
+      "organization": "National Football League / Kaggle",
+      "type": "data_competition",
+      "priority": "core",
+      "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
+      "required_markers": ["BIG DATA BOWL", "Kaggle"],
+      "records": [
+        {
+          "id": "nfl-big-data-bowl-next-cycle",
+          "title": "NFL Big Data Bowl next competition",
+          "kind": "competition_watch",
+          "status_override": "monitor",
+          "summary": "The NFL says calls typically open in the fall and run into early January; monitor for the next Kaggle launch.",
+          "tags": ["competition", "kaggle", "football", "tracking-data"]
+        }
+      ]
+    },
+    {
+      "id": "kaggle-sports",
+      "name": "Kaggle Sports Competitions",
+      "organization": "Kaggle",
+      "type": "competition_index",
+      "priority": "core",
+      "url": "https://www.kaggle.com/competitions?tagIds=4141-Sports",
+      "poll_url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
+      "parser": "kaggle_api",
+      "auth": "kaggle_optional",
+      "records": [
+        {
+          "id": "kaggle-sports-index",
+          "title": "Kaggle sports competition index",
+          "kind": "competition_watch",
+          "status_override": "monitor",
+          "summary": "Authenticated polling adds active sports-related Kaggle competitions to this feed automatically.",
+          "tags": ["competition", "kaggle", "sports", "machine-learning"]
+        }
+      ]
+    }
+  ]
+}

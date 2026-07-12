@@ -9,6 +9,9 @@ The curated sports analytics research and opportunity feed lives in:
 - [feeds/sports-analytics-feed.md](feeds/sports-analytics-feed.md)
 - [feeds/sports-analytics-sources.yml](feeds/sports-analytics-sources.yml)
 - [feeds/sports-analytics-feeds.opml](feeds/sports-analytics-feeds.opml)
+- [feeds/sports-analytics-opportunities.md](feeds/sports-analytics-opportunities.md)
+- [feeds/sports-analytics-opportunities.json](feeds/sports-analytics-opportunities.json)
+- [feeds/sports-analytics-opportunities.xml](feeds/sports-analytics-opportunities.xml)
 
 ## Automated Updates
 
@@ -21,6 +24,29 @@ Run it locally with:
 ```bash
 python scripts/update_sports_analytics_library.py --dry-run --max-items 3
 ```
+
+### Opportunity Feed
+
+`scripts/update_sports_analytics_opportunities.py` polls the official SSAC,
+NESSIS, CASSIS, CMSAC, CSAS/UCSAS, MLSA, MathSport, Hudl, NFL, and Kaggle
+surfaces. It generates a normalized JSON Feed, RSS feed, Markdown view, and a
+source-health snapshot:
+
+```bash
+python scripts/update_sports_analytics_opportunities.py
+```
+
+The daily `update-sports-analytics-opportunities.yml` workflow runs focused
+tests before polling and commits only generated feed files. Static records stay
+available when an official page is blocked, while the source-health snapshot
+reports `ok`, `markers_missing`, `blocked`, `auth_required`, or `error`.
+Timestamp-only checks do not create commits; Actions writes a new feed revision
+only when opportunity data or source health changes.
+
+Kaggle's official competitions API requires credentials. Add repository secrets
+named `KAGGLE_USERNAME` and `KAGGLE_KEY` to include active sports competition
+records dynamically. Without them, the general Kaggle sports watch item remains
+in the feed and the source is reported as `auth_required`.
 
 ### Conference Papers
 

@@ -6,6 +6,14 @@
     <ownerName>Sports-Research-Papers</ownerName>
   </head>
   <body>
+    <outline text="Sports Analytics Opportunities">
+      <outline
+        text="Sports Analytics Calls, Conferences, and Competitions"
+        title="Sports Analytics Calls, Conferences, and Competitions"
+        type="rss"
+        xmlUrl="https://raw.githubusercontent.com/saiemgilani/Sports-Research-Papers/main/feeds/sports-analytics-opportunities.xml"
+        htmlUrl="https://github.com/saiemgilani/Sports-Research-Papers/blob/main/feeds/sports-analytics-opportunities.md" />
+    </outline>
     <outline text="Sports Analytics Journals">
       <outline
         text="Journal of Sports Analytics - Recent Articles"

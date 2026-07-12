@@ -9,6 +9,11 @@ This directory is a seed catalog for two related feeds:
 
 Use `sports-analytics-sources.yml` as the canonical source list. Use `sports-analytics-feeds.opml` for feed readers that can import RSS/XML endpoints.
 
+The generated opportunity outputs are `sports-analytics-opportunities.json`
+(JSON Feed), `sports-analytics-opportunities.xml` (RSS), and
+`sports-analytics-opportunities.md` (human-readable table). Their executable
+source registry is `opportunity-sources.json`.
+
 ## Core Journals
 
 The core journal set starts with JQAS, Journal of Sports Analytics, IJCSS, JSSM, and International Journal of Sports Science and Engineering. JQAS, JSA, and IJCSS are the highest-signal sports analytics outlets. JSSM is broader sports science and medicine, so tag/filter for quantitative methods, modeling, performance, biomechanics, tracking, and analytics. IJSSE is included from the ASA Statistics in Sports listing and the original seed list, but should stay monitor-only until its publisher URL is refreshed.
@@ -46,16 +51,21 @@ Highest priority recurring sources:
 - CSAS 2026: held 2026-04-10 to 2026-04-11 at University of Connecticut; official pages expose data challenge, poster/program information, and a flyer rather than a central paper PDF archive.
 - MLSA 2026: paper deadline was 2026-06-05; workshop date is 2026-09-07.
 - Hudl Performance Insights 2026: research proposals call page is live; finalists are invited to present at the 2026-11-13 event in London.
-- MathSport Asia 2026: scheduled 2026-12-08 to 2026-12-10, with accepted abstracts eligible for optional full paper proceedings submission.
+- MathSport Asia 2026: abstracts are due 2026-08-03; the conference runs 2026-12-08 to 2026-12-10, with accepted abstracts eligible for optional full paper proceedings submission by 2027-02-28.
 
 ## Monitoring Workflow
 
-1. Import `sports-analytics-feeds.opml` into a feed reader for true RSS/XML sources.
-2. Poll all `feed_kind: poll` URLs weekly during active seasons and monthly otherwise.
+1. Import `sports-analytics-feeds.opml` into a feed reader for journal and generated opportunity RSS sources.
+2. Run `python scripts/update_sports_analytics_opportunities.py`; GitHub Actions also polls the configured official pages daily.
 3. Use video archive indexes to discover talks and panels, then verify the downstream video URL before cataloging it.
 4. Save accepted papers, poster PDFs, proceedings, video links, slides, and solution writeups into this repository with a year-prefixed filename.
 5. Tag each item with sport, method, venue, format, and data type.
 6. Re-check all active deadlines directly from the official page before submitting.
+
+The poller uses known normalized records plus page hashes, required markers, and
+date-context extraction. A page change or missing marker is a triage signal, not
+an automatic assertion that a deadline changed. Kaggle dynamic records require
+the `KAGGLE_USERNAME` and `KAGGLE_KEY` repository secrets.
 
 Suggested tags:
 

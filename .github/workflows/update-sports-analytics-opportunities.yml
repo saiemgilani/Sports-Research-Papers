@@ -1,0 +1,57 @@
+name: Update Sports Analytics Opportunities
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 11 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sports-analytics-repository-writes
+  cancel-in-progress: false
+
+jobs:
+  update-opportunities:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run opportunity poller tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Poll official opportunity sources
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: >-
+          python scripts/update_sports_analytics_opportunities.py
+          --require-success 7
+          --only-write-on-change
+
+      - name: Commit opportunity feed updates
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            feeds/opportunity-source-state.json \
+            feeds/sports-analytics-opportunities.json \
+            feeds/sports-analytics-opportunities.md \
+            feeds/sports-analytics-opportunities.xml
+          if git diff --cached --quiet; then
+            echo "No opportunity feed changes found."
+            exit 0
+          fi
+          git commit -m "Update sports analytics opportunities"
+          git pull --rebase origin main
+          git push
