@@ -349,6 +349,90 @@
           "authors": ["Xing Wang", "Yu Fu", "Sheng Xu", "Konstantinos Pelechrinis", "Mingxin Zhang", "Miguel Angel Gomez Ruano", "Guiliang Liu", "Shaoliang Zhang"],
           "item_url": "https://www.sloansportsconference.com/research-papers/hoopeval-individual-player-action-evaluation-via-deep-reinforcement-learning",
           "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0e63ed0f8d317b3d0a0c_HoopEval_%20Individual%20Player%20Action%20Evaluation%20via%20Deep%20Reinforcement%20Learning.pdf"
+        },
+        {
+          "title": "The Pitcher's Dilemma: A Game-Theoretical Model of Pickoffs and Stolen Bases",
+          "authors": ["William Melville", "Robert Greathouse", "Tristan Mott", "Christopher Archibald", "David Grimsman"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/the-pitchers-dilemma-a-game-theoretical-model-of-pickoffs-and-stolen-bases",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0e3e80001764ac31e6ff_The%20Pitcher%27s%20Dilemma_%20A%20Game-Theoretical%20Model%20of%20Pickoffs%20and%20Stolen%20Bases.pdf"
+        },
+        {
+          "title": "Scouting Anyone: Probabilistic Player Archetypes for Any League",
+          "authors": ["Marlin Myrte", "Sebastian Buzzalino", "Thierry Aymerich"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/scouting-anyone-probabilistic-player-archetypes-for-any-league",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0e4d8c6ef2a7ca76022e_Scouting%20Anyone_%20Probabilistic%20Player%20Archetypes%20for%20Any%20League.pdf"
+        },
+        {
+          "title": "Going for Gold: Using Neuromuscular Skeletal Machine Learning Simulations to Predict Lower Extremity Performance in Track and Field Athletics",
+          "authors": ["Dan Griffiths"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/going-for-gold-using-neuromuscular-skeletal-machine-learning-simulations-to-predict-lower-extremity-performance-in-track-and-field-athletics",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0ed0410bba0724f2182e_Going%20for%20Gold%20Using%20Neuromuscular%20Skeletal%20Machine%20Learning%20Simulations.pdf"
+        },
+        {
+          "title": "Fast Hybrid Search for Red-Zone Play Recommendations",
+          "authors": ["Asad Khan", "Arpan Bhattacharya"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/fast-hybrid-search-for-red-zone-play-recommendations",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0edfc498d3b898fa0ebb_Fast%20Hybrid%20Search%20for%20Red-Zone%20Play%20Recommendations.pdf"
+        },
+        {
+          "title": "Better Prevent than Tackle: Valuing Defense in Soccer Based on Graph Neural Networks",
+          "authors": ["Hyunsung Kim", "Sangwoo Seo", "Hoyoung Choi", "Tom Boomstra", "Jinsung Yoon", "Chanyoung Park"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/better-prevent-than-tackle-valuing-defense-in-soccer-based-on-graph-neural-networks",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0eecb3e2ccbc2676a5c2_Better%20Prevent%20than%20Tackle_%20Valuing%20Defense%20in%20Soccer%20Based%20on%20Graph%20Neural%20Networks.pdf"
+        },
+        {
+          "title": "Wide Open Gazes: Quantifying Visual Exploratory Behavior in Soccer with Pose Enhanced Positional Data",
+          "authors": ["Joris Bekkers"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/wide-open-gazes-quantifying-visual-exploratory-behavior-in-soccer-with-pose-enhanced-positional-data",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0f20a6fea4e0fa0e8a80_Wide%20Open%20Gazes%20Quantifying%20Visual%20Exploratory%20Behavior%20in%20Soccer.pdf"
+        },
+        {
+          "title": "Valuing La Pausa: Quantifying Optimal Pass Timing Beyond Speed",
+          "authors": ["Minho Lee", "Geonhee Jo", "Miru Hong", "Pascal Bauer", "Sang-Ki Ko"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/valuing-la-pausa-quantifying-optimal-pass-timing-beyond-speed",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0f2d98efaadb0003d3c8_Valuing%20La%20Pausa_%20Quantifying%20Optimal%20Pass%20Timing%20Beyond%20Speed.pdf"
+        },
+        {
+          "title": "Tackling Causality: Estimating Frame-Level Defensive Impact with Multi-Agent Transformers",
+          "authors": ["Ben Jenkins"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/tackling-causality-estimating-frame-level-defensive-impact-with-multi-agent-transformers",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0f3c56c730735edf2278_Tackling%20Causality%20Final%20Sloan.docx.pdf"
+        },
+        {
+          "title": "Interpretable Prediction and Large-Scale Analysis of Judging in Professional Boxing",
+          "authors": ["Mason duBoef", "Thomas Romeas", "Mathieu Charbonneau", "Allan Svejstrup"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/interpretable-prediction-and-large-scale-analysis-of-judging-in-professional-boxing",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0f4c7359f338bf538829_Interpretable%20Prediction%20and%20Large-Scale%20Analysis%20of%20Judging%20in%20Professional%20Boxing.pdf"
+        },
+        {
+          "title": "Characterizing and Controlling the Perceived Competitive Balance in Sports Leagues",
+          "authors": ["Pedro Vaz-de-Melo", "Estefano Vassoler"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/characterizing-and-controlling-the-perceived-competitive-balance-in-sports-leagues",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0f79e700c5f301931027_Characterizing%20and%20Controlling%20the%20Perceived%20Competitive%20Balance%20in%20Sports%20Leagues.docx.pdf"
+        },
+        {
+          "title": "Can a Stadium Full of Monkeys Playing Strat-o-Matic Outmanage Earl Weaver? An empirical Bayesian Estimator of Manager Value",
+          "authors": ["Dan M. Kahan"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/can-a-stadium-full-of-monkeys-playing-strat-o-matic-outmanage-earl-weaver-an-empirical-bayesian-estima-tor-of-manager-value",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0fb68f5486306041f62f_Can%20a%20Stadium%20Full%20of%20Monkeys%20Playing%20Strat-o-Matic%20Outmanage%20Earl%20Weaver.pdf"
+        },
+        {
+          "title": "Modern Playoff Tournament-Design Analysis across Sports: A Bayesian Modeling and Advanced Simulation Study",
+          "authors": ["Hassan Rafique", "Shane Sanders"],
+          "year": "2026",
+          "item_url": "https://www.sloansportsconference.com/research-papers/modern-playoff-tournament-design-analysis-across-sports-a-bayesian-modeling-and-advanced-simulation-study",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/69a830135bffd47a32df3c6a_Playoff%20Design%20Study_w_names.pdf"
         }
       ]
     }

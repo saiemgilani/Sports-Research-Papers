@@ -37,7 +37,7 @@ python scripts/update_sports_analytics_library.py \
 
 MIT Sloan SSAC's public website currently returns `403` to raw automation, so
 `mit-ssac-research-papers-seed` stores verified official SSAC item pages and
-their public Webflow CDN PDF URLs. The seed currently covers 29 public research
+their public Webflow CDN PDF URLs. The seed currently covers 41 public research
 paper PDFs and should be expanded as more SSAC paper pages are verified.
 
 ### Authorized JQAS Access
