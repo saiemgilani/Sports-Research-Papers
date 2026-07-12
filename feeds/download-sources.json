@@ -435,6 +435,33 @@
           "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/69a830135bffd47a32df3c6a_Playoff%20Design%20Study_w_names.pdf"
         }
       ]
+    },
+    {
+      "id": "mit-ssac-conference-pages",
+      "parent_source_id": "mit-ssac-research-paper-competition",
+      "name": "MIT Sloan Sports Analytics Conference - Webflow Conference Page Papers",
+      "category_path": ["conferences", "MIT Sloan Sports Analytics Conference", "Research Paper Competition"],
+      "feed_urls": [
+        "https://www.sloansportsconference.com/conference/2012-conference",
+        "https://www.sloansportsconference.com/conference/2013-conference",
+        "https://www.sloansportsconference.com/conference/2014-conference",
+        "https://www.sloansportsconference.com/conference/2015-conference",
+        "https://www.sloansportsconference.com/conference/2016-conference",
+        "https://www.sloansportsconference.com/conference/2017-conference",
+        "https://www.sloansportsconference.com/conference/2018-conference",
+        "https://www.sloansportsconference.com/conference/2019-conference",
+        "https://www.sloansportsconference.com/conference/2020-conference",
+        "https://www.sloansportsconference.com/conference/2021-conference",
+        "https://www.sloansportsconference.com/conference/2022-conference",
+        "https://www.sloansportsconference.com/conference/2023-conference",
+        "https://www.sloansportsconference.com/conference/2024-conference",
+        "https://www.sloansportsconference.com/conference/2025-conference",
+        "https://www.sloansportsconference.com/conference/2026-conference"
+      ],
+      "feed_type": "ssac_webflow_index",
+      "exclude_pdf_patterns": ["agenda", "schedule", "program", "sponsor", "map"],
+      "download_policy": "public_pdf_only",
+      "license_note": "Extracts paper cards and public Webflow CDN PDF URLs from official MIT SSAC conference pages. Non-paper agenda/program PDFs are excluded."
     }
   ]
 }

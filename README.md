@@ -25,20 +25,27 @@ python scripts/update_sports_analytics_library.py --dry-run --max-items 3
 ### Conference Papers
 
 Conference PDF sources are categorized under `library/conferences/`. The first
-downloadable public archives are CMSAC, NESSIS, and a verified SSAC seed list:
+downloadable public archives are CMSAC, NESSIS, and MIT SSAC:
 
 ```bash
 python scripts/update_sports_analytics_library.py \
   --source cmsac-conference-papers \
   --source nessis-presentations-posters \
   --source mit-ssac-research-papers-seed \
+  --source mit-ssac-conference-pages \
   --dry-run
 ```
 
-MIT Sloan SSAC's public website currently returns `403` to raw automation, so
-`mit-ssac-research-papers-seed` stores verified official SSAC item pages and
-their public Webflow CDN PDF URLs. The seed currently covers 41 public research
-paper PDFs and should be expanded as more SSAC paper pages are verified.
+MIT Sloan SSAC conference pages expose paper cards with public Webflow CDN PDF
+URLs. `mit-ssac-conference-pages` automatically indexes official 2012-2026
+conference pages and currently resolves 165 public research paper/poster PDFs.
+`mit-ssac-research-papers-seed` remains as a hand-verified fallback for known
+paper pages and CDN URLs.
+
+CASSIS and CSAS/UCSAS are tracked in `feeds/sports-analytics-sources.yml` as
+conference/opportunity metadata sources. Their official pages currently expose
+programs, poster/data-challenge information, and flyers rather than central
+paper-proceedings PDF archives.
 
 ### Authorized JQAS Access
 

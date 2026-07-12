@@ -1,6 +1,6 @@
 # Sports Analytics Research Feed
 
-Last verified: 2026-07-08
+Last verified: 2026-07-12
 
 This directory is a seed catalog for two related feeds:
 
@@ -19,7 +19,7 @@ Static reference volumes, including the Oxford anthology and the statistical met
 
 Highest priority recurring sources:
 
-- MIT Sloan Sports Analytics Conference Research Paper Competition: abstracts, invited full papers, finals presentations, posters.
+- MIT Sloan Sports Analytics Conference Research Paper Competition: abstracts, invited full papers, finals presentations, posters; the official 2012-2026 conference pages expose 165 public paper/poster PDFs through Webflow CDN links.
 - MIT Sloan competitions: hackathon and related competition tracks.
 - NESSIS: talks, posters, conference videos and materials; next cycle is 2027.
 - CASSIS: talks, posters, and programs; alternates with NESSIS.
@@ -34,8 +34,8 @@ Highest priority recurring sources:
 
 - SSAC27 research paper competition: abstract deadline is 2026-10-01 at 11:59 PM Eastern; selected full papers are due 2026-12-04.
 - NESSIS: 2025 event is complete; the next NESSIS is expected in 2027 and abstracts are expected to open in early 2027.
-- CASSIS: verified page said abstracts were closed and registration was open.
-- CSAS 2026: held 2026-04-10 to 2026-04-11 at University of Connecticut, with data challenge and poster outputs listed.
+- CASSIS: verified official pages expose programs and presentation/poster metadata, but no central proceedings PDF archive.
+- CSAS 2026: held 2026-04-10 to 2026-04-11 at University of Connecticut; official pages expose data challenge, poster/program information, and a flyer rather than a central paper PDF archive.
 - MLSA 2026: paper deadline was 2026-06-05; workshop date is 2026-09-07.
 - MathSport Asia 2026: scheduled 2026-12-08 to 2026-12-10, with accepted abstracts eligible for optional full paper proceedings submission.
 

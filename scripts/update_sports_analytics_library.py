@@ -252,6 +252,91 @@ def parse_static_items(source: dict) -> list[FeedItem]:
     return items
 
 
+def parse_ssac_webflow_index(data: bytes, base_url: str, source: dict) -> list[FeedItem]:
+    page = text_from_bytes(data)
+    items: list[FeedItem] = []
+    seen_pdf_urls: set[str] = set()
+    card_marker = "team-card_component is-paper"
+    card_starts = [match.start() for match in re.finditer(re.escape(card_marker), page)]
+    default_excludes = ["agenda", "schedule", "program", "sponsor", "map"]
+    exclude_patterns = [
+        pattern.lower()
+        for pattern in source.get("exclude_pdf_patterns", default_excludes)
+    ]
+
+    for index, start in enumerate(card_starts):
+        end = card_starts[index + 1] if index + 1 < len(card_starts) else len(page)
+        card = page[start:end]
+        title_match = re.search(
+            r"<a\b[^>]*fs-list-field\s*=\s*['\"]paper['\"][^>]*href\s*=\s*['\"]([^'\"]+)['\"][^>]*>(.*?)</a>",
+            card,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+        if not title_match:
+            continue
+        item_href = html.unescape(title_match.group(1)).strip()
+        item_url = urllib.parse.urljoin(base_url, item_href)
+        title = clean_text(title_match.group(2))
+        if not title:
+            continue
+
+        pdf_urls = [
+            urllib.parse.urljoin(base_url, html.unescape(match.group(1)).strip())
+            for match in re.finditer(
+                r"href\s*=\s*['\"]([^'\"]+\.pdf(?:\?[^'\"]*)?)['\"]",
+                card,
+                flags=re.IGNORECASE,
+            )
+        ]
+        pdf_urls = [
+            url
+            for url in unique_urls(pdf_urls)
+            if not any(pattern in url.lower() or pattern in title.lower() for pattern in exclude_patterns)
+        ]
+        if not pdf_urls:
+            continue
+
+        authors = [
+            clean_text(match.group(1))
+            for match in re.finditer(
+                r"<div\b[^>]*fs-list-field\s*=\s*['\"]author['\"][^>]*class\s*=\s*['\"][^'\"]*team-card_author-txt[^'\"]*['\"][^>]*>(.*?)</div>",
+                card,
+                flags=re.IGNORECASE | re.DOTALL,
+            )
+        ]
+        authors = [
+            author
+            for author in authors
+            if author and "w-dyn-bind-empty" not in author.lower()
+        ]
+        if not authors:
+            authors = [
+                clean_text(match.group(1))
+                for match in re.finditer(
+                    r"<div\b[^>]*fs-list-field\s*=\s*['\"]author['\"][^>]*class\s*=\s*['\"][^'\"]*hide[^'\"]*['\"][^>]*>(.*?)</div>",
+                    card,
+                    flags=re.IGNORECASE | re.DOTALL,
+                )
+                if clean_text(match.group(1))
+            ]
+
+        for pdf_url in pdf_urls:
+            if pdf_url in seen_pdf_urls:
+                continue
+            seen_pdf_urls.add(pdf_url)
+            items.append(
+                FeedItem(
+                    title=title,
+                    link=item_url,
+                    published=year_from_source_url(base_url),
+                    authors=authors,
+                    pdf_candidates=[pdf_url],
+                )
+            )
+
+    return items
+
+
 def crossref_pdf_candidates(record: dict) -> list[str]:
     candidates: list[str] = []
     for link in record.get("link", []) or []:
@@ -691,9 +776,14 @@ def load_manifest(path: Path) -> dict[str, dict]:
             record = json.loads(line)
         except json.JSONDecodeError:
             continue
-        key = record.get("dedupe_key") or record.get("sha256") or record.get("item_url")
-        if key:
-            records[key] = record
+        for key in (
+            record.get("dedupe_key"),
+            record.get("sha256"),
+            record.get("item_url"),
+            record.get("pdf_url"),
+        ):
+            if key:
+                records[str(key)] = record
     return records
 
 
@@ -731,6 +821,9 @@ def process_item(
         return None
 
     item_pdf_candidates = list(item.pdf_candidates or [])
+    if any(candidate in manifest for candidate in item_pdf_candidates):
+        print(f"skip existing pdf: {item.title}")
+        return None
     for candidate in unpaywall_pdf_candidates(item.doi):
         if candidate not in item_pdf_candidates:
             item_pdf_candidates.append(candidate)
@@ -858,6 +951,8 @@ def run(args: argparse.Namespace) -> int:
                     feed_items = parse_crossref(feed_bytes, source)
                 elif source.get("feed_type") == "html_index":
                     feed_items = parse_html_index(feed_bytes, feed_url, source)
+                elif source.get("feed_type") == "ssac_webflow_index":
+                    feed_items = parse_ssac_webflow_index(feed_bytes, feed_url, source)
                 else:
                     feed_items = parse_feed(feed_bytes)
             except (ET.ParseError, urllib.error.URLError, TimeoutError) as exc:

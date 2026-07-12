@@ -1,5 +1,5 @@
 schema_version: 1
-last_verified: 2026-07-08
+last_verified: 2026-07-12
 scope:
   description: >
     Curated seed catalog for a sports analytics research paper feed and
@@ -139,6 +139,7 @@ conference_and_opportunity_sources:
     notes:
       - Open-source repository link required for submissions in the verified cycle.
       - Full manuscripts are invitation-only after abstract review.
+      - Official 2012-2026 conference pages expose public Webflow CDN PDFs for 165 paper/poster records; these are indexed by `mit-ssac-conference-pages` in `feeds/download-sources.json`.
     tags: [conference, paper-competition, presentation, poster, open-source]
 
   - id: mit-ssac-competitions
@@ -188,6 +189,7 @@ conference_and_opportunity_sources:
     notes:
       - CASSIS alternates years with NESSIS.
       - Program page listed oral presentations at verification.
+      - Official CASSIS pages checked for public PDFs exposed program and presentation/poster metadata, but no central paper-proceedings PDF archive.
     tags: [conference, symposium, statistics, poster, presentation]
 
   - id: cmsac
@@ -222,6 +224,7 @@ conference_and_opportunity_sources:
     notes:
       - Formerly UCSAS; CSAS was built from the UConn Sports Analytics Symposium.
       - Student-oriented event spanning high school, undergraduate, and graduate participants.
+      - Official CSAS 2026 pages expose data challenge, poster/program information, and a flyer; no central paper-proceedings PDF archive was found.
     tags: [conference, student, data-challenge, poster, workshop]
 
   - id: mlsa
