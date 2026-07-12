@@ -222,6 +222,133 @@
           "authors": ["Rachel Marty"],
           "item_url": "https://www.sloansportsconference.com/research-papers/high-resolution-shot-capture-reveals-systematic-biases-and-an-improved-method-for-shooter-evaluation",
           "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080636_An%20improved%20method%20for%20shooter%20evaluation.pdf"
+        },
+        {
+          "title": "Decomposing the Immeasurable Sport: A deep learning expected possession value framework for soccer",
+          "authors": ["Javier Fernandez", "Luke Bornn", "Dan Cervone"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/decomposing-the-immeasurable-sport-a-deep-learning-expected-possession-value-framework-for-soccer",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc2207fab6_Decomposing-the-Immeasurable-Sport.pdf"
+        },
+        {
+          "title": "I Think We'll Go to Boston - Marathon Performance Prediction",
+          "authors": ["Varun Pemmaraju", "Dave Hoch"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/i-think-well-go-to-boston-marathon-performance-prediction",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080666_VarunPemmaraju-BostonMarathon-RPpaper.pdf"
+        },
+        {
+          "title": "Using Tracking and Charting Data to Better Evaluate NFL Players: A Review",
+          "authors": ["Eric Eager", "George Chahrouri", "Timo Riske", "Brad Spielberger", "LauSze Yui", "Zach Drapkin", "Tej Seth"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/using-tracking-and-charting-data-to-better-evaluate-nfl-players-a-review",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220806d9_Using%20Tracking%20and%20Charting%20Data%20to%20Better%20Evaluate%20NFL%20Players_A%20Review%202.pdf"
+        },
+        {
+          "title": "Learning Feature Representations from Football Tracking",
+          "authors": ["Michael Horton"],
+          "year": "2020",
+          "item_url": "https://www.sloansportsconference.com/research-papers/learning-feature-representations-from-football-tracking",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc2207f974_horton_feature_representation.pdf"
+        },
+        {
+          "title": "Analyzing NBA Player Positions and Interactions with Density-Functional Fluctuation Theory",
+          "authors": ["Boris Barron", "Nathan S. Sitaraman", "Tomas A. Arias"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/analyzing-nba-player-positions-and-interactions-with-density-functional-fluctuation-theory",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080819_193938%20-%20Analyzing%20NBA%20Player%20Positions%20and%20Interactions.pdf"
+        },
+        {
+          "title": "Deconstructing the Rebound with Optical Tracking Data",
+          "authors": ["Rajiv Maheswaran", "Yu-Han Chang", "Aaron Henehan", "Samantha Danesis"],
+          "year": "2012",
+          "item_url": "https://www.sloansportsconference.com/research-papers/deconstructing-the-rebound-with-optical-tracking-data",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220807a4_SSAC12%20-%20108-sloan-sports-2012-maheswaran-chang_updated.pdf"
+        },
+        {
+          "title": "Data-Driven Ghosting using Deep Imitation Learning",
+          "authors": ["Le Hoang", "Peter Carr", "Yisong Yue", "Patric Lucey"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/data-driven-ghosting-using-deep-imitation-learning",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc2208062b_Data-Driven%20Ghosting%20using%20Deep%20Imitation%20Learning.pdf"
+        },
+        {
+          "title": "Extracting Player Tracking Data from Video Using Non-Stationary Cameras and a Combination of Computer Vision Techniques",
+          "authors": ["Neil Johnson"],
+          "year": "2020",
+          "item_url": "https://www.sloansportsconference.com/research-papers/extracting-player-tracking-data-from-video-using-non-stationary-cameras-and-a-combination-of-computer-vision-techniques",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc2207f8be_Johnson_extracting_player_tracking_data-compressed.pdf"
+        },
+        {
+          "title": "A Graph Neural Network deep-dive into successful counterattacks",
+          "authors": ["Amod Sahasrabudhe", "Joris Bekkers"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/a-graph-neural-network-deep-dive-into-successful-counterattacks",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc2208079b_A%20Graph%20Neural%20Network%20deep-dive.pdf"
+        },
+        {
+          "title": "The Three Dimensions of Rebounding",
+          "authors": ["Rajiv Maheswaran", "Yu-Han Chang", "Jeff Su", "Sheldon Kwok", "Tal Levy", "Adam Wexler", "Noel Hollingsworth"],
+          "year": "2014",
+          "item_url": "https://www.sloansportsconference.com/research-papers/the-three-dimensions-of-rebounding",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080625_2014_SSAC_The-Three-Dimensions-Of-Rebounding.pdf"
+        },
+        {
+          "title": "Do Behavioral Considerations Cloud Penalty-Kick Location Optimization in Professional Soccer: Game Theory & Empirical Testing using Polynomial Regression and ML Gradient Boosting",
+          "authors": ["Alivia Uribe", "Shane Sanders", "Justin Ehrlich", "James J. Reade", "Carl Singleton"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/do-behavioral-considerations-cloud-penalty-kick-location-optimization-in-professional-soccer-game-theory-empirical-testing-using-polynomial-regression-and-ml-gradient-boosting",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220808ea_Do%20Behavioral%20Considerations%20Cloud%20Penalty-Kick%20Location%20Optimization%20in%20Professional%20Soccer.pdf"
+        },
+        {
+          "title": "Detection of tactical patterns using semi-supervised graph neural networks",
+          "authors": ["Gabriel Anzer", "Pascal Bauer", "Ulf Brefeld", "Dennis Fassmeyer"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/detection-of-tactical-patterns-using-semi-supervised-graph-neural-networks",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220806db_Detection%20of%20Tactical%20Patterns%202.pdf"
+        },
+        {
+          "title": "CourtVision: New Visual and Spatial Analytics for the NBA",
+          "authors": ["Kirk Goldsberry"],
+          "year": "2012",
+          "item_url": "https://www.sloansportsconference.com/research-papers/courtvision-new-visual-and-spatial-analytics-for-the-nba",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220807a9_SSAC12%20-%20New%20Visual%20and%20Spatial%20Analytics%20for%20the%20NBA.pdf"
+        },
+        {
+          "title": "Beyond the Box Score: Using Psychological Metrics to Forecast NBA Success",
+          "authors": ["Sean Farrell", "Ethan Laity", "Dave Laughlin", "Dean Oliver", "James W. Pennebaker"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/beyond-the-box-score-using-psychological-metrics-to-forecast-nba-success",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080999_Beyond%20the%20Box%20Score_Using%20Psychological%20Metrics%20to%20Forecast%20NBA%20Success.pdf"
+        },
+        {
+          "title": "Bhostgusters: Realtime Interactive Play Sketching with Synthesized NBA Defenses",
+          "authors": ["Thomas Seidl"],
+          "year": "2017",
+          "item_url": "https://www.sloansportsconference.com/research-papers/bhostgusters-realtime-interactive-play-sketching-with-synthesized-nba-defenses",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080641_Bhostgusters%20Realtime%20Interactive%20Play%20Sketching%20with%20Synthesized%20NBA%20Defenses.pdf"
+        },
+        {
+          "title": "A Game Theoretical Approach to Optimal Pitch Sequencing",
+          "authors": ["William Melville", "Jesse Melville", "Theo Dawson", "Delma Nieves-Rivera", "Christopher Archibald", "David Grimsman"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/a-game-theoretical-approach-to-optimal-pitch-sequencing",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080794_A%20Game%20Theoretical%20Approach%20to%20Optimal%20Pitch%20Sequencing.pdf"
+        },
+        {
+          "title": "Accounting for Complementary Skill Sets When Evaluating NBA Players' Values to a Specific Team",
+          "authors": ["Joseph Kuehn"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/accounting-for-complementary-skill-sets-when-evaluating-nba-players-values-to-a-speci-ic-team",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080648_Accounting%20for%20Complementary%20Skill%20Sets%20when%20Evaluating%20NBA%20Players%27%20Values%20to%20a%20Specific%20Team.pdf"
+        },
+        {
+          "title": "To Crash or Not To Crash: A quantitative look at the relationship between offensive rebounding and transition defense in the NBA",
+          "authors": ["Jenna Wiens", "Guha Balakrishnan", "Joel Brooks", "John Guttag"],
+          "year": "2013",
+          "item_url": "https://www.sloansportsconference.com/research-papers/to-crash-or-not-to-crash",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc220807a3_SSAC13%20-%20To%20Crash%20or%20Not%20To%20Crash.pdf"
+        },
+        {
+          "title": "exPress: Contextual Valuation of Individual Players Within Pressing Situations in Soccer",
+          "authors": ["Minho Lee", "Joe Geonhee", "Miru Hong", "Pascal Bauer", "Sang-Ki Ko"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/contextual-valuation-of-individual-players-within-pressing-situations-in-football",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/68d6be744d7efccc22080959_exPress_MITSloan_Final.pdf"
+        },
+        {
+          "title": "HoopEval: Individual Player Action Evaluation via Deep Reinforcement Learning",
+          "authors": ["Xing Wang", "Yu Fu", "Sheng Xu", "Konstantinos Pelechrinis", "Mingxin Zhang", "Miguel Angel Gomez Ruano", "Guiliang Liu", "Shaoliang Zhang"],
+          "item_url": "https://www.sloansportsconference.com/research-papers/hoopeval-individual-player-action-evaluation-via-deep-reinforcement-learning",
+          "pdf_url": "https://cdn.prod.website-files.com/68d6be744d7efccc2207f571/699f0e63ed0f8d317b3d0a0c_HoopEval_%20Individual%20Player%20Action%20Evaluation%20via%20Deep%20Reinforcement%20Learning.pdf"
         }
       ]
     }
