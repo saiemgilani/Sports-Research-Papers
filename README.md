@@ -33,6 +33,7 @@ python scripts/update_sports_analytics_library.py \
   --source nessis-presentations-posters \
   --source mit-ssac-research-papers-seed \
   --source mit-ssac-conference-pages \
+  --source hudl-statsbomb-research-papers \
   --dry-run
 ```
 
@@ -46,6 +47,19 @@ CASSIS and CSAS/UCSAS are tracked in `feeds/sports-analytics-sources.yml` as
 conference/opportunity metadata sources. Their official pages currently expose
 programs, poster/data-challenge information, and flyers rather than central
 paper-proceedings PDF archives.
+
+Hudl StatsBomb / Hudl Performance Insights research-stage papers are indexed by
+`hudl-statsbomb-research-papers`. The source follows official StatsBomb archive
+pages for 2021, 2023, and 2024 plus the Hudl Performance Insights 2025 page,
+including a URL rewrite for older `statsbomb.wpengine.com` PDFs that now resolve
+through `blogarchive.statsbomb.com`. The current backfill resolves 34 public
+paper/whitepaper PDFs.
+
+Springer Nature search pages are tracked in the feed catalog and OPML as
+metadata/discovery RSS sources. Do not add the broad Springer searches to the
+automatic PDF downloader unless the source is narrowed to item-level public
+open-access PDF links; recent MLSA Springer proceedings pages are useful
+metadata but appear as subscription previews.
 
 ### Authorized JQAS Access
 

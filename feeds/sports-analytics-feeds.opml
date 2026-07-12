@@ -31,7 +31,18 @@
         type="rss"
         xmlUrl="https://dblp.org/db/journals/ijcssport/index.xml"
         htmlUrl="https://reference-global.com/journal/IJCSS" />
+      <outline
+        text="Springer Nature - Sport Analytics Journal Search"
+        title="Springer Nature - Sport Analytics Journal Search"
+        type="rss"
+        xmlUrl="https://link.springer.com/search.rss?query=*&amp;content-type=Journal&amp;taxonomy=%22Sport+Analytics%22&amp;sortBy=relevance"
+        htmlUrl="https://link.springer.com/search?query=*&amp;content-type=Journal&amp;taxonomy=%22Sport+Analytics%22&amp;sortBy=relevance" />
+      <outline
+        text="Springer Nature - Sports Analytics Research Search"
+        title="Springer Nature - Sports Analytics Research Search"
+        type="rss"
+        xmlUrl="https://link.springer.com/search.rss?query=sports+analytics&amp;content-type=Article&amp;content-type=Research&amp;content-type=Conference+Paper&amp;content-type=Reference+Work+Entry&amp;content-type=Book&amp;content-type=Conference+Proceedings&amp;content-type=Collection&amp;content-type=Book+Series&amp;content-type=Reference+Work&amp;content-type=Textbook&amp;language=En&amp;facet-discipline=%22Computer+Science%22&amp;facet-discipline=%22Engineering%22&amp;facet-discipline=%22Business+and+Management%22&amp;facet-discipline=%22Medicine+%26+Public+Health%22&amp;facet-discipline=%22Science%2C+Humanities+and+Social+Sciences%2C+multidisciplinary%22&amp;facet-discipline=%22Economics%22&amp;facet-discipline=%22Statistics%22&amp;taxonomy=%22Sport+Analytics%22&amp;taxonomy=%22Sport+Technology%22&amp;taxonomy=%22Machine+Learning%22&amp;taxonomy=%22Sport+Science%22&amp;taxonomy=%22Artificial+Intelligence%22&amp;taxonomy=%22Data+Mining%22&amp;taxonomy=%22Big+Data%22&amp;taxonomy=%22Computer+Vision%22&amp;taxonomy=%22Data+Analytics%22&amp;taxonomy=%22Sport+Kinematics%22&amp;sortBy=relevance"
+        htmlUrl="https://link.springer.com/search?query=sports+analytics&amp;content-type=Article&amp;content-type=Research&amp;content-type=Conference+Paper&amp;content-type=Reference+Work+Entry&amp;content-type=Book&amp;content-type=Conference+Proceedings&amp;content-type=Collection&amp;content-type=Book+Series&amp;content-type=Reference+Work&amp;content-type=Textbook&amp;language=En&amp;taxonomy=%22Sport+Analytics%22&amp;taxonomy=%22Sport+Technology%22&amp;taxonomy=%22Machine+Learning%22&amp;taxonomy=%22Sport+Science%22&amp;taxonomy=%22Artificial+Intelligence%22&amp;taxonomy=%22Data+Mining%22&amp;taxonomy=%22Big+Data%22&amp;taxonomy=%22Computer+Vision%22&amp;taxonomy=%22Data+Analytics%22&amp;taxonomy=%22Sport+Kinematics%22&amp;sortBy=relevance" />
     </outline>
   </body>
 </opml>
-

@@ -15,6 +15,13 @@ The core journal set starts with JQAS, Journal of Sports Analytics, IJCSS, JSSM,
 
 Static reference volumes, including the Oxford anthology and the statistical methods handbook, are included as references rather than feed sources.
 
+Springer Nature should be monitored as a discovery surface rather than a bulk
+PDF source. The sport-analytics journal search exposes an RSS endpoint, and the
+broader sports analytics research search exposes articles, conference papers,
+proceedings, books, and open-access items. Only follow item-level public
+open-access PDF links; recent MLSA Springer proceedings pages are useful
+metadata but were subscription previews when verified.
+
 ## Core Opportunities
 
 Highest priority recurring sources:
@@ -27,6 +34,7 @@ Highest priority recurring sources:
 - CSAS, formerly UCSAS: student-oriented symposium with posters, workshops, and data challenges.
 - MLSA: ECML PKDD workshop with sports analytics papers and proceedings.
 - MathSport International and MathSport Asia: mathematics, statistics, operations research, and sport.
+- Hudl StatsBomb / Hudl Performance Insights: soccer analytics research competitions with 34 public paper/whitepaper PDFs currently backfilled from 2021, 2023, 2024, and 2025 pages.
 - NFL Big Data Bowl and Kaggle Sports: annual or continuous data competitions and writeups.
 - Brendan Kent's sports analytics conference video archive index: discovery source for free videos, panels, and presentations from MIT Sloan, NESSIS, CMSAC, StatsBomb, hockey analytics conferences, UCSAS, MathSport, and related events.
 
@@ -37,6 +45,7 @@ Highest priority recurring sources:
 - CASSIS: verified official pages expose programs and presentation/poster metadata, but no central proceedings PDF archive.
 - CSAS 2026: held 2026-04-10 to 2026-04-11 at University of Connecticut; official pages expose data challenge, poster/program information, and a flyer rather than a central paper PDF archive.
 - MLSA 2026: paper deadline was 2026-06-05; workshop date is 2026-09-07.
+- Hudl Performance Insights 2026: research proposals call page is live; finalists are invited to present at the 2026-11-13 event in London.
 - MathSport Asia 2026: scheduled 2026-12-08 to 2026-12-10, with accepted abstracts eligible for optional full paper proceedings submission.
 
 ## Monitoring Workflow

@@ -58,6 +58,7 @@ journal_sources:
     submission_url: https://reference-global.com/journal/IJCSS
     cadence: biannual
     notes:
+      - Publisher page identifies IJCSS as open access and lists all volumes/issues plus newest article metadata.
       - Publisher page exposes a journal RSS link in the footer, but the verified HTML pointed to an internal Sciendo host.
       - DBLP XML is a practical machine-readable fallback for article metadata.
     tags: [journal, computer-science, sport-informatics, modeling, data-acquisition]
@@ -78,7 +79,25 @@ journal_sources:
     notes:
       - Broader sports science and sports medicine scope, but useful for quantitative performance, training, and biomechanics papers.
       - Publishes open access research, case studies, review articles, and congress/symposium abstracts.
+      - Official archive page lists back issues from 2002 onward; current/in-press RSS remains the safer default for routine automation.
     tags: [journal, sports-science, sports-medicine, biomechanics, performance]
+
+  - id: sports-engineering-springer
+    name: Sports Engineering
+    publisher: Springer Nature / International Sports Engineering Association
+    type: journal
+    priority: adjacent
+    homepage: https://link.springer.com/journal/12283
+    articles_url: https://link.springer.com/journal/12283/articles
+    submission_url: https://submission.springernature.com/new-submission/12283
+    feed_kind: poll
+    feed_url:
+    cadence: rolling_and_issue
+    notes:
+      - Hybrid Springer journal focused on engineering principles applied to sports equipment, technology, performance, and safety.
+      - Active calls for papers were visible when verified, including The Engineering of Sport 16 with a 2026-07-13 deadline.
+      - Treat as adjacent/monitor because it is sports engineering rather than a pure analytics journal.
+    tags: [journal, sports-engineering, sports-technology, biomechanics, equipment, calls-for-papers]
 
   - id: ijsse
     name: International Journal of Sports Science and Engineering
@@ -118,6 +137,46 @@ journal_sources:
     notes:
       - Static reference volume rather than a feed source.
     tags: [book, reference, statistics]
+
+  - id: swartz-where-publish-sports-paper
+    name: Where Should I Publish my Sports Paper?
+    publisher: Simon Fraser University author page
+    type: reference_article
+    priority: reference
+    homepage: https://www.sfu.ca/~tswartz/papers/publish.pdf
+    feed_kind: reference
+    feed_url:
+    notes:
+      - Curated sports analytics publishing guide by Tim B. Swartz, useful for expanding and ranking journal/source coverage.
+      - Identifies JQAS and JSA as the two pure sports statistics/analytics journal anchors, with broader OR, statistics, medicine, science, and economics outlets as adjacent targets.
+    tags: [reference, publishing, journals, sports-statistics]
+
+publisher_discovery_sources:
+  - id: springer-sport-analytics-journal-search
+    name: Springer Nature Sport Analytics Journal Search
+    publisher: Springer Nature
+    type: publisher_search
+    priority: monitor
+    homepage: https://link.springer.com/search?query=*&content-type=Journal&dateFrom=&dateTo=&taxonomy=%22Sport+Analytics%22&sortBy=relevance
+    feed_kind: rss
+    feed_url: https://link.springer.com/search.rss?query=*&content-type=Journal&taxonomy=%22Sport+Analytics%22&sortBy=relevance
+    notes:
+      - Search page reported hundreds of sport-analytics-tagged journals and exposes an RSS endpoint.
+      - Use for journal discovery only; do not bulk-download publisher PDFs unless the item page exposes public open-access PDF links.
+    tags: [publisher-search, springer, journal-discovery, metadata]
+
+  - id: springer-sports-analytics-research-search
+    name: Springer Nature Sports Analytics Research Search
+    publisher: Springer Nature
+    type: publisher_search
+    priority: monitor
+    homepage: https://link.springer.com/search?query=sports+analytics&content-type=Article&content-type=Research&content-type=Conference+Paper&content-type=Reference+Work+Entry&content-type=Book&content-type=Conference+Proceedings&content-type=Collection&content-type=Book+Series&content-type=Reference+Work&content-type=Textbook&dateFrom=&dateTo=&language=En&taxonomy=%22Sport+Analytics%22&taxonomy=%22Sport+Technology%22&taxonomy=%22Machine+Learning%22&taxonomy=%22Sport+Science%22&taxonomy=%22Artificial+Intelligence%22&taxonomy=%22Data+Mining%22&taxonomy=%22Big+Data%22&taxonomy=%22Computer+Vision%22&taxonomy=%22Data+Analytics%22&taxonomy=%22Sport+Kinematics%22&facet-discipline=%22Computer+Science%22&facet-discipline=%22Engineering%22&facet-discipline=%22Business+and+Management%22&facet-discipline=%22Medicine+%26+Public+Health%22&facet-discipline=%22Science%2C+Humanities+and+Social+Sciences%2C+multidisciplinary%22&facet-discipline=%22Economics%22&facet-discipline=%22Statistics%22&sortBy=relevance
+    feed_kind: rss
+    feed_url: https://link.springer.com/search.rss?query=sports+analytics&content-type=Article&content-type=Research&content-type=Conference+Paper&content-type=Reference+Work+Entry&content-type=Book&content-type=Conference+Proceedings&content-type=Collection&content-type=Book+Series&content-type=Reference+Work&content-type=Textbook&language=En&facet-discipline=%22Computer+Science%22&facet-discipline=%22Engineering%22&facet-discipline=%22Business+and+Management%22&facet-discipline=%22Medicine+%26+Public+Health%22&facet-discipline=%22Science%2C+Humanities+and+Social+Sciences%2C+multidisciplinary%22&facet-discipline=%22Economics%22&facet-discipline=%22Statistics%22&taxonomy=%22Sport+Analytics%22&taxonomy=%22Sport+Technology%22&taxonomy=%22Machine+Learning%22&taxonomy=%22Sport+Science%22&taxonomy=%22Artificial+Intelligence%22&taxonomy=%22Data+Mining%22&taxonomy=%22Big+Data%22&taxonomy=%22Computer+Vision%22&taxonomy=%22Data+Analytics%22&taxonomy=%22Sport+Kinematics%22&sortBy=relevance
+    notes:
+      - Search page reported more than two thousand matching results, including articles, conference papers, proceedings, books, and open-access items.
+      - Use as a metadata/discovery feed; full-text automation should only follow public open-access PDF links exposed by individual item pages.
+    tags: [publisher-search, springer, metadata, open-access-discovery, conference-papers]
 
 conference_and_opportunity_sources:
   - id: mit-ssac-research-paper-competition
@@ -240,9 +299,19 @@ conference_and_opportunity_sources:
       paper_deadline: 2026-06-05
       workshop_date: 2026-09-07
       proceedings_note: Intended Springer CCIS proceedings.
+    recent_proceedings:
+      - year: 2025
+        url: https://link.springer.com/book/10.1007/978-3-032-15165-0
+        doi: https://doi.org/10.1007/978-3-032-15165-0
+        access_note: Springer preview/subscription page when verified.
+      - year: 2024
+        url: https://link.springer.com/book/10.1007/978-3-031-86692-0
+        doi: https://doi.org/10.1007/978-3-031-86692-0
+        access_note: Springer preview/subscription page when verified.
     opportunities: [papers, proceedings, presentations]
     notes:
       - Strong fit for ML, data mining, predictive modeling, valuation, injury prevention, scheduling, and betting odds modeling.
+      - Springer conference-series pages are valuable metadata/proceedings indexes, but recent MLSA volumes were not public PDF archives when verified.
     tags: [workshop, machine-learning, data-mining, proceedings, ecml-pkdd]
 
   - id: mathsport-international
@@ -328,10 +397,18 @@ conference_and_opportunity_sources:
     archive_url: https://blogarchive.statsbomb.com/news/statsbomb-conference-2024-research-papers/
     feed_kind: poll
     cadence: annual_or_periodic
+    current_cycle:
+      cycle_name: Hudl Performance Insights 2026 Research Competition
+      proposal_call_url: https://www.hudl.com/blog/hpi-2026-research-competition
+      event_date: 2026-11-13
+      location: Emirates Stadium, London
+    downloadable_archive_source_id: hudl-statsbomb-research-papers
+    downloadable_archive_count: 34
     opportunities: [research-proposals, white-papers, posters, presentations]
     notes:
       - Strong soccer analytics source with published research papers and posters in prior cycles.
       - Track both Hudl blog and StatsBomb archive because branding and URLs have changed.
+      - Public research paper PDFs are automated from the 2021, 2023, 2024 StatsBomb archive pages and the Hudl Performance Insights 2025 research-stage whitepapers.
     tags: [competition, soccer, research-papers, posters, event-data]
 
   - id: nfl-big-data-bowl

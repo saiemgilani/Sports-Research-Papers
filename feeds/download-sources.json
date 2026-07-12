@@ -462,6 +462,33 @@
       "exclude_pdf_patterns": ["agenda", "schedule", "program", "sponsor", "map"],
       "download_policy": "public_pdf_only",
       "license_note": "Extracts paper cards and public Webflow CDN PDF URLs from official MIT SSAC conference pages. Non-paper agenda/program PDFs are excluded."
+    },
+    {
+      "id": "hudl-statsbomb-research-papers",
+      "parent_source_id": "hudl-statsbomb-research",
+      "name": "Hudl StatsBomb Research Competition - Public Paper PDFs",
+      "category_path": ["conferences", "Hudl StatsBomb", "Research Competitions"],
+      "feed_urls": [
+        "https://blogarchive.statsbomb.com/news/statsbomb-conference-2021-research-papers/",
+        "https://blogarchive.statsbomb.com/news/statsbomb-conference-2023-research-papers/",
+        "https://blogarchive.statsbomb.com/news/statsbomb-conference-2024-research-papers/",
+        "https://www.hudl.com/en_gb/performanceinsights2025"
+      ],
+      "feed_type": "html_index",
+      "include_href_patterns": [".pdf"],
+      "exclude_href_patterns": [".zip"],
+      "url_rewrites": [
+        {
+          "from": "http://statsbomb.wpengine.com/wp-content/uploads/",
+          "to": "https://blogarchive.statsbomb.com/uploads/"
+        },
+        {
+          "from": "https://statsbomb.wpengine.com/wp-content/uploads/",
+          "to": "https://blogarchive.statsbomb.com/uploads/"
+        }
+      ],
+      "download_policy": "public_pdf_only",
+      "license_note": "Downloads public PDF research papers and whitepapers linked from official Hudl StatsBomb conference and Performance Insights research-stage pages."
     }
   ]
 }

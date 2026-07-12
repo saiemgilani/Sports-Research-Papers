@@ -434,6 +434,7 @@ def generic_link_text(value: str) -> bool:
         "download pdf",
         "download the full paper here",
         "full conference program",
+        "view white paper",
     }
 
 
@@ -471,6 +472,15 @@ def unique_urls(values: Iterable[str], base_url: str = "") -> list[str]:
         if value and value.strip()
     ]
     return unique_values(urls)
+
+
+def rewrite_configured_url(url: str, source: dict) -> str:
+    for rule in source.get("url_rewrites", []):
+        old = str(rule.get("from", ""))
+        new = str(rule.get("to", ""))
+        if old and url.startswith(old):
+            return new + url[len(old) :]
+    return url
 
 
 def find_pdf_candidates(page: str, base_url: str) -> list[str]:
@@ -593,12 +603,15 @@ def parse_html_index(data: bytes, base_url: str, source: dict) -> list[FeedItem]
         if any(pattern in href for pattern in exclude_patterns):
             continue
         url = urllib.parse.urljoin(base_url, href)
+        url = rewrite_configured_url(url, source)
         url = re.sub(r"/pdf(?:\?.*)?$", "/html", url)
         if url in seen:
             continue
         seen.add(url)
         link_title = tag_text(page, "a", href)
         title = link_title if not generic_link_text(link_title) else ""
+        if not title and ".pdf" in href.lower():
+            title = title_from_href(url)
         if not title:
             title = context_heading_after_href(page, href)
         if not title:
