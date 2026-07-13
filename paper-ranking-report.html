@@ -1,0 +1,714 @@
+<title>Sports Analytics Papers, Ranked</title>
+<style>
+:root{
+  --paper:#F4F5F3; --card:#FFFFFF; --ink:#1A222B; --ink-soft:#4A555F; --ink-faint:#78838C;
+  --line:#E1E3DF; --line-soft:#ECEEEA;
+  --accent:#8E2B24; --accent-soft:#B4443B;
+  --n:#5B6CB8; --p:#3E8E7E; --r:#C0883E; --c:#5A6470;
+  --n-bg:#EAECF6; --p-bg:#E6F0EC; --r-bg:#F6EEDF; --c-bg:#ECEEF0;
+  --shadow:0 1px 2px rgba(20,27,34,.05),0 4px 16px rgba(20,27,34,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#141B22; --card:#1C242C; --ink:#E8EAE6; --ink-soft:#AEB8C0; --ink-faint:#7C868E;
+    --line:#2A343D; --line-soft:#232C34;
+    --accent:#D9776D; --accent-soft:#E08C82;
+    --n:#93A0DC; --p:#6FBBA8; --r:#D9AE6B; --c:#95A0AC;
+    --n-bg:#282F45; --p-bg:#20342F; --r-bg:#39301E; --c-bg:#2A323B;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.22);
+  }
+}
+:root[data-theme="light"]{
+  --paper:#F4F5F3;--card:#FFFFFF;--ink:#1A222B;--ink-soft:#4A555F;--ink-faint:#78838C;
+  --line:#E1E3DF;--line-soft:#ECEEEA;--accent:#8E2B24;--accent-soft:#B4443B;
+  --n:#5B6CB8;--p:#3E8E7E;--r:#C0883E;--c:#5A6470;
+  --n-bg:#EAECF6;--p-bg:#E6F0EC;--r-bg:#F6EEDF;--c-bg:#ECEEF0;--shadow:0 1px 2px rgba(20,27,34,.05),0 4px 16px rgba(20,27,34,.04);
+}
+:root[data-theme="dark"]{
+  --paper:#141B22;--card:#1C242C;--ink:#E8EAE6;--ink-soft:#AEB8C0;--ink-faint:#7C868E;
+  --line:#2A343D;--line-soft:#232C34;--accent:#D9776D;--accent-soft:#E08C82;
+  --n:#93A0DC;--p:#6FBBA8;--r:#D9AE6B;--c:#95A0AC;
+  --n-bg:#282F45;--p-bg:#20342F;--r-bg:#39301E;--c-bg:#2A323B;--shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px 96px;}
+h1,h2,h3,.serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;}
+a{color:var(--accent);}
+
+/* Masthead */
+.mast{padding:56px 0 28px;border-bottom:3px solid var(--accent);}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  font-weight:700;margin:0 0 14px;}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.02;margin:0;font-weight:700;letter-spacing:-.01em;text-wrap:balance;}
+.dek{font-size:18px;color:var(--ink-soft);margin:18px 0 0;max-width:60ch;text-wrap:pretty;}
+
+/* Stat strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin:28px 0 0;border-radius:10px;overflow:hidden;}
+.strip .cell{background:var(--card);padding:16px 18px;}
+.strip .big{font-family:Georgia,serif;font-size:30px;font-weight:700;line-height:1;}
+.strip .lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);margin-top:7px;}
+
+section{margin-top:52px;}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px;}
+h2{font-size:26px;margin:0;font-weight:700;letter-spacing:-.01em;}
+.sec-sub{color:var(--ink-soft);font-size:15px;margin:0 0 22px;max-width:66ch;text-wrap:pretty;}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;}
+.leg{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:9px;padding:10px 14px;box-shadow:var(--shadow);flex:1 1 200px;}
+.leg .dot{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font-weight:700;
+  font-size:13px;color:#fff;flex:none;}
+.leg .lt{font-weight:650;font-size:14px;}
+.leg .ld{font-size:12.5px;color:var(--ink-faint);}
+.dot-n{background:var(--n)}.dot-p{background:var(--p)}.dot-r{background:var(--r)}
+
+/* Stat badges */
+.stat{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:6px;
+  font-weight:700;font-size:13px;font-variant-numeric:tabular-nums;}
+.stat-n{background:var(--n-bg);color:var(--n)}
+.stat-p{background:var(--p-bg);color:var(--p)}
+.stat-r{background:var(--r-bg);color:var(--r)}
+.statline{display:flex;gap:5px;}
+
+/* Ranked list */
+.ranklist{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;background:var(--card);box-shadow:var(--shadow);}
+.row{display:grid;grid-template-columns:46px 1fr auto;gap:18px;align-items:center;
+  padding:15px 20px;border-bottom:1px solid var(--line-soft);}
+.row:last-child{border-bottom:0;}
+.row:nth-child(even){background:color-mix(in srgb,var(--card) 100%,var(--paper) 45%);}
+.rank{font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--ink-faint);text-align:center;
+  font-variant-numeric:tabular-nums;}
+.rank.medal{color:#fff;background:var(--accent);width:34px;height:34px;border-radius:8px;
+  display:grid;place-items:center;margin:0 auto;font-size:18px;}
+.ttl{font-weight:650;font-size:15.5px;line-height:1.3;letter-spacing:-.005em;}
+.desc{color:var(--ink-soft);font-size:13.5px;line-height:1.45;margin-top:3px;text-wrap:pretty;}
+.meta{display:flex;gap:9px;align-items:center;margin-top:8px;}
+.chip{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+  background:var(--c-bg);color:var(--c);padding:3px 8px;border-radius:5px;}
+.yr{font-size:12.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums;}
+.scores{display:flex;flex-direction:column;align-items:flex-end;gap:9px;}
+.comp{display:flex;align-items:baseline;gap:2px;}
+.compnum{font-family:Georgia,serif;font-size:22px;font-weight:700;}
+.compden{font-size:12px;color:var(--ink-faint);}
+
+/* Category leaders */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 8px;
+  box-shadow:var(--shadow);}
+.col h3{font-size:16px;margin:0 0 4px;display:flex;align-items:center;gap:9px;}
+.col .ch{font-size:12px;color:var(--ink-faint);margin:0 0 14px;}
+.tag{width:20px;height:20px;border-radius:5px;display:inline-block;flex:none;}
+.tag-n{background:var(--n)}.tag-p{background:var(--p)}.tag-r{background:var(--r)}
+.leaderlist{list-style:none;margin:0;padding:0;}
+.lrow{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:9px 0;
+  border-top:1px solid var(--line-soft);}
+.lrow:first-child{border-top:0;}
+.lnum{font-family:Georgia,serif;font-weight:700;font-size:16px;width:24px;text-align:center;
+  border-radius:5px;padding:1px 0;font-variant-numeric:tabular-nums;}
+.lnum-n{color:var(--n);background:var(--n-bg)}
+.lnum-p{color:var(--p);background:var(--p-bg)}
+.lnum-r{color:var(--r);background:var(--r-bg)}
+.lnum-c{color:var(--c);background:var(--c-bg)}
+.lttl{font-size:13.5px;font-weight:600;line-height:1.32;}
+.lyr{display:block;font-weight:400;color:var(--ink-faint);font-size:11.5px;margin-top:2px;}
+
+/* Trap callout */
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:10px;padding:22px 24px;box-shadow:var(--shadow);}
+.callout .big-stat{font-family:Georgia,serif;font-size:19px;line-height:1.4;margin:0 0 4px;}
+.callout .big-stat b{color:var(--accent);}
+.trap{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;}
+.trow{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:8px 0;
+  border-top:1px solid var(--line-soft);}
+.tmain{min-width:0;}
+.tttl{display:block;font-size:13px;font-weight:600;line-height:1.3;}
+.tmeta{font-size:11.5px;color:var(--ink-faint);}
+
+/* Notes grid */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);}
+.note h3{font-size:16px;margin:0 0 10px;}
+.note p{font-size:13.5px;color:var(--ink-soft);margin:0 0 10px;line-height:1.55;}
+.note ul{margin:0;padding-left:18px;font-size:13px;color:var(--ink-soft);}
+.note li{margin:4px 0;}
+.note code{background:var(--c-bg);color:var(--ink);padding:1px 6px;border-radius:4px;font-size:12px;}
+
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:12.5px;line-height:1.6;}
+@media (max-width:760px){
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .cols{grid-template-columns:1fr}
+  .trap{grid-template-columns:1fr}
+  .notes{grid-template-columns:1fr}
+  .row{grid-template-columns:38px 1fr;gap:12px}
+  .scores{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center;width:100%;margin-top:2px}
+}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Collection Analysis · Sports-Research-Papers</p>
+    <h1>The Sports Analytics Papers, Ranked</h1>
+    <p class="dek">Every curated paper in the repository, read and scored on three axes — how <em>novel</em> the idea was, how <em>practical</em> it is for a working analyst, and how <em>reproducible</em> the result is today. Think of it as a stat line for research.</p>
+    <div class="strip">
+      <div class="cell"><div class="big">266</div><div class="lbl">Papers read &amp; scored</div></div>
+      <div class="cell"><div class="big">165</div><div class="lbl">Unique works (curated)</div></div>
+      <div class="cell"><div class="big">22</div><div class="lbl">Duplicate copies found</div></div>
+      <div class="cell"><div class="big">10</div><div class="lbl">Sports covered</div></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="kicker">How to read a row</span></div>
+    <div class="legend">
+      <div class="leg"><span class="dot dot-n">N</span><div><div class="lt">Novelty</div><div class="ld">Originality when published</div></div></div>
+      <div class="leg"><span class="dot dot-p">P</span><div><div class="lt">Practicality</div><div class="ld">Value to a working analyst</div></div></div>
+      <div class="leg"><span class="dot dot-r">R</span><div><div class="lt">Reproducibility</div><div class="ld">Can you rebuild it today?</div></div></div>
+    </div>
+    <p class="sec-sub">Each axis is scored 1–10; the composite is their sum out of 30. Reproducibility rewards public data (play-by-play, Retrosheet, Big Data Bowl, nflfastR) and released code, and penalizes proprietary optical tracking (SportVU, Second Spectrum, Noah), slides-only decks, and commercial black boxes.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Top 25 Overall</h2></div>
+    <p class="sec-sub">Ranked by composite score, ties broken by reproducibility. This favors durable, buildable work — which is why open foundational frameworks outrank flashier proprietary-tracking papers.</p>
+    <ol class="ranklist">
+    <li class="row">
+      <div class="rank medal">1</div>
+      <div class="main">
+        <div class="ttl">nflWAR: a reproducible method for offensive player evaluation in football</div>
+        <div class="desc">Introduces nflscrapR plus EP/WP and multilevel WAR framework for reproducible open-source NFL offensive player evaluation.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">2019</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">9</span></div>
+        <div class="comp"><span class="compnum">25</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank medal">2</div>
+      <div class="main">
+        <div class="ttl">Overconfidence vs. Market Efficiency in the National Football League</div>
+        <div class="desc">Massey-Thaler show top draft picks are systematically overvalued; basis of modern pick surplus-value charts.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">2005</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">9</span><span class="stat stat-p" title="Practicality">9</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">25</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank medal">3</div>
+      <div class="main">
+        <div class="ttl">A Starting Point for Analyzing Basketball Statistics</div>
+        <div class="desc">Canonical codification of possession framework, Four Factors, ratings and pace adjustment by Kubatko/Oliver/Pelton/Rosenbaum.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2007</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">9</span></div>
+        <div class="comp"><span class="compnum">23</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">4</div>
+      <div class="main">
+        <div class="ttl">Analytics, have some humility: a statistical view of fourth-down decision making</div>
+        <div class="desc">Catalytic-prior tree ML framework corrects selection bias/overfitting in EP/WP; fewer fourth downs are obvious.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">2023</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">23</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">5</div>
+      <div class="main">
+        <div class="ttl">Improved NBA Adjusted +/- Using Regularization and Out-of-Sample Testing</div>
+        <div class="desc">Sill introduces ridge regression (RAPM) and out-of-sample validation to APM, the basis of modern impact metrics.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2010</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">23</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">6</div>
+      <div class="main">
+        <div class="ttl">Operations Research on Football</div>
+        <div class="desc">Seminal expected point values by field position from hand-charted NFL plays; foundation of all modern EPA work.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">1971</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">10</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+        <div class="comp"><span class="compnum">23</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">7</div>
+      <div class="main">
+        <div class="ttl">Colley&#x27;s Bias Free College Football Ranking Method: The Colley Matrix Explained</div>
+        <div class="desc">Fully-derived linear-algebra win-loss ranking system, bias-free strength-of-schedule adjustment, used in the BCS.</div>
+        <div class="meta"><span class="chip">CFB</span><span class="yr">2003</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">9</span></div>
+        <div class="comp"><span class="compnum">22</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">8</div>
+      <div class="main">
+        <div class="ttl">A Regression-based Adjusted Plus-Minus Statistic for NHL Players</div>
+        <div class="desc">First adjusted plus-minus for hockey using NHL.com shift reports and weighted least squares, with offensive/defensive splits.</div>
+        <div class="meta"><span class="chip">NHL</span><span class="yr">2010</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">22</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">9</div>
+      <div class="main">
+        <div class="ttl">CourtVision: New Visual and Spatial Analytics for the NBA</div>
+        <div class="desc">Goldsberry&#x27;s field-defining spatial shot-chart analytics quantifying shooting range and spatial scoring signatures.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2012</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">22</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">10</div>
+      <div class="main">
+        <div class="ttl">Statistical Methods in Sports with a Focus on Win Probability and Performance Evaluation</div>
+        <div class="desc">Lock&#x27;s dissertation including the influential Lock-Nettleton random-forest NFL win probability model and performance-evaluation methods.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">2016</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">22</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">11</div>
+      <div class="main">
+        <div class="ttl">A No-Tanking Draft Allocation Policy</div>
+        <div class="desc">Mechanism-design draft-allocation policy that removes tanking incentives while still favoring weak teams, applied to NBA.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2020</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">12</div>
+      <div class="main">
+        <div class="ttl">Modified Kelly Criteria</div>
+        <div class="desc">Decision-theoretic modification of Kelly betting fraction accounting for uncertainty in win probability; yields smaller, principled bets.</div>
+        <div class="meta"><span class="chip">Betting</span><span class="yr">2018</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">13</div>
+      <div class="main">
+        <div class="ttl">An Expected Goals Model for Evaluating NHL Teams and Players</div>
+        <div class="desc">Early expected-goals model beating Corsi/Fenwick predictively, fed into ridge-regression adjusted plus-minus.</div>
+        <div class="meta"><span class="chip">NHL</span><span class="yr">2012</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">14</div>
+      <div class="main">
+        <div class="ttl">Meta-Analytics: Tools for Understanding the Statistical Properties of Sports Metrics</div>
+        <div class="desc">Proposes meta-metrics — stability, discrimination, independence — to evaluate which NBA/NHL player metrics carry reliable, unique signal.</div>
+        <div class="meta"><span class="chip">Multi</span><span class="yr">2016</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">15</div>
+      <div class="main">
+        <div class="ttl">Route Identification in the National Football League</div>
+        <div class="desc">Model-based curve clustering with Bezier bases and EM labels NFL receiver routes from Big Data Bowl tracking data.</div>
+        <div class="meta"><span class="chip">NFL</span><span class="yr">2019</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">16</div>
+      <div class="main">
+        <div class="ttl">SEAM: Synthetic Estimated Average Matchup for Player Matchups</div>
+        <div class="desc">Estimates batter-vs-pitcher spray-chart distributions with synthetic players to fix small samples; ships public Shiny app.</div>
+        <div class="meta"><span class="chip">MLB</span><span class="yr">2020</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">17</div>
+      <div class="main">
+        <div class="ttl">Measuring Spatial Allocative Efficiency in Basketball</div>
+        <div class="desc">Bayesian hierarchical spatial FG% model detects lineup shot-allocation inefficiency relative to teammates by court region.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2020</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">18</div>
+      <div class="main">
+        <div class="ttl">A Multiresolution Stochastic Process Model for Predicting Basketball Possession Outcomes (EPV)</div>
+        <div class="desc">Field-defining Expected Possession Value framework: multiresolution stochastic process on optical tracking valuing every instant of an NBA possession.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2016</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">9</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">19</div>
+      <div class="main">
+        <div class="ttl">Using Zone Entry Data To Separate Offensive, Neutral, And Defensive Zone Performance</div>
+        <div class="desc">Hand-tracked NHL zone entries show carry-ins double dump-in shot output and neutral zone drives shot differential; foundational hockey microstat work.</div>
+        <div class="meta"><span class="chip">NHL</span><span class="yr">2013</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+        <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">20</div>
+      <div class="main">
+        <div class="ttl">The Price of Anarchy in Basketball</div>
+        <div class="desc">Skinner&#x27;s influential game-theoretic analogy: selfish shot selection vs global offensive optimum, with a basketball Braess paradox.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2011</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">4</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">21</div>
+      <div class="main">
+        <div class="ttl">A Derivation of the Pythagorean Won-Loss Formula in Baseball</div>
+        <div class="desc">Foundational theoretical derivation of the Pythagorean formula by modeling runs scored/allowed as independent Weibull random variables.</div>
+        <div class="meta"><span class="chip">MLB</span><span class="yr">2006</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">4</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">22</div>
+      <div class="main">
+        <div class="ttl">Evaluating one-shot tournament predictions</div>
+        <div class="desc">Introduces Tournament Rank Probability Score for evaluating pre-tournament predictions plus ensemble weighting.</div>
+        <div class="meta"><span class="chip">Soccer</span><span class="yr">2021</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">23</div>
+      <div class="main">
+        <div class="ttl">Track Anything: Segment Anything Meets Videos</div>
+        <div class="desc">Interactive video object tracking/segmentation combining SAM and XMem; a general CV tool adaptable to sports video.</div>
+        <div class="meta"><span class="chip">Other</span><span class="yr">2023</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">24</div>
+      <div class="main">
+        <div class="ttl">Estimating NBA Team Shot Selection Efficiency from Aggregations of True, Continuous Shot Charts: A GAM Approach</div>
+        <div class="desc">GAM continuous shot charts incorporate shot-pursuant free throws for true point-yield shot selection efficiency.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2024</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="rank ">25</div>
+      <div class="main">
+        <div class="ttl">An easily implemented and accurate model for predicting NCAA tournament at-large bids</div>
+        <div class="desc">Eight-factor probit on RPI-based resume metrics predicts NCAA at-large selections, hitting 68 of 72 out-of-sample bids for 2014-15.</div>
+        <div class="meta"><span class="chip">NBA</span><span class="yr">2016</span></div>
+      </div>
+      <div class="scores">
+        <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+        <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+      </div>
+    </li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Category Leaders</h2></div>
+    <p class="sec-sub">The same works cut three ways. The gap between the novelty column and the reproducibility column is the whole story of modern sports analytics.</p>
+    <div class="cols">
+      <div class="col">
+        <h3><span class="tag tag-n"></span>Most Novel</h3>
+        <p class="ch">Field-defining ideas</p>
+        <ol class="leaderlist">
+      <li class="lrow">
+        <span class="lnum lnum-n">10</span>
+        <span class="lttl">Operations Research on Football<span class="lyr">1971 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">9</span>
+        <span class="lttl">Overconfidence vs. Market Efficiency in the National Football League<span class="lyr">2005 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">9</span>
+        <span class="lttl">A Multiresolution Stochastic Process Model for Predicting Basketball Possession Outcomes (EPV)<span class="lyr">2016 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">9</span>
+        <span class="lttl">POINTWISE: Predicting Points and Valuing Decisions in Real Time with NBA Optical Tracking Data<span class="lyr">2014 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">9</span>
+        <span class="lttl">POINTWISE: Predicting Points and Valuing Decisions<span class="lyr">2014 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">8</span>
+        <span class="lttl">nflWAR: a reproducible method for offensive player evaluation in football<span class="lyr">2019 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">8</span>
+        <span class="lttl">Improved NBA Adjusted +/- Using Regularization and Out-of-Sample Testing<span class="lyr">2010 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-n">8</span>
+        <span class="lttl">Analytics, have some humility: a statistical view of fourth-down decision making<span class="lyr">2023 · NFL</span></span>
+      </li>
+        </ol>
+      </div>
+      <div class="col">
+        <h3><span class="tag tag-p"></span>Most Practical</h3>
+        <p class="ch">Straight to the front office</p>
+        <ol class="leaderlist">
+      <li class="lrow">
+        <span class="lnum lnum-p">9</span>
+        <span class="lttl">Overconfidence vs. Market Efficiency in the National Football League<span class="lyr">2005 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">nflWAR: a reproducible method for offensive player evaluation in football<span class="lyr">2019 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">A Starting Point for Analyzing Basketball Statistics<span class="lyr">2007 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">Improved NBA Adjusted +/- Using Regularization and Out-of-Sample Testing<span class="lyr">2010 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">Statistical Methods in Sports with a Focus on Win Probability and Performance Evaluation<span class="lyr">2016 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">Using Zone Entry Data To Separate Offensive, Neutral, And Defensive Zone Performance<span class="lyr">2013 · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">Machine learning for sports betting: should forecasting models be optimised for accuracy or calibration?<span class="lyr">2023 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-p">8</span>
+        <span class="lttl">Analytics for the Front Office: Valuing Protections on NBA Draft Picks<span class="lyr">2019 · NBA</span></span>
+      </li>
+        </ol>
+      </div>
+      <div class="col">
+        <h3><span class="tag tag-r"></span>Most Reproducible</h3>
+        <p class="ch">Public data, buildable today</p>
+        <ol class="leaderlist">
+      <li class="lrow">
+        <span class="lnum lnum-r">9</span>
+        <span class="lttl">nflWAR: a reproducible method for offensive player evaluation in football<span class="lyr">2019 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">9</span>
+        <span class="lttl">A Starting Point for Analyzing Basketball Statistics<span class="lyr">2007 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">9</span>
+        <span class="lttl">Colley&#x27;s Bias Free College Football Ranking Method: The Colley Matrix Explained<span class="lyr">2003 · CFB</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">9</span>
+        <span class="lttl">An improvement to the baseball statistic &quot;Pythagorean Wins&quot;<span class="lyr">2016 · MLB</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">8</span>
+        <span class="lttl">Analytics, have some humility: a statistical view of fourth-down decision making<span class="lyr">2023 · NFL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">8</span>
+        <span class="lttl">A Regression-based Adjusted Plus-Minus Statistic for NHL Players<span class="lyr">2010 · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">8</span>
+        <span class="lttl">A No-Tanking Draft Allocation Policy<span class="lyr">2020 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-r">8</span>
+        <span class="lttl">Modified Kelly Criteria<span class="lyr">2018 · Betting</span></span>
+      </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>The Proprietary-Data Trap</h2></div>
+    <p class="sec-sub">The collection's biggest fault line. These papers scored high on novelty (≥7) but low on reproducibility (≤3) — brilliant ideas locked behind optical-tracking feeds you can't buy.</p>
+    <div class="callout">
+      <p class="big-stat">The <b>44 proprietary-data</b> papers average <b>2.9 / 10</b> on reproducibility. The <b>93 public-data</b> papers average <b>6.6 / 10</b> — more than double.</p>
+      <ul class="trap">
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">9</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">POINTWISE: Predicting Points and Valuing Decisions in Real Time with NBA Optical Tracking Data</span><span class="tmeta">2014 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">9</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">2</span></div>
+        <div class="tmain"><span class="tttl">POINTWISE: Predicting Points and Valuing Decisions</span><span class="tmeta">2014 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">2</span></div>
+        <div class="tmain"><span class="tttl">Predicting NBA Talent from Enormous Amounts of College Basketball Tracking Data</span><span class="tmeta">2021 · NCAAB</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">2</span></div>
+        <div class="tmain"><span class="tttl">Approaching In-Venue Quality Tracking from Broadcast Video using Generative AI</span><span class="tmeta">2024 · Soccer</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">Deconstructing the Rebound with Optical Tracking Data</span><span class="tmeta">2012 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">The Dwight Effect: A New Ensemble of Interior Defense Analytics for the NBA</span><span class="tmeta">2013 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">The Three Dimensions of Rebounding</span><span class="tmeta">2014 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">Counterpoints: Advanced Defensive Metrics for NBA Basketball</span><span class="tmeta">2015 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+        <div class="tmain"><span class="tttl">Possession Sketches: Mapping NBA Strategies</span><span class="tmeta">2017 · NBA</span></div>
+      </li>
+      <li class="trow">
+        <div class="tstat"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">2</span></div>
+        <div class="tmain"><span class="tttl">Data-Driven Ghosting using Deep Imitation Learning</span><span class="tmeta">2017 · Soccer</span></div>
+      </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Notes on the Collection</h2></div>
+    <div class="notes">
+      <div class="note">
+        <h3>Heavy duplication</h3>
+        <p>20 works appear as 42 files — 22 redundant copies. Byte-identical pairs (<code>Graphical Model for Bask/Basketball</code>), arXiv-vs-conference versions (<code>Meta-Analytics</code>), and three copies of the <code>Three Dimensions of Rebounding</code> and Felsen &amp; Lucey <code>Body Shots</code> papers each. Scores are held identical across copies.</p>
+      </div>
+      <div class="note">
+        <h3>Basketball dominates</h3>
+        <p>Of 165 unique works: <b>85 basketball</b>, 26 NFL, 12 soccer, 9 baseball, 8 hockey, 7 college football, plus betting, cricket and multi-sport. The NBA optical-tracking era (2012–2019) is the single densest cluster — and the least reproducible.</p>
+      </div>
+      <div class="note">
+        <h3>Best of the <code>randoms/</code> folder</h3>
+        <p>The 79-paper grab-bag skews lower (surveys, theses, a few non-research PDFs), but the standouts hold up:</p>
+        <ol class="leaderlist">
+      <li class="lrow">
+        <span class="lnum lnum-c">20</span>
+        <span class="lttl">Adjusted Plus-Minus for NHL Players using Ridge Regression<span class="lyr">2012 · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">20</span>
+        <span class="lttl">An Improved Adjusted Plus-Minus Statistic for NHL Players<span class="lyr">2011 · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">20</span>
+        <span class="lttl">Characterizing the Spatial Structure of Defensive Skill in Professional Basketball<span class="lyr">2015 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">20</span>
+        <span class="lttl">Evaluating NHL Goalies, Skaters, and Teams Using Weighted Shots<span class="lyr">— · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">19</span>
+        <span class="lttl">Large Data and Bayesian Modeling: Aging Curves of NBA Players<span class="lyr">2019 · NBA</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">19</span>
+        <span class="lttl">Strategies for Pulling the Goalie in Hockey<span class="lyr">— · NHL</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">19</span>
+        <span class="lttl">The Harsh Rule of the Goals: Data-Driven Football Performance Indicators<span class="lyr">— · Soccer</span></span>
+      </li>
+      <li class="lrow">
+        <span class="lnum lnum-c">18</span>
+        <span class="lttl">Basketball Teams as Strategic Networks<span class="lyr">2012 · NBA</span></span>
+      </li>
+        </ol>
+      </div>
+      <div class="note">
+        <h3>Method &amp; caveats</h3>
+        <p>Scores come from reading the first ~2 pages of each PDF (title, abstract, intro, data section) — enough to judge contribution, data source and method, not to audit results. Eight scanned/slide-only PDFs were scored from the filename and known literature. Treat these as a fast, directional triage, not peer review.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Scored across 266 papers in <code>Sports-Research-Papers</code> (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
+  </footer>
+</div>
