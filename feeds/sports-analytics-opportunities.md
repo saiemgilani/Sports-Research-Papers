@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-07-13T12:30:42.016169Z
+Generated: 2026-07-14T12:04:12.374623Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
@@ -40,5 +40,5 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | mit-ssac-competitions | ok | false | - |
 | mit-ssac-research-paper-competition | ok | false | - |
 | mlsa | ok | false | - |
-| nessis | ok | false | - |
+| nessis | error | false | - |
 | nfl-big-data-bowl | ok | false | - |
