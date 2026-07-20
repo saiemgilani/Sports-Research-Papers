@@ -4,14 +4,14 @@
   "home_page_url": "https://github.com/saiemgilani/Sports-Research-Papers",
   "feed_url": "https://raw.githubusercontent.com/saiemgilani/Sports-Research-Papers/main/feeds/sports-analytics-opportunities.json",
   "description": "Calls for papers, abstracts, posters, presentations, hackathons, research competitions, and sports data challenges.",
-  "_date_modified": "2026-07-19T11:59:11.360392Z",
+  "_date_modified": "2026-07-20T12:25:57.911353Z",
   "items": [
     {
       "id": "mathsport-asia-2026-abstracts",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "title": "MathSport Asia 2026 abstract submission",
       "content_text": "Submit an English abstract of up to 500 words with three to five keywords.\nStatus: open\nDeadline: 2026-08-03T23:59:59+05:30\nEvent: 2026-12-08T00:00:00+05:30 through 2026-12-10T23:59:59+05:30\nEligibility: open",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "abstract",
@@ -35,7 +35,7 @@
       "url": "https://www.cascadiasports.com/",
       "title": "CASSIS 2026 registration",
       "content_text": "Registration is open for the September 12 symposium in Vancouver.\nStatus: open\nEvent: 2026-09-12T00:00:00-07:00",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "symposium",
         "registration",
@@ -58,7 +58,7 @@
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "title": "MathSport Asia 2026 early registration",
       "content_text": "Early registration deadline for MathSport Asia 2026.\nStatus: open\nDeadline: 2026-09-30T23:59:59+05:30\nEvent: 2026-12-08T00:00:00+05:30 through 2026-12-10T23:59:59+05:30",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "registration",
@@ -81,7 +81,7 @@
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "title": "SSAC27 Research Paper Competition abstract submission",
       "content_text": "Abstracts must report completed results and include an open-source repository link.\nStatus: open\nDeadline: 2026-10-01T23:59:00-04:00\nEvent: 2027-02-25T00:00:00-05:00 through 2027-02-26T23:59:59-05:00\nEligibility: open",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "research-paper",
@@ -105,7 +105,7 @@
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "title": "MathSport Asia 2026 final registration",
       "content_text": "Final registration deadline at the higher fee.\nStatus: open\nDeadline: 2026-11-02T23:59:59+05:30\nEvent: 2026-12-08T00:00:00+05:30 through 2026-12-10T23:59:59+05:30",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "registration",
@@ -128,7 +128,7 @@
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "title": "SSAC27 invited full paper submission",
       "content_text": "Full manuscripts are accepted only from authors selected after abstract review.\nStatus: invitation_only\nDeadline: 2026-12-04T23:59:00-05:00\nEvent: 2027-02-25T00:00:00-05:00 through 2027-02-26T23:59:59-05:00\nEligibility: invitation_only",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "research-paper",
@@ -152,7 +152,7 @@
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "title": "MathSport Asia complete paper submission",
       "content_text": "Optional complete papers may be submitted for proceedings after abstract acceptance.\nStatus: invitation_only\nDeadline: 2027-02-28T23:59:59+05:30\nEligibility: accepted_abstracts",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "full-paper",
@@ -175,7 +175,7 @@
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "title": "MLSA 2026 workshop",
       "content_text": "Full-day workshop co-located with ECML PKDD 2026 in Naples.\nStatus: upcoming\nEvent: 2026-09-07T00:00:00+02:00",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "workshop",
         "conference",
@@ -199,7 +199,7 @@
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "title": "Hudl Performance Insights 2026 finalist presentations",
       "content_text": "Selected research finalists present at Emirates Stadium in London.\nStatus: upcoming\nEvent: 2026-11-13T00:00:00+00:00\nEligibility: selected_finalists",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "competition",
         "soccer",
@@ -223,7 +223,7 @@
       "url": "https://www.cmsaconference.com/",
       "title": "CMSAC research competition and poster calls",
       "content_text": "Monitor the official conference site for the next research competition, poster, and registration dates.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "research-competition",
@@ -247,7 +247,7 @@
       "url": "https://statds.org/events/csas2026/",
       "title": "CSAS/UCSAS data challenge, poster, and workshop calls",
       "content_text": "The 2026 symposium is complete; monitor for the next student data challenge, posters, and workshops.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "symposium",
         "data-challenge",
@@ -272,7 +272,7 @@
       "url": "https://www.kaggle.com/competitions?tagIds=4141-Sports",
       "title": "Kaggle sports competition index",
       "content_text": "Authenticated polling adds active sports-related Kaggle competitions to this feed automatically.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "competition",
         "kaggle",
@@ -296,7 +296,7 @@
       "url": "https://www.mathsportinternational.com/",
       "title": "MathSport International 2027 conference call",
       "content_text": "The next European MathSport meeting is planned for 2027; exact dates and location are not yet posted.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "mathematics",
@@ -305,7 +305,7 @@
       ],
       "_source_id": "mathsport-international",
       "_source_name": "MathSport International",
-      "_source_status": "markers_missing",
+      "_source_status": "ok",
       "_kind": "conference_watch",
       "_status": "monitor",
       "_deadline": null,
@@ -320,7 +320,7 @@
       "url": "https://www.sloansportsconference.com/competitions",
       "title": "MIT Sloan hackathon and competition calls",
       "content_text": "Monitor for the next hackathon, startup competition, and case competition application windows.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "conference",
         "hackathon",
@@ -344,7 +344,7 @@
       "url": "https://www.nessis.org/call.html",
       "title": "NESSIS 2027 abstract submissions",
       "content_text": "The official call says abstract submissions will open in early 2027; no exact deadline is posted yet.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "symposium",
         "abstract",
@@ -368,7 +368,7 @@
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "title": "NFL Big Data Bowl next competition",
       "content_text": "The NFL says calls typically open in the fall and run into early January; monitor for the next Kaggle launch.\nStatus: monitor",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "competition",
         "kaggle",
@@ -392,7 +392,7 @@
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "title": "MLSA 2026 paper submission",
       "content_text": "Paper submission for the ECML PKDD sports analytics workshop.\nStatus: closed\nDeadline: 2026-06-05T23:59:59+02:00\nEvent: 2026-09-07T00:00:00+02:00",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "workshop",
         "paper",
@@ -416,7 +416,7 @@
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "title": "Hudl Performance Insights 2026 research proposals",
       "content_text": "Selected researchers receive Hudl data and present completed work at Emirates Stadium.\nStatus: closed\nDeadline: 2026-07-03T23:59:59+01:00\nEvent: 2026-11-13T00:00:00+00:00\nEligibility: open",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "competition",
         "soccer",
@@ -440,7 +440,7 @@
       "url": "https://www.cascadiasports.com/",
       "title": "CASSIS 2026 abstract submissions",
       "content_text": "The official page states that abstract submissions have closed.\nStatus: closed\nEvent: 2026-09-12T00:00:00-07:00",
-      "date_modified": "2026-07-19T11:59:11.360392Z",
+      "date_modified": "2026-07-20T12:25:57.911353Z",
       "tags": [
         "symposium",
         "abstract",
