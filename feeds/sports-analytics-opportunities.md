@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-07-23T12:12:33.430907Z
+Generated: 2026-07-24T12:07:21.477912Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
