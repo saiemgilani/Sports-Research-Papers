@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-08-04T12:21:01.949885Z
+Generated: 2026-08-05T12:20:18.701824Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
@@ -33,12 +33,12 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | cassis | ok | false | - |
 | cmsac | ok | false | - |
 | csas | ok | false | - |
-| hudl-performance-insights | ok | true | - |
+| hudl-performance-insights | blocked | false | - |
 | kaggle-sports | auth_required | false | - |
 | mathsport-asia | markers_missing | false | August 03, 2026 |
-| mathsport-international | markers_missing | true | MathSport International, 2027 |
+| mathsport-international | markers_missing | false | MathSport International, 2027 |
 | mit-ssac-competitions | ok | false | - |
 | mit-ssac-research-paper-competition | ok | false | - |
 | mlsa | ok | false | - |
-| nessis | markers_missing | true | Abstract Submission, early 2027 |
+| nessis | markers_missing | false | Abstract Submission, early 2027 |
 | nfl-big-data-bowl | ok | false | - |
