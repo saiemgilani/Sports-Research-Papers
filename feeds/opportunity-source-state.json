@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-11T11:54:43.918445Z",
+  "generated_at": "2026-08-13T11:56:14.162053Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
@@ -21,7 +21,7 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,7 +65,7 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -91,7 +91,7 @@
     {
       "source_id": "mlsa",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "http_status": 200,
@@ -108,7 +108,7 @@
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -121,12 +121,12 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
       "content_sha256": "0407473481cd56b7c9ef61cfa4ab295db468115da09724749e5740f34fef9b64",
-      "changed": true,
+      "changed": false,
       "missing_markers": [
         "August 03, 2026"
       ],
@@ -144,29 +144,29 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "acdef43330dc3f2ed5ccc984a3c8d4f8430cc54e485b92c6e40dae7edc671fc3",
+      "content_sha256": "848cd021a3a481e08cc3f6e73905a4108feda859d048c97c4296bbdcb8c3fe6e",
       "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
-        "Related Stories How to Record Football Matches: Grassroots Club Guide 10 Aug 2026 FastScout Explore Tab: Your Clips Now Find You 6 Aug 2026 The Smarter",
+        "Stories How IWCC Men's Basketball Turned Film Hours Into Floor Hours 12 Aug 2026 How to Record Football Matches: Grassroots Club Guide 10 Aug 2026 Fas",
+        "urs 12 Aug 2026 How to Record Football Matches: Grassroots Club Guide 10 Aug 2026 FastScout Explore Tab: Your Clips Now Find You 6 Aug 2026 The Smarter",
         "Club Guide 10 Aug 2026 FastScout Explore Tab: Your Clips Now Find You 6 Aug 2026 The Smarter Scouting Strategy Powering IK Sirius’ Rise 5 Aug 2026 Bui",
         "You 6 Aug 2026 The Smarter Scouting Strategy Powering IK Sirius’ Rise 5 Aug 2026 Built to Last: The Georgia Tech Women’s Basketball Workflow 3 Aug 202",
         "Aug 2026 Built to Last: The Georgia Tech Women’s Basketball Workflow 3 Aug 2026 Inside the Staff Room: How Top Basketball Teams Win With Hudl 23 Jul",
-        "ug 2026 Inside the Staff Room: How Top Basketball Teams Win With Hudl 23 Jul 2026 Faster Hockey Workflows: From Final Horn to First Scout 21 Jul 2026 S",
-        "l 23 Jul 2026 Faster Hockey Workflows: From Final Horn to First Scout 21 Jul 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
+        "ug 2026 Inside the Staff Room: How Top Basketball Teams Win With Hudl 23 Jul 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
       ],
       "error": ""
     },
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
@@ -179,7 +179,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-08-11T11:54:43.918445Z",
+      "checked_at": "2026-08-13T11:56:14.162053Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
