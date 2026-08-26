@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-08-25T11:49:07.181387Z
+Generated: 2026-08-26T11:49:26.488726Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
@@ -30,8 +30,8 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 
 | Source | Fetch status | Changed | Missing markers |
 | --- | --- | --- | --- |
-| cassis | ok | true | - |
-| cmsac | ok | false | - |
+| cassis | ok | false | - |
+| cmsac | ok | true | - |
 | csas | ok | false | - |
 | hudl-performance-insights | ok | false | - |
 | kaggle-sports | auth_required | false | - |
