@@ -5,3 +5,6 @@ cookies.txt
 storage_state.json
 Neil Player Tracking Talk Final 1.pptx
 /.tmp.driveupload
+
+# Local agent/skill tooling -- never part of the repo
+.omc/
