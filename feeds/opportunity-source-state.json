@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T11:41:43.614087Z",
+  "generated_at": "2026-09-02T11:42:18.137972Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
@@ -21,7 +21,7 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
@@ -33,25 +33,28 @@
     },
     {
       "source_id": "nessis",
-      "status": "blocked",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "status": "ok",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
-      "http_status": 403,
-      "content_sha256": "",
+      "http_status": 200,
+      "content_sha256": "8cc4e2624c0b1b46b1ff60aa5034396c08a675a4e2b534b6f77c6add59056001",
       "changed": false,
       "missing_markers": [],
-      "date_mentions": [],
-      "error": "HTTP 403"
+      "date_mentions": [
+        "Directions Local Information What's New The 2025 NESSIS took place on September 27, 2025. Abstract submission for the 2025 NESSIS closed on July 15, 2025. Adv",
+        "September 27, 2025. Abstract submission for the 2025 NESSIS closed on July 15, 2025. Advance registration for the 2025 NESSIS has closed. See you at the"
+      ],
+      "error": ""
     },
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
-      "content_sha256": "6b232f49d1fc65f5e851270432bc9b46236a10957a94f0c3d2ce2b6dd1b310e3",
+      "content_sha256": "4f66a8ef58381bc8fb0777600e69b0e6b28f02ce71693859f0e0a95139139201",
       "changed": true,
       "missing_markers": [],
       "date_mentions": [
@@ -62,7 +65,7 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
@@ -75,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -87,45 +90,49 @@
     },
     {
       "source_id": "mlsa",
-      "status": "error",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "status": "ok",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
-      "final_url": "",
-      "http_status": null,
-      "content_sha256": "",
+      "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
+      "http_status": 200,
+      "content_sha256": "92ebd8ff753cbe1f6bd25a4b0268410ebfece2c7ee52b380f8e7c5ba977d34fe",
       "changed": false,
       "missing_markers": [],
-      "date_mentions": [],
-      "error": "<urlopen error timed out>"
+      "date_mentions": [
+        "n Machine Learning and Data Mining for Sports Analytics Naples, Italy Sep 7, 2026 Call for Papers Submission Key Dates Schedule Organisers Previous Edi",
+        "located with ECML/PKDD 2026 . It will take place in Naples, Italy on September 7, 2026 . The workshop program will feature invited talks from leading resear",
+        "erformance prediction. View the full CfP → Key Dates Paper Submission June 5, 2026 Workshop Date September 7, 2026 Full schedule → Proceedings As in pre"
+      ],
+      "error": ""
     },
     {
       "source_id": "mathsport-international",
-      "status": "blocked",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "status": "ok",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
-      "http_status": 403,
-      "content_sha256": "",
+      "http_status": 200,
+      "content_sha256": "e1eb2d4f8e34158cff2bf62d09a70bd8d5857091368c4d3f38390578d96a3ff0",
       "changed": false,
       "missing_markers": [],
       "date_mentions": [],
-      "error": "HTTP 403"
+      "error": ""
     },
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
-      "content_sha256": "7c5be77bb90913cbf74cb277591cfa48dc1a90a4a9480ec97f59a25dc7777f87",
+      "content_sha256": "b20cf1e900952e877b19e0b103016f4c4797c7ae1008f238248cb7bbbc5e9606",
       "changed": true,
       "missing_markers": [
         "August 03, 2026"
       ],
       "date_mentions": [
-        "dia About the conference Registration / Submission Extended Deadline: August 17, 2026 | Submissions received by August 3, 2026 will be notified about decis",
-        "bmission Extended Deadline: August 17, 2026 | Submissions received by August 3, 2026 will be notified about decisions by August 18, 2026. | Submissions re",
+        "e, Kerala, India About the conference Registration Extended Deadline: August 17, 2026 | Submissions received by August 3, 2026 will be notified about decis",
+        "stration Extended Deadline: August 17, 2026 | Submissions received by August 3, 2026 will be notified about decisions by August 18, 2026. | Submissions re",
         "ssions received by August 3, 2026 will be notified about decisions by August 18, 2026. | Submissions received by August 17, 2026 will be notified by August",
         "2026. | Submissions received by August 17, 2026 will be notified by August 24, 2026. About MathSport Asia 2026 The 3rd edition of the conference, will be",
         "t 17, 2026 Intimation of Decision August 18, 2026 Registration Begins August 18, 2025 Early Registration Deadline October 15, 2026 Last Registration Deadli",
@@ -137,28 +144,27 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "f33a0af8bf9ef32165d02f39d72e6358b4c80fdc41c355fcb7ae89aa46183889",
+      "content_sha256": "5c6050185459003346d3493fbec459d5920e0336cabdf9b903d99234d4e04033",
       "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
-        "Hudl Team Related Stories How SUNY Cortland Left the Cash Box Behind 28 Aug 2026 How Iowa Western Women's Basketball Makes Every Player Count 28 Aug 2",
+        "Air for Week 1 1 Sept 2026 How SUNY Cortland Left the Cash Box Behind 28 Aug 2026 How Iowa Western Women's Basketball Makes Every Player Count 28 Aug 2",
         "Every Player Count 28 Aug 2026 A Group of 6 CFP Eliminator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Hudl and Dropba",
         "ator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Hudl and Dropback Partner to Transform Roster Strategy for College Fo",
-        "ropback Partner to Transform Roster Strategy for College Football GMs 20 Aug 2026 Ignacio Ovando: The Defender Lighting up the Libertadores 18 Aug 2026",
-        "20 Aug 2026 Ignacio Ovando: The Defender Lighting up the Libertadores 18 Aug 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
+        "ropback Partner to Transform Roster Strategy for College Football GMs 20 Aug 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
       ],
       "error": ""
     },
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
@@ -171,7 +177,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-09-01T11:41:43.614087Z",
+      "checked_at": "2026-09-02T11:42:18.137972Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
