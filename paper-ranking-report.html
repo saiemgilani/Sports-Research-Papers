@@ -161,6 +161,7 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
       <div class="cell"><div class="big">165</div><div class="lbl">Unique works (curated)</div></div>
       <div class="cell"><div class="big">22</div><div class="lbl">Duplicate copies found</div></div>
       <div class="cell"><div class="big">10</div><div class="lbl">Sports covered</div></div>
+      <div class="cell"><div class="big">+20</div><div class="lbl">Added since (2026-09-02)</div></div>
     </div>
   </header>
 
@@ -708,7 +709,272 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
     </div>
   </section>
 
+
+  <section>
+    <div class="sec-head"><h2>Additions Since This Pass</h2></div>
+    <p class="sec-sub">Twenty works added on 2 September 2026, scored on the same rubric and appended to <code>paper-ranking-scores.csv</code> so the original pass&rsquo;s counts above stay reproducible. The Top&nbsp;25 and category leaders below reflect the original 266-paper reading and were deliberately left unchanged &mdash; two of these would otherwise enter it.</p>
+    <div class="callout">
+      <p class="big-stat">Sorted by composite. <b>Glazer&rsquo;s league-translation paper scores 23/30</b> &mdash; only three works in the original pass score higher, and four tie with it &mdash; and the <b>15 papers built on public data average 7.2</b> on reproducibility against <b>3.3</b> for the three built on proprietary tracking.</p>
+    </div>
+    <ol class="ranklist">
+      <li class="row">
+        <div class="rank">1</div>
+        <div class="main">
+          <div class="ttl">Nuthin&#x27; But A G League: Estimating league translation factors</div>
+          <div class="desc">First causal framing of league translation: genetic matching plus difference-in-differences against same-league stayers, which nets out aging and development so the residual is the league and not the move; G League to NBA factors come out directionally like the same-season method but consistently smaller.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">23</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">2</div>
+        <div class="main">
+          <div class="ttl">A predictive metamodel for college football</div>
+          <div class="desc">Forward selection by cross-validated PSSE over 29 CFB rating systems and 5,925 games picks a five-system ensemble that reaches 12.30 MAE and 74.1% winners on 2023-24, statistically significant in the presence of the opening line.</div>
+          <div class="meta"><span class="chip">CFB</span><span class="yr">2025</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">3</div>
+        <div class="main">
+          <div class="ttl">Lasso Multinomial Performance Indicators for in-play Basketball Data</div>
+          <div class="desc">Bake-off of ridge vs lasso vs binary/multinomial-logit RAPM over 322,852 NBA possessions; the winner, wEPTS, models points-per-possession as the discrete 0-3 variable it actually is and weights each player by possession share.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2024</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">4</div>
+        <div class="main">
+          <div class="ttl">Lineup Regularized Adjusted Plus-Minus (L-RAPM): Basketball Lineup Ratings with Informed Priors</div>
+          <div class="desc">Rates lineups instead of players by shrinking lineup ridge coefficients toward a prior built from summed player RAPM; the only public method that can rate a lineup that has never played, and the gain grows as the lineup gets thinner.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+          <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">5</div>
+        <div class="main">
+          <div class="ttl">Hierarchical Bayesian Modeling of Cross-League Performance Translation in Elite Football</div>
+          <div class="desc">Hierarchical Bayesian &#x27;league tax&#x27; for players transferring into the Premier League; uses within-league transfers as an untreated control to separate club-change shock from league effect, and grades itself on 90% HDI coverage rather than MAE.</div>
+          <div class="meta"><span class="chip">Soccer</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">6</div>
+        <div class="main">
+          <div class="ttl">iWinRNFL: A Simple, Interpretable &amp; Well-Calibrated In-Game Win Probability Model for NFL</div>
+          <div class="desc">Ten-variable logistic in-game WP on 7 seasons of public pbp; 75% winner accuracy, well calibrated, and non-linear models on identical features bought nothing - a useful negative result for anyone reaching for a bigger learner.</div>
+          <div class="meta"><span class="chip">NFL</span><span class="yr">2017</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">7</div>
+        <div class="main">
+          <div class="ttl">A causal approach for detecting team-level momentum in NBA games</div>
+          <div class="desc">Uses TV timeouts as an exogenous pause to identify momentum causally: the team on a run scores 11.2% fewer points in the next three minutes, an effect larger than an opponent substitution and not explained by mean reversion.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2023</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">8</div>
+        <div class="main">
+          <div class="ttl">WINSCORE revisited: A model-based evaluation of player performance in the NBA and EuroLeague</div>
+          <div class="desc">Re-derives Berri&#x27;s WINSCORE as a two-parameter possession model whose box-score weights fall out of simulation rather than assumption; encompassing tests retire PIR, and a role-plus-minutes caliper fixes the low-minute extrapolation that inflates every role benchmark.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">9</div>
+        <div class="main">
+          <div class="ttl">mWAR: A Bayesian estimator of manager value</div>
+          <div class="desc">Multilevel Bayesian manager estimator over 500+ MLB managers since 1901; gates itself on a simulated null before estimating anything, then reports each manager against a region of practical equivalence rather than a point estimate.</div>
+          <div class="meta"><span class="chip">MLB</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">10</div>
+        <div class="main">
+          <div class="ttl">Footballonomics: The Anatomy of American Football; Evidence from 7 years of NFL game data</div>
+          <div class="desc">Rejects the rational-coaching hypothesis on PAT and fourth-down decisions across 2009-2015, then shows a small logistic plus bootstrap reaches ~63% game accuracy - comparable to far more complex systems.</div>
+          <div class="meta"><span class="chip">NFL</span><span class="yr">2016</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">11</div>
+        <div class="main">
+          <div class="ttl">Implicit Biases in Refereeing: Lessons from NBA Referees</div>
+          <div class="desc">Home bias in NBA officiating is real and playoff-amplified but shrank after COVID; specific players draw favourable calls beyond chance, while team-level and racial bias show nothing - built entirely on public Last Two Minutes reports.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2022</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">12</div>
+        <div class="main">
+          <div class="ttl">Predictions of european basketball match results with machine learning algorithms</div>
+          <div class="desc">Elo, PageRank and pi-rating features tuned per tournament lift box-score models across four European leagues and 5,214 games - and the lift is smallest in the EuroLeague, the most competitively balanced of them.</div>
+          <div class="meta"><span class="chip">basketball</span><span class="yr">2023</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">13</div>
+        <div class="main">
+          <div class="ttl">The Anatomy of the Three-Point Shot: Spatial Bias, Fractals and the Three-Point Line in the NBA</div>
+          <div class="desc">Shot attempts jump discontinuously across the three-point line while field goal percentage does not, so shooters are behaving rationally and it is the line&#x27;s placement that wastes the space just inside it.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2016</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">4</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">14</div>
+        <div class="main">
+          <div class="ttl">Understanding team collapse via probabilistic graphical models</div>
+          <div class="desc">Graphical model of team dynamics with learnable parameters, used to locate the causes of team collapse and state principles for resilient teams; NBA application is diagnostic rather than a shipping metric.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2024</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">4</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">15</div>
+        <div class="main">
+          <div class="ttl">tHoops: A Multi-Aspect Analytical Framework for Spatio-Temporal Basketball Data</div>
+          <div class="desc">PARAFAC decomposition of an entity-by-location-by-time tensor into interpretable prototype spatio-temporal patterns, with a rule for choosing the component count; every entity becomes a weighted mix of the prototypes.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2017</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">16</div>
+        <div class="main">
+          <div class="ttl">DeepHoops: Evaluating Micro-Actions in Basketball Using Deep Feature Representations of Spatio-Temporal Data</div>
+          <div class="desc">Deep sequence model over tracking data emitting a running expected-points stream, framed as multi-class terminal-action classification with a parameterised downsampling scheme for class imbalance; values off-ball actions no box score sees.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2019</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">4</span></div>
+          <div class="comp"><span class="compnum">17</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">17</div>
+        <div class="main">
+          <div class="ttl">The Anatomy of Corner 3s in the NBA: What makes them efficient, how are they generated and how can defenses respond?</div>
+          <div class="desc">Corner threes are efficient because they are assisted over 90% of the time, not because they are shorter; the defensive game solved here has a Nash equilibrium of committing to the corner or to the drive, never lingering.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2021</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+          <div class="comp"><span class="compnum">16</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">18</div>
+        <div class="main">
+          <div class="ttl">Big data analytics for modeling scoring probability in basketball: The effect of shooting under high-pressure conditions</div>
+          <div class="desc">CART over jointly-considered high-pressure situations yields new shooting measures, fit on Italian Serie A2 and validated on Rio 2016. SCORED FROM ABSTRACT ONLY - closed access, no full text held.</div>
+          <div class="meta"><span class="chip">basketball</span><span class="yr">2017</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">4</span></div>
+          <div class="comp"><span class="compnum">15</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">19</div>
+        <div class="main">
+          <div class="ttl">Concurrent validity of computer-vision artificial intelligence player tracking software using broadcast footage</div>
+          <div class="desc">Three commercial broadcast-video tracking providers against TRACAB Gen 5 on one World Cup match: total distance bias spans -21.8% to +24.3% between providers, so use a tactical feed and treat provider choice as a first-order decision.</div>
+          <div class="meta"><span class="chip">soccer</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">3</span></div>
+          <div class="comp"><span class="compnum">15</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">20</div>
+        <div class="main">
+          <div class="ttl">How to assess leader capabilities: Applying AI algorithms to evaluate NBA head coaches</div>
+          <div class="desc">Treats the residual between a prior-season-roster win prediction and actual results as the head coach&#x27;s marginal contribution over 772 team-seasons; the residual is attributed to coaching by assumption, with no null test.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2025</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">4</span><span class="stat stat-p" title="Practicality">4</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+          <div class="comp"><span class="compnum">14</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+    </ol>
+    <div class="notes">
+      <div class="note">
+        <h3>Provenance &mdash; read before implementing</h3>
+        <p><b>Eight of these are held as text only, with no PDF.</b> SAGE&rsquo;s version of record is Cloudflare-blocked from datacenter IPs and most of these have no preprint, so the text came from the published HTML through a reader proxy: prose and tables are as published, but <b>equations are lost</b> and figures and appendices are absent. Check any formula against the publisher page. One further paper (Zuccolotto et al. 2017) carries no Creative Commons licence and is held as a <b>metadata stub only</b>; its score was assigned from the abstract alone and is lower-confidence, in the same class as the eight scanned PDFs noted in the method above.</p>
+      </div>
+      <div class="note">
+        <h3>What the batch shows</h3>
+        <p>Two pairs here ask near-identical questions with different rigour, and the ranking gap is entirely inferential discipline rather than data or technique. Glazer (23) versus the naive league-average translation she benchmarks against: same data, but a control group turns a <em>directionally wrong</em> adjustment into a causal estimate. mWAR (20) versus the NBA head-coach paper (14): both read a residual against a roster baseline, but one tests that residual against a simulated null before naming it. <b>In this literature the control group and the null test are worth more than the model.</b></p>
+      </div>
+      <div class="note">
+        <h3>The proprietary trap, reproduced inside one bibliography</h3>
+        <p>Ten of these are Pelechrinis-authored &mdash; one researcher&rsquo;s output, so not a sample of the field. Even so the internal split matches the collection-wide pattern exactly: within that subset the papers on public data score 6&ndash;8 on reproducibility while the two on contracted optical tracking score 3 and 4, with no relationship to idea quality. <code>DeepHoops</code> carries that subset&rsquo;s highest novelty (8) and its second-lowest composite.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    Scored across 266 papers in <code>Sports-Research-Papers</code> (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
+    Scored across 266 papers in <code>Sports-Research-Papers</code> (plus 20 added 2026-09-02, listed separately above) (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
   </footer>
 </div>
