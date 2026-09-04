@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T11:41:50.718344Z",
+  "generated_at": "2026-09-04T11:41:36.777897Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
@@ -21,7 +21,7 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,12 +65,12 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
       "content_sha256": "e891065073f7ee969d8f0a72380e871a8eb0820ccd979fea047fb5464612d14a",
-      "changed": true,
+      "changed": false,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -91,7 +91,7 @@
     {
       "source_id": "mlsa",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "http_status": 200,
@@ -108,7 +108,7 @@
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -121,7 +121,7 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
@@ -144,32 +144,31 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "5c6050185459003346d3493fbec459d5920e0336cabdf9b903d99234d4e04033",
-      "changed": false,
+      "content_sha256": "066373898d5d0ef9805bc18d24cb2220db03a999e7ef7a36bcadf28f6cf431a9",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
         "Air for Week 1 1 Sept 2026 How SUNY Cortland Left the Cash Box Behind 28 Aug 2026 How Iowa Western Women's Basketball Makes Every Player Count 28 Aug 2",
-        "Every Player Count 28 Aug 2026 A Group of 6 CFP Eliminator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Hudl and Dropba",
-        "ator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Hudl and Dropback Partner to Transform Roster Strategy for College Fo",
-        "ropback Partner to Transform Roster Strategy for College Football GMs 20 Aug 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
+        "Every Player Count 28 Aug 2026 A Group of 6 CFP Eliminator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Solutions High",
+        "ator in Week 0? 27 Aug 2026 Different Pathways To Score in Transition 26 Aug 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
       ],
       "error": ""
     },
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
-      "content_sha256": "bd4f358e71dbb9c022432ea05824ecd0803b521b26b37cb7506b921c7149620c",
-      "changed": false,
+      "content_sha256": "aae7efb083fe49fae534e65b6ebd092c3d3324dfeefccf9e6c9e30dcbc5523dd",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -177,7 +176,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-09-03T11:41:50.718344Z",
+      "checked_at": "2026-09-04T11:41:36.777897Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
