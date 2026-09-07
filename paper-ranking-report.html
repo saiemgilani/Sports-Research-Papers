@@ -161,7 +161,7 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
       <div class="cell"><div class="big">165</div><div class="lbl">Unique works (curated)</div></div>
       <div class="cell"><div class="big">22</div><div class="lbl">Duplicate copies found</div></div>
       <div class="cell"><div class="big">10</div><div class="lbl">Sports covered</div></div>
-      <div class="cell"><div class="big">+20</div><div class="lbl">Added since (2026-09-02)</div></div>
+      <div class="cell"><div class="big">+25</div><div class="lbl">Added since (2026-09-02, 2026-09-07)</div></div>
     </div>
   </header>
 
@@ -974,7 +974,87 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
     </div>
   </section>
 
+  <section>
+    <div class="sec-head"><h2>arXiv Weekly Scan &mdash; 5 More, Added 2026-09-07</h2></div>
+    <p class="sec-sub">Five preprints from a <code>sortBy=submittedDate</code> arXiv scan of the trailing week (2026-08-31 through 2026-09-07), scored on the same rubric and appended to <code>paper-ranking-scores.csv</code>. CSV goes 286 &rarr; 291 rows.</p>
+    <div class="callout">
+      <p class="big-stat"><b>ELASTIC</b> and <b>Dummy RAPM</b> are both data-plumbing fixes &mdash; event/tracking sync and RAPM lineup accounting &mdash; not new metrics, and both score highest in the batch because the fix, the data, and the code are all public. Dummy RAPM is built directly on public <code>hoopR</code>/sportsdataverse play-by-play.</p>
+    </div>
+    <ol class="ranklist">
+      <li class="row">
+        <div class="rank">1</div>
+        <div class="main">
+          <div class="ttl">ELASTIC: Trajectory-Based Synchronization of Event and Tracking Data in Soccer</div>
+          <div class="desc">Infers event start/end timestamps from player &amp; ball trajectories alone (never the noisy annotated event locations), recovering ball receptions and aligning events to candidate touch-frames via an extended Needleman&ndash;Wunsch; public code and a hand-annotated public Sportec Open DFL benchmark.</div>
+          <div class="meta"><span class="chip">Soccer</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">7</span></div>
+          <div class="comp"><span class="compnum">22</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">2</div>
+        <div class="main">
+          <div class="ttl">Dummy RAPM: Representing Low-Minute Players in Regularized Adjusted Plus-Minus</div>
+          <div class="desc">Ten pooled count-indicator regressors restore lineup information lost when low-minute players are filtered from RAPM; 0.30% game-margin RMSE reduction across 16 NBA seasons, built on public ESPN play-by-play via sportsdataverse/hoopR with released code.</div>
+          <div class="meta"><span class="chip">NBA</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">5</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">9</span></div>
+          <div class="comp"><span class="compnum">21</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">3</div>
+        <div class="main">
+          <div class="ttl">Auditing Contextual Bias in Human Ball-Strike Calls Using KBO&rsquo;s Automated Umpiring Transition</div>
+          <div class="desc">Uses the KBO&rsquo;s 2024 human-to-robot-umpire switch as a natural-experiment audit: count-pressure strike-call bias (0&ndash;2, 3&ndash;0) was real under humans and collapsed to zero under ABS. Public pitch data, no code released yet.</div>
+          <div class="meta"><span class="chip">Baseball</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">4</div>
+        <div class="main">
+          <div class="ttl">The Traveling Tournament Problem: An Overview</div>
+          <div class="desc">25-year literature survey of the MLB-scheduling optimization problem, succeeding Michael Trick&rsquo;s RobinX benchmark/bounds repository. A reference and a live public tool, not a new empirical result &mdash; novelty scored low by design.</div>
+          <div class="meta"><span class="chip">Multi</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">4</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">6</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">5</div>
+        <div class="main">
+          <div class="ttl">Unified Pitch Graphs for Diagnosing Pitching Strategy</div>
+          <div class="desc">Hierarchical multi-resolution graph over 3.94M public Statcast pitches with support-adaptive backoff, lifting held-out path coverage from 18.9% to 94.9% and localizing execution changes discrete pitch-mix models miss. No code repository given.</div>
+          <div class="meta"><span class="chip">Baseball</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+    </ol>
+    <div class="notes">
+      <div class="note">
+        <h3>Why these five</h3>
+        <p>Filtered down from roughly 45 sports-tagged arXiv submissions in the trailing week &mdash; the scan also turns up humanoid-robot soccer/football control papers, video-commentary LLM benchmarks, and unrelated physics papers that happen to use &ldquo;hockey-stick&rdquo; as a shape descriptor. These five are the ones with a genuine sports-analytics methods contribution.</p>
+      </div>
+      <div class="note">
+        <h3>Built on this collection&rsquo;s own infrastructure</h3>
+        <p>Dummy RAPM cites <code>Gilani, S. (2026). hoopR: Access Men&rsquo;s Basketball Play-by-Play Data</code> as its data source &mdash; a paper from outside the SportsDataverse community building directly on <code>hoopR</code>. Worth a pointer from the sportsdataverse/hoopR side back to this application.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    Scored across 266 papers in <code>Sports-Research-Papers</code> (plus 20 added 2026-09-02, listed separately above) (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
+    Scored across 266 papers in <code>Sports-Research-Papers</code> (plus 20 added 2026-09-02 and 5 added 2026-09-07, listed separately above) (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
   </footer>
 </div>

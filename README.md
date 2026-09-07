@@ -12,6 +12,7 @@ The curated sports analytics research and opportunity feed lives in:
 - [feeds/sports-analytics-opportunities.md](feeds/sports-analytics-opportunities.md)
 - [feeds/sports-analytics-opportunities.json](feeds/sports-analytics-opportunities.json)
 - [feeds/sports-analytics-opportunities.xml](feeds/sports-analytics-opportunities.xml)
+- [feeds/roundups/](feeds/roundups/) — dated weekly research roundups (literature, open-source ecosystem, data engineering/tooling)
 
 ## Automated Updates
 

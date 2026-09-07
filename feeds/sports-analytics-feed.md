@@ -1,6 +1,8 @@
 # Sports Analytics Research Feed
 
-Last verified: 2026-07-12
+Last verified: 2026-09-07
+
+Dated weekly research roundups (literature, sportsdataverse/nflverse ecosystem, data engineering tooling) live in [`roundups/`](roundups/); the latest is [`roundups/2026-09-07.md`](roundups/2026-09-07.md).
 
 This directory is a seed catalog for two related feeds:
 
