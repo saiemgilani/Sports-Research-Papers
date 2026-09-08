@@ -440,3 +440,151 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+## Additions — 2026-09-08 weekly research roundup
+
+Five arXiv preprints, all posted in the seven days before this pass (28 Aug – 4 Sep 2026),
+picked up by a scheduled sports-analytics literature scan. Same 1–10 rubric, same composite;
+appended to `paper-ranking-scores.csv` with `folder = library` so the earlier passes above stay
+reproducible. CSV 286 → 291 rows.
+
+| Paper | Yr | Sport | N | P | R | Σ/30 |
+|---|--:|---|--:|--:|--:|--:|
+| A Fairness Audit of the Duckworth–Lewis–Stern Method | 2026 | Cricket | 8 | 8 | 9 | **25** |
+| Auditing Contextual Bias in Human Ball-Strike Calls Using KBO's Automated Umpiring Transition | 2026 | Baseball | 8 | 7 | 5 | **20** |
+| The Traveling Tournament Problem: An Overview | 2026 | Multi | 4 | 7 | 8 | **19** |
+| Unified Pitch Graphs for Diagnosing Pitching Strategy | 2026 | Baseball | 7 | 6 | 5 | **18** |
+| Hierarchical Possession-Aware Graph Pointer Network for Pass Receiver Selection | 2026 | Soccer | 6 | 5 | 5 | **16** |
+
+### A Fairness Audit of the Duckworth–Lewis–Stern Method: Format-Specific and Gender-Differential Bias, with an Interpretable Calibration Layer for Cricket Target Revision
+
+Roy, arXiv:[2609.04754](https://arxiv.org/abs/2609.04754), 4 Sep 2026.
+Markdown: [`md/2026 A Fairness Audit of the Duckworth-Lewis-Stern Method - Roy.md`](md/2026%20A%20Fairness%20Audit%20of%20the%20Duckworth-Lewis-Stern%20Method%20-%20Roy.md).
+
+**What it does.** The first published large-sample (8,150 Cricsheet matches) empirical audit of
+DLS — the ICC's mandatory rain-interruption target-revision formula since 1999 — built on a
+synthetic-interruption design: sample an interruption point inside a completed match, compute
+what DLS would have projected from there, and compare against the runs actually scored the
+rest of the innings. Two findings anchor the paper: a **137-run span of mean bias** across the
+(overs remaining × wickets lost) state space, format-specific in direction (over-predicts T20
+death-over scoring, under-predicts ODI collapses); and a **gender-differential bias** — the same
+resource table used for men's and women's cricket miscalibrates women's ODIs by **+6.13 runs**
+relative to men's at comparable match states, a gap that survives match-level clustered inference
+and a Full-Member-only robustness check. DLS-Cal, a lightweight state-conditioned correction
+*layered on top of* the published DLS output rather than replacing it, cuts absolute bias 31%
+(ODI) / 19% (T20I); its gender-aware variant takes the women's ODI residual from +6.19 to +0.65
+runs. The paper also proposes the **Win-Flip Rate** — how often a correction would actually
+change who wins at a given target threshold — as a decision-relevant fairness metric for this
+class of problem, rather than reporting bias only in raw-run terms.
+
+**Why it is the strongest item in this week's batch.** A governance-relevant empirical gap
+(gender-differential miscalibration in an outcome-determining formula) that, per the abstract,
+"to our knowledge has not previously been documented," paired with a fix that is a drop-in
+correction rather than a rival model — which matters for real-world adoption odds, since it
+doesn't ask the ICC to abandon DLS. The Win-Flip Rate is also a genuinely new fairness-metric
+contribution, not just another accuracy number.
+
+**Where it is weak / to verify independently.** The synthetic-interruption design assumes a
+completed match is a valid stand-in for how the same teams would have played out a genuinely
+rain-shortened chase — a reasonable but unproven identification assumption, since real rain
+delays may correlate with match state in ways synthetic sampling can't capture. The 137-run
+figure is a *range* across many state buckets, not a single average-bias number, and is easy to
+misquote out of context.
+
+**Reproducibility scores 9** on the strength of a named public dataset (Cricsheet), a fully
+specified audit design, and an explicit code/trained-model/audit-dataset release per the
+abstract — docked one point only pending independent verification of those released artifacts.
+
+### Auditing Contextual Bias in Human Ball-Strike Calls Using KBO's Automated Umpiring Transition
+
+Lee & Ko, arXiv:[2609.03786](https://arxiv.org/abs/2609.03786), 3 Sep 2026.
+Markdown: [`md/2026 Auditing Contextual Bias in Human Ball-Strike Calls Using KBO's Automated Umpiring Transition - Lee, Ko.md`](<md/2026 Auditing Contextual Bias in Human Ball-Strike Calls Using KBO's Automated Umpiring Transition - Lee, Ko.md>).
+
+**What it does.** Turns the KBO's 2024 league-wide switch to an Automated Ball-Strike system
+into a natural experiment for auditing human umpire bias — something the PITCHf/x-and-Statcast
+era of indirect-inference bias studies has never had a real ground-truth comparison for. Using
+2022–2023 as the human baseline and 2024-onward ABS seasons as the diagnostic benchmark, the
+strongest and cleanest result is count pressure: in the primary 0.25-ft boundary band, human
+umpires showed a **-17.17 percentage-point** effect at 0–2 counts and **+6.61 pp** at 3–0 relative
+to 0–0, both of which shrink to near zero and lose significance under false-discovery-rate
+correction once ABS is calling the pitch. Secondary, explicitly hedged findings: a smaller
+inning-progression pattern (more strike-prone late in close games, under human calling only),
+"suggestive but proxy-sensitive" reputation effects, catcher-identity heterogeneity that
+disappears under ABS, and mostly-null home-context evidence with one flagged exploratory
+umpire-team gap.
+
+**Why it matters now.** MLB is running its own ABS/Challenge-System expansion over roughly this
+same period, so a rigorous natural-experiment audit from a league that adopted automated calling
+earlier is a directly transferable methodology and a live input to that policy debate, not just
+a historical bias study.
+
+**Where it is weak.** KBO pitch-tracking data is less openly distributed than MLB Statcast and
+no code/data release is indicated, so independent replication would require negotiating KBO
+data access — the main reason reproducibility lands at 5 rather than higher despite a well-specified
+model and correct FDR practice across the many subgroup tests.
+
+### The Traveling Tournament Problem: An Overview
+
+Van Bulck, Yang, Goossens & Trick, arXiv:[2609.03612](https://arxiv.org/abs/2609.03612), 3 Sep 2026.
+Dedicated to Dr. Kelly Easton (d. Feb 2026), TTP's co-originator.
+Markdown: [`md/2026 The Traveling Tournament Problem An Overview - Van Bulck, Yang, Goossens, Trick.md`](<md/2026 The Traveling Tournament Problem An Overview - Van Bulck, Yang, Goossens, Trick.md>).
+
+**What it is.** A 25-year literature survey of the canonical sports-scheduling optimization
+problem — minimize total team travel in a compact double round-robin — introduced by
+Easton, Nemhauser & Trick (2001) directly out of MLB's real scheduling difficulties. Co-authored
+by Michael Trick, who originally established the field's benchmark-instance repository, the
+paper doubles as **the continuation of that repository**: it tracks and validates current
+best-known lower and upper bounds rather than merely describing past results, alongside a review
+of problem variants, benchmark instances, approximation guarantees, and exact/heuristic solvers,
+closing with an open-problems agenda.
+
+**Why it's here despite the low novelty score.** This collection's N/P/R rubric measures
+original contribution, which a survey structurally scores low on (4/10, same genre as the
+Colley Matrix explainer already in the collection) — but a maintained, validated benchmark
+repository *is* the reproducibility artifact for an entire subfield, which is why it still lands
+at 19/30 overall (R = 8) and is worth keeping alongside the Colley Matrix paper as canonical
+sports-scheduling reference material rather than being filtered out for lacking a novel result.
+
+### Unified Pitch Graphs for Diagnosing Pitching Strategy
+
+Lee & Ko, arXiv:[2609.03810](https://arxiv.org/abs/2609.03810), 3 Sep 2026.
+Markdown: [`md/2026 Unified Pitch Graphs for Diagnosing Pitching Strategy - Lee, Ko.md`](<md/2026 Unified Pitch Graphs for Diagnosing Pitching Strategy - Lee, Ko.md>).
+
+**What it does.** Proposes Unified Pitch Graphs (UPG): each of 3.94M MLB Statcast pitches
+(2021–2026) is kept as a node carrying its exact reconstructed 3D trajectory rather than being
+quantized to a pitch-type label first, connected to its neighbors by directed sequence edges, and
+simultaneously indexed at multiple semantic and temporal resolutions. The engineering
+contribution is **support-adaptive backoff** — coarsening only the specific long/fine-grained
+paths that lack repeated evidence rather than the whole dataset uniformly — which lifts held-out
+path coverage from **18.9% to 94.9%** and execution-reconstruction R² from **0.495 to 0.685**.
+UPG also localizes controlled execution changes (e.g., a pitcher's slider shape shifting
+mid-season) that discrete pitch-mix and Markov-style type-to-type sequence stats miss, because
+those representations discard exactly the continuous execution detail UPG preserves.
+
+**Where it is weak.** The paper is careful to frame results as retrospective/associational and
+explicitly disclaims causal or future-performance claims — appropriately so, since nothing about
+localizing a past execution change implies the method could forecast one. No code release is
+indicated for the graph-construction pipeline, and while the underlying Statcast fields are
+publicly queryable via Baseball Savant, assembling 3.94M pitches at this trajectory granularity
+is nontrivial ETL work, which caps reproducibility at 5.
+
+### Hierarchical Possession-Aware Graph Pointer Network for Pass Receiver Selection
+
+Wang, Li, Wang & Huang, arXiv:[2609.04803](https://arxiv.org/abs/2609.04803), 4 Sep 2026.
+Markdown: [`md/2026 Hierarchical Possession-Aware Graph Pointer Network for Pass Receiver Selection - Wang, Li, Wang, Huang.md`](<md/2026 Hierarchical Possession-Aware Graph Pointer Network for Pass Receiver Selection - Wang, Li, Wang, Huang.md>).
+
+**What it does.** Predicts a soccer passer's intended receiver from broadcast-style freeze-frame
+data — only the teammates visible at the moment of the pass, no stable player identities, no full
+trajectories — which is the format public/semi-public soccer event data actually ships in, unlike
+proprietary full-tracking data. Formulates the task as variable-size candidate scoring (a pointer
+network, since the candidate set changes size play to play) over a graph combining current
+player-interaction structure, fixed event context, and a dual-branch possession-history signal
+tracking how the attacking sequence evolved; ablations show each component (graph interactions,
+event context, possession history) contributes measurably to the reported gain.
+
+**Where it sits in this batch.** The lowest composite of the five (16/30): graph networks and
+pointer networks each have prior art in soccer pass modeling individually, so the contribution is
+the combination and the possession-history branch rather than a new problem formulation, and no
+code release is indicated. Its practical edge — designed for the partial-visibility data format
+analysts without optical tracking access actually have — is real but the paper stops at an
+ablation-study result rather than a deployable metric.

@@ -1,11 +1,15 @@
 # Sports Analytics Research Feed
 
-Last verified: 2026-07-12
+Last verified: 2026-09-08
 
 This directory is a seed catalog for two related feeds:
 
 - Research paper feed: journals, proceedings, preprints, books, and article indexes.
 - Opportunity feed: conference calls, paper competitions, posters, presentations, hackathons, data challenges, and Kaggle competitions.
+
+A weekly editorial digest — literature highlights, SportsDataverse/OSS ecosystem releases,
+and data-engineering tooling news — is tracked separately in
+[`weekly-analytics-roundup.md`](weekly-analytics-roundup.md).
 
 Use `sports-analytics-sources.yml` as the canonical source list. Use `sports-analytics-feeds.opml` for feed readers that can import RSS/XML endpoints.
 

@@ -162,6 +162,7 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
       <div class="cell"><div class="big">22</div><div class="lbl">Duplicate copies found</div></div>
       <div class="cell"><div class="big">10</div><div class="lbl">Sports covered</div></div>
       <div class="cell"><div class="big">+20</div><div class="lbl">Added since (2026-09-02)</div></div>
+      <div class="cell"><div class="big">+5</div><div class="lbl">Weekly roundup (2026-09-08)</div></div>
     </div>
   </header>
 
@@ -974,7 +975,84 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:v
     </div>
   </section>
 
+  <section>
+    <div class="sec-head"><h2>Additions &mdash; 2026-09-08 Weekly Roundup</h2></div>
+    <p class="sec-sub">Five arXiv preprints, all posted in the seven days before this pass (28 Aug &ndash; 4 Sep 2026), surfaced by a scheduled sports-analytics literature scan. Same rubric, appended to <code>paper-ranking-scores.csv</code> so earlier passes stay reproducible.</p>
+    <ol class="ranklist">
+      <li class="row">
+        <div class="rank">1</div>
+        <div class="main">
+          <div class="ttl">A Fairness Audit of the Duckworth&ndash;Lewis&ndash;Stern Method</div>
+          <div class="desc">First large-sample (8,150-match Cricsheet) empirical bias audit of cricket&rsquo;s mandatory rain-interruption target-revision formula; finds a +6.13-run gender-differential miscalibration and ships DLS-Cal, a drop-in correction layer, a new Win-Flip Rate fairness metric, plus code, models, and audit dataset.</div>
+          <div class="meta"><span class="chip">Cricket</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">8</span><span class="stat stat-r" title="Reproducibility">9</span></div>
+          <div class="comp"><span class="compnum">25</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">2</div>
+        <div class="main">
+          <div class="ttl">Auditing Contextual Bias in Human Ball-Strike Calls Using KBO&rsquo;s Automated Umpiring Transition</div>
+          <div class="desc">Uses the KBO&rsquo;s 2024 league-wide ABS rollout as a natural experiment: human umpires showed a -17.17pp strike-call effect at 0-2 counts and +6.61pp at 3-0 that vanished under automated calling, isolating count-pressure bias from weaker/non-significant reputation, framing, and home-context effects.</div>
+          <div class="meta"><span class="chip">Baseball</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">8</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+          <div class="comp"><span class="compnum">20</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">3</div>
+        <div class="main">
+          <div class="ttl">The Traveling Tournament Problem: An Overview</div>
+          <div class="desc">25-year literature survey of the canonical sports-scheduling optimization problem by, among others, Michael Trick himself; succeeds and continues validating his original RobinX lower/upper-bound benchmark repository rather than merely describing it.</div>
+          <div class="meta"><span class="chip">Multi</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">4</span><span class="stat stat-p" title="Practicality">7</span><span class="stat stat-r" title="Reproducibility">8</span></div>
+          <div class="comp"><span class="compnum">19</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">4</div>
+        <div class="main">
+          <div class="ttl">Unified Pitch Graphs for Diagnosing Pitching Strategy</div>
+          <div class="desc">Hierarchical graph representation preserving each of 3.94M MLB Statcast pitches (2021-26) as an exact 3D-trajectory event rather than a discrete pitch-type label; support-adaptive backoff lifts held-out path coverage from 18.9% to 94.9% and localizes execution changes discrete pitch-mix stats miss.</div>
+          <div class="meta"><span class="chip">Baseball</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">7</span><span class="stat stat-p" title="Practicality">6</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+          <div class="comp"><span class="compnum">18</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+      <li class="row">
+        <div class="rank">5</div>
+        <div class="main">
+          <div class="ttl">Hierarchical Possession-Aware Graph Pointer Network for Pass Receiver Selection</div>
+          <div class="desc">Graph + pointer-network architecture predicting a soccer passer&rsquo;s intended receiver from broadcast-style partial freeze-frame data (anonymous visible candidates only, no full trajectories); ablations support the graph-interaction, event-context, and possession-history components.</div>
+          <div class="meta"><span class="chip">Soccer</span><span class="yr">2026</span></div>
+        </div>
+        <div class="scores">
+          <div class="statline"><span class="stat stat-n" title="Novelty">6</span><span class="stat stat-p" title="Practicality">5</span><span class="stat stat-r" title="Reproducibility">5</span></div>
+          <div class="comp"><span class="compnum">16</span><span class="compden">/30</span></div>
+        </div>
+      </li>
+    </ol>
+    <div class="notes">
+      <div class="note">
+        <h3>Why the cricket paper leads</h3>
+        <p>A governance-relevant empirical gap (gender-differential miscalibration in cricket&rsquo;s outcome-determining target formula) paired with a fix that layers on top of DLS rather than replacing it &mdash; which matters for real-world adoption odds &mdash; plus a genuinely new fairness metric (Win-Flip Rate) rather than another accuracy number.</p>
+      </div>
+      <div class="note">
+        <h3>Survey vs. original contribution</h3>
+        <p>The Traveling Tournament Problem overview scores low on novelty (4) by design &mdash; it is a survey, not a new result &mdash; but a maintained, validated benchmark repository (its RobinX succession) is itself the reproducibility artifact for an entire subfield, the same genre as the Colley Matrix explainer already in this collection.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    Scored across 266 papers in <code>Sports-Research-Papers</code> (plus 20 added 2026-09-02, listed separately above) (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
+    Scored across 266 papers in <code>Sports-Research-Papers</code> (plus 20 added 2026-09-02 and 5 added 2026-09-08, listed separately above) (root collection, <code>Soccer/</code>, <code>Pythagorean.../</code>, and <code>randoms/</code>) · N = Novelty, P = Practicality, R = Reproducibility, each 1–10 · Composite out of 30 · Directional triage from front-matter reads.
   </footer>
 </div>
