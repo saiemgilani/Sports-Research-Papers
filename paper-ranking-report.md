@@ -440,3 +440,41 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+---
+
+## The weekly-roundup arXiv batch (added 2026-09-09)
+
+Four preprints pulled from the first automated weekly research roundup, three of them posted in the seven days before this addition (Sept 2–6, 2026) and one held as high-value recent context from January 2026. All four are stored as full PDFs under `library/preprints/arXiv/2026/` with `pypdf`-extracted markdown mirrors in `md/library/preprints/arXiv/2026/` — machine conversions with the same limitations as the Pelechrinis batch above: equations, tables and figures are not reliably preserved, so consult the PDF for those.
+
+### The profit-bias identity in sports betting — 22/30, the highest score of the batch
+
+Dmochowski, arXiv:[2609.06739](https://arxiv.org/abs/2609.06739), submitted 2026-09-06.
+
+Levitt (2004) computes bookmaker profit from two independent numbers — the probability a side wins, and the share of handle it attracts. Dmochowski drops the independence assumption and derives a **profit-bias identity**: profit is affine and increasing in the expected share of handle on the *losing* side, decomposing cleanly into three channels — the book's hold, the product of price-shading and public lean, and the covariance between bet share and outcome. Levitt's formula falls out as the special case where that covariance is zero.
+
+The empirical payoff, on 1,139 MLB games, is a clean **Simpson's-paradox result**: the pooled correlation between bet-share and outcome that would let a book exploit predictable public bias is essentially absent when the data is pooled across games, but a strong, uncorrected favorite-bias reappears once the analysis is done game-by-game. That is a testable, falsifiable claim on public-in-principle data (moneylines and outcomes), which is why reproducibility scores a 7 despite `data = mixed` — the betting-market panel used here is not confirmed as fully public, but the identity itself and the MLB game log it is tested against are.
+
+### Unified Pitch Graphs for Diagnosing Pitching Strategy — 19/30
+
+Lee & Ko, arXiv:[2609.03810](https://arxiv.org/abs/2609.03810), submitted 2026-09-03.
+
+The standard move in pitch-sequencing work is to collapse each pitch to a discrete type/location bin, which throws away exactly the physical-execution detail (release point, movement, velocity) that distinguishes a well-executed pitch from a mislocated one of the same nominal type. UPG keeps every pitch as an exact event with a reconstructed 3D trajectory, links consecutive pitches with directed sequence edges, and organizes the same events at multiple semantic/temporal resolutions simultaneously — then uses a **support-adaptive backoff** to fall back to coarser context when a long, specific sequence doesn't have enough repeated evidence, without losing the exact event lineage.
+
+Tested on **3.94 million MLB Statcast pitches, 2021–2026**: the backoff mechanism takes held-out path coverage from 18.9% to 94.9% while improving execution reconstruction (R²) from 0.495 to 0.685, and the representation localizes controlled execution changes that discrete pitch-mix/sequence baselines can't detect. Statcast is public data, which is why reproducibility clears a 6 despite no code release being mentioned; practicality is capped at 6 because reconstructing 3D trajectories and building the hierarchical graph is real engineering lift beyond what a solo public analyst typically has on hand.
+
+### Beyond Expected Goals: A Probabilistic Framework for Shot Occurrences in Soccer (xG+) — 20/30
+
+Pipping-Gamón, Feng & Sabin, arXiv:[2512.00203](https://arxiv.org/abs/2512.00203), submitted 2026-01-26. Carried forward as recent context rather than this-week news, since it predates the digest window, but it is the most-discussed soccer-methods preprint of the last several months and belongs alongside this batch.
+
+Standard xG only ever conditions on shots that actually happened, so it can't say anything about *why* a possession did or didn't produce a shot in the first place — a team that generates fewer, better-defended looks and a team that simply doesn't create chances can look identical once you throw away everything but the shots. **xG+** jointly models shot-occurrence probability and shot quality at the possession level, which removes that selection bias and, the authors argue, produces a more stable player-skill signal than shot-conditional xG alone. Reproducibility is marked down to 5 (`data = restricted`) because possession-level event data at this granularity is typically a commercial feed (Opta/StatsBomb-class), not confirmed public in the preprint.
+
+### A Statistical and Machine Learning Framework for Quantifying Offensive Impact in Professional Box Lacrosse — 15/30, lowest of the batch
+
+Jimerson Jr., arXiv:[2609.06610](https://arxiv.org/abs/2609.06610), submitted 2026-09-06.
+
+Box lacrosse has essentially no public analytics literature, so an xG-style shot-quality model plus shot-based assist and "expected pick value" metrics is a genuine first for the sport — that is the entire novelty case (6/10, not higher, because the modeling itself — logistic regression vs. random forest on shot features — is standard xG methodology transplanted rather than extended). The honest limitation is in the paper's own framing: **1,006 shots from 13 Rochester Knighthawks games**, one team, one season, hand-charted data with no indication of a public release, and random forest beats a logistic baseline only marginally. The author explicitly calls it a preliminary case study rather than a causal or league-wide claim, which is the right way to present a result this size — but it keeps practicality and reproducibility both in the 4–5 range until the framework is run on a full league season.
+
+### What this batch adds to the collection's pattern
+
+The same public-vs-proprietary-data fault line the collection-wide "proprietary-data trap" section documents shows up again in miniature: the two papers built on data that is public or plausibly reconstructible from public sources (the betting-market identity, the Statcast pitch graphs) score 6–7 on reproducibility, while the two built on possession-level commercial event data or single-team hand-charted data (xG+, box lacrosse) score 4–5. None of the four ships public code, which is worth tracking as this weekly-roundup process continues to add papers — a run of `code = no` additions would be a signal to weight reproducibility more conservatively in future automated batches.
