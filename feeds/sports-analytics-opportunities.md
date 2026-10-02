@@ -1,12 +1,11 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-10-01T11:44:51.770164Z
+Generated: 2026-10-02T11:45:19.896645Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
 | Status | Opportunity | Kind | Deadline / event | Timezone | Source |
 | --- | --- | --- | --- | --- | --- |
-| open | [SSAC27 Research Paper Competition abstract submission](https://www.sloansportsconference.com/research-paper-competition) | abstract_submission | 2026-10-01T23:59:00-04:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | open | [MathSport Asia 2026 final registration](https://iimk.ac.in/apps/mathsport26/) | registration | 2026-11-02T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
 | invitation_only | [SSAC27 invited full paper submission](https://www.sloansportsconference.com/research-paper-competition) | full_paper_submission | 2026-12-04T23:59:00-05:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | invitation_only | [MathSport Asia complete paper submission](https://iimk.ac.in/apps/mathsport26/) | full_paper_submission | 2027-02-28T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
@@ -24,6 +23,7 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | closed | [CASSIS 2026 abstract submissions](https://www.cascadiasports.com/) | abstract_submission | 2026-09-12T00:00:00-07:00 | America/Vancouver | Cascadia Symposium on Statistics in Sports |
 | closed | [CASSIS 2026 registration](https://www.cascadiasports.com/) | registration | 2026-09-12T00:00:00-07:00 | America/Vancouver | Cascadia Symposium on Statistics in Sports |
 | closed | [MathSport Asia 2026 early registration](https://iimk.ac.in/apps/mathsport26/) | registration | 2026-09-30T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
+| closed | [SSAC27 Research Paper Competition abstract submission](https://www.sloansportsconference.com/research-paper-competition) | abstract_submission | 2026-10-01T23:59:00-04:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | completed | [MLSA 2026 workshop](https://dtai.cs.kuleuven.be/events/MLSA26/) | event | 2026-09-07T00:00:00+02:00 | Europe/Rome | Workshop on Machine Learning and Data Mining for Sports Analytics |
 
 ## Source Health
@@ -33,7 +33,7 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | cassis | ok | false | - |
 | cmsac | ok | false | - |
 | csas | ok | false | - |
-| hudl-performance-insights | ok | false | - |
+| hudl-performance-insights | ok | true | - |
 | kaggle-sports | auth_required | false | - |
 | mathsport-asia | markers_missing | false | August 03, 2026 |
 | mathsport-international | ok | false | - |
@@ -41,4 +41,4 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | mit-ssac-research-paper-competition | ok | false | - |
 | mlsa | ok | false | - |
 | nessis | ok | false | - |
-| nfl-big-data-bowl | ok | false | - |
+| nfl-big-data-bowl | ok | true | - |
