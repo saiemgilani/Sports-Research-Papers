@@ -326,6 +326,58 @@
           "tags": ["competition", "kaggle", "sports", "machine-learning"]
         }
       ]
+    },
+    {
+      "id": "wsaj",
+      "name": "Wharton Sports Analytics Journal",
+      "organization": "Wharton Sports Analytics and Business Initiative",
+      "type": "journal",
+      "priority": "core",
+      "url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
+      "required_markers": [
+        "Fall 2026 Edition",
+        "Submission Deadline: November 16",
+        "Publication Date: December 7",
+        "high school, undergraduate, and graduate students worldwide"
+      ],
+      "records": [
+        {
+          "id": "wsaj-fall-2026-submissions",
+          "title": "Wharton Sports Analytics Journal Fall 2026 edition submissions (students only)",
+          "kind": "paper_submission",
+          "deadline": "2026-11-16T23:59:59-05:00",
+          "timezone": "America/New_York",
+          "event_start": "2026-12-07T00:00:00-05:00",
+          "eligibility": "students_only",
+          "summary": "Students only: the submission guidelines accept work from high school, undergraduate, and graduate students worldwide (the journal home page's Aims & Scope also mentions independent researchers and practitioners, so confirm before submitting). The site states the deadline (November 16) and publication date (December 7) as dates only, with no time or time zone; the deadline is recorded as end of day in Philadelphia, as for other date-only deadlines here. LaTeX preferred, .docx/.doc accepted; anonymous peer review; no fees.",
+          "tags": ["journal", "student", "paper", "open-access", "peer-review"]
+        }
+      ]
+    },
+    {
+      "id": "jsdss",
+      "name": "Journal of Statistics and Data Science in Sports",
+      "organization": "J. Murrey Atkins Library, University of North Carolina Charlotte",
+      "type": "journal",
+      "priority": "core",
+      "url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
+      "required_markers": [
+        "Submission Preparation Checklist",
+        "GitHub reproducibility",
+        "The manuscript file is a PDF"
+      ],
+      "records": [
+        {
+          "id": "jsdss-rolling-submissions",
+          "title": "Journal of Statistics and Data Science in Sports rolling submissions",
+          "kind": "rolling_submission",
+          "status_override": "open",
+          "timezone": "America/New_York",
+          "eligibility": "open",
+          "summary": "No deadline is posted: submit a PDF through OJS at any time; manuscripts that pass screening move to a GitHub reproducibility review with a Quarto manuscript that draws its own figures and tables. Diamond open access (free to read and to publish); authors register with the editors by email first (see the submissions page).",
+          "tags": ["journal", "paper", "open-access", "reproducibility", "rolling"]
+        }
+      ]
     }
   ]
 }

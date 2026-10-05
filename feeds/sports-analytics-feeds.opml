@@ -22,6 +22,18 @@
         xmlUrl="https://journals.sagepub.com/action/showFeed?ai=2b4&amp;feed=rss&amp;jc=san&amp;mi=ehikzz&amp;type=etoc&amp;ui=0"
         htmlUrl="https://journals.sagepub.com/home/san" />
       <outline
+        text="Journal of Statistics and Data Science in Sports"
+        title="Journal of Statistics and Data Science in Sports"
+        type="rss"
+        xmlUrl="https://journals.charlotte.edu/jsdss/gateway/plugin/WebFeedGatewayPlugin/rss2"
+        htmlUrl="https://journals.charlotte.edu/index.php/jsdss/index" />
+      <outline
+        text="Wharton Sports Analytics Journal (student research)"
+        title="Wharton Sports Analytics Journal (student research)"
+        type="rss"
+        xmlUrl="https://wsb.wharton.upenn.edu/category/wharton-sports-analytics-journal/feed/"
+        htmlUrl="https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/" />
+      <outline
         text="Journal of Sports Science and Medicine - Current Content"
         title="Journal of Sports Science and Medicine - Current Content"
         type="rss"

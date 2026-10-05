@@ -29,7 +29,9 @@ python scripts/update_sports_analytics_library.py --dry-run --max-items 3
 
 `scripts/update_sports_analytics_opportunities.py` polls the official SSAC,
 NESSIS, CASSIS, CMSAC, CSAS/UCSAS, MLSA, MathSport, Hudl, NFL, and Kaggle
-surfaces. It generates a normalized JSON Feed, RSS feed, Markdown view, and a
+surfaces, plus the submission pages of two journals: the Journal of Statistics
+and Data Science in Sports (rolling submissions) and the Wharton Sports
+Analytics Journal (students only). It generates a normalized JSON Feed, RSS feed, Markdown view, and a
 source-health snapshot:
 
 ```bash
@@ -179,6 +181,42 @@ python scripts/update_sports_analytics_library.py \
 
 For scheduled runs, prefer a private self-hosted runner that can refresh
 `JSA_COOKIE` or `JSA_STORAGE_STATE` without committing those secrets.
+
+### Wharton Sports Analytics Journal
+
+The `wsaj` source downloads the public PDFs of the Wharton Sports Analytics
+Journal (open access, ISSN 3070-4065; student research) into
+`library/journals/Wharton Sports Analytics Journal/`:
+
+```bash
+python scripts/update_sports_analytics_library.py --source wsaj \
+  --sleep 2 --request-interval 2.5
+```
+
+It reads the journal's `all-editions/` page to find every Spring and Fall
+edition, follows each article link on an edition page to the article's
+WordPress page, and saves the linked "Read Full Paper (PDF)". New editions are
+picked up from `all-editions/` automatically; the nine editions known in
+2026-10 (Spring 2022 to Spring 2026) also stay in `feed_urls` as a fallback,
+next to the Rookie Review and High School Data Science Competition category
+pages, whose posts appear on no edition page. Manifest rows for this source
+also carry `issue` (for example `Spring 2026`) and `author_affiliations`,
+parsed from the article page's AUTHORS block. `--request-interval` sets a
+minimum gap between any two requests (it defaults to 0, so other sources keep
+their old pacing).
+
+The journal page states two different licences (Creative Commons Attribution
+and CC BY-NC) and says the journal became open access in 2026; the quotes are
+in the source's `license_note`.
+
+The 2026-10-04 backfill found 95 articles: the 90 listed on the nine edition
+pages (`all-editions/` advertises 109; Spring 2022 claims 29 but lists 14) and
+5 non-edition posts. It saved 94 PDFs. The Spring 2023 page for "Predicting
+March Madness Cinderella Teams" links a byte-identical copy of the Fall 2023
+defensive-line paper, so that article has no PDF of its own. Three Spring 2022
+PDFs are large (Seattle Kraken expansion draft 44 MB, NBA draft diamonds
+30 MB, starting vs relief pitchers 28 MB) but under GitHub's 50 MB warning
+threshold, so they are committed like the rest.
 
 Do not use Sci-Hub, LibGen, Annas Archive, proxy bypasses, or similar download
 routes in this repository. The downloader is limited to public/open PDFs,

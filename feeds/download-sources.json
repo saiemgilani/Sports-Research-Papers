@@ -118,6 +118,34 @@
       "license_note": "JSA article pages are open access when SAGE exposes the public PDF; automated downloads may still require passing SAGE/IOS Press Cloudflare verification."
     },
     {
+      "id": "wsaj",
+      "parent_source_id": "wsaj",
+      "name": "Wharton Sports Analytics Journal",
+      "category_path": ["journals", "Wharton Sports Analytics Journal"],
+      "feed_type": "html_index",
+      "feed_index_url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/all-editions/",
+      "feed_index_href_pattern": "/wharton-sports-analytics-journal(?:-og)?/(?:spring|fall)-\\d{4}/$",
+      "feed_urls": [
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/spring-2026/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/fall-2025/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/spring-2025/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/fall-2024/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/spring-2024/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/fall-2023/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/spring-2023/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/fall-2022/",
+        "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/spring-2022/",
+        "https://wsb.wharton.upenn.edu/category/wharton-sports-analytics-journal/rookie-review-wharton-sports-analytics-journal/",
+        "https://wsb.wharton.upenn.edu/category/wharton-sports-analytics-journal/high-school-data-science-competition-wharton-sports-analytics-journal/"
+      ],
+      "include_href_patterns": ["https://wsb.wharton.upenn.edu/"],
+      "item_scope_pattern": "<h2 class=\"entry-title[^\"]*\">.*?</h2>",
+      "issue_from_feed_url_pattern": "(?:spring|fall)-\\d{4}",
+      "wordpress_article": true,
+      "download_policy": "public_pdf_only",
+      "license_note": "Open access, no login. The journal page (checked 2026-10-04) says both 'Authors retain the copyright of their manuscripts, and all Open Access articles are distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided that the original work is properly cited' and 'The standard license for the journal is Creative Commons by Attribution Non-Commercial (CC BY-NC)'. It also says 'all content is freely available without charge to the user or his/her institution' and 'The journal became an open access journal in 2026.' The two licence statements conflict, and the licence of the 2022-2025 papers is not stated separately."
+    },
+    {
       "id": "cmsac-conference-papers",
       "parent_source_id": "cmsac",
       "name": "Carnegie Mellon Sports Analytics Conference - Public Paper PDFs",
