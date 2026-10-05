@@ -214,9 +214,9 @@ pages (`all-editions/` advertises 109; Spring 2022 claims 29 but lists 14) and
 5 non-edition posts. It saved 94 PDFs. The Spring 2023 page for "Predicting
 March Madness Cinderella Teams" links a byte-identical copy of the Fall 2023
 defensive-line paper, so that article has no PDF of its own. Three Spring 2022
-PDFs exceed 25 MB (Seattle Kraken expansion draft 44 MB, NBA draft diamonds
-30 MB, starting vs relief pitchers 28 MB); their manifest rows and markdown
-twins are committed but the PDFs themselves are not.
+PDFs are large (Seattle Kraken expansion draft 44 MB, NBA draft diamonds
+30 MB, starting vs relief pitchers 28 MB) but under GitHub's 50 MB warning
+threshold, so they are committed like the rest.
 
 Do not use Sci-Hub, LibGen, Annas Archive, proxy bypasses, or similar download
 routes in this repository. The downloader is limited to public/open PDFs,

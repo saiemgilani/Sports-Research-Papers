@@ -45,7 +45,7 @@ to `paper-ranking-scores.csv` as a separate pass (`folder = library`, `file` = t
 The WordPress edition categories hold exactly the counts found (the REST API agrees), so the
 gaps are in the stated numbers or in posts outside the edition categories. Two Rookie Reviews
 dated 2023-09-01 probably account for Fall 2023's missing pair. Spring 2022's 29 is unexplained.
-Three Spring 2022 PDFs exceed 25 MB and are not committed; their manifest rows and twins are.
+Three Spring 2022 PDFs are 28-44 MB; all three are committed (each is under GitHub's 50 MB warning threshold).
 
 ## By sport
 
