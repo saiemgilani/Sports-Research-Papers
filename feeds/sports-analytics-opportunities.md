@@ -1,12 +1,14 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-10-02T11:45:19.896645Z
+Generated: 2026-10-05T11:46:02.975106Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
 | Status | Opportunity | Kind | Deadline / event | Timezone | Source |
 | --- | --- | --- | --- | --- | --- |
 | open | [MathSport Asia 2026 final registration](https://iimk.ac.in/apps/mathsport26/) | registration | 2026-11-02T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
+| open | [Wharton Sports Analytics Journal Fall 2026 edition submissions (students only)](https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/) | paper_submission | 2026-11-16T23:59:59-05:00 | America/New_York | Wharton Sports Analytics Journal |
+| open | [Journal of Statistics and Data Science in Sports rolling submissions](https://journals.charlotte.edu/index.php/jsdss/about/submissions) | rolling_submission | TBA | America/New_York | Journal of Statistics and Data Science in Sports |
 | invitation_only | [SSAC27 invited full paper submission](https://www.sloansportsconference.com/research-paper-competition) | full_paper_submission | 2026-12-04T23:59:00-05:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | invitation_only | [MathSport Asia complete paper submission](https://iimk.ac.in/apps/mathsport26/) | full_paper_submission | 2027-02-28T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
 | upcoming | [Hudl Performance Insights 2026 finalist presentations](https://www.hudl.com/blog/hpi-2026-research-competition) | event | 2026-11-13T00:00:00+00:00 | Europe/London | Hudl Performance Insights Research Competition |
@@ -33,7 +35,8 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | cassis | ok | false | - |
 | cmsac | ok | false | - |
 | csas | ok | false | - |
-| hudl-performance-insights | ok | true | - |
+| hudl-performance-insights | ok | false | - |
+| jsdss | ok | false | - |
 | kaggle-sports | auth_required | false | - |
 | mathsport-asia | markers_missing | false | August 03, 2026 |
 | mathsport-international | ok | false | - |
@@ -41,4 +44,5 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | mit-ssac-research-paper-competition | ok | false | - |
 | mlsa | ok | false | - |
 | nessis | ok | false | - |
-| nfl-big-data-bowl | ok | true | - |
+| nfl-big-data-bowl | ok | false | - |
+| wsaj | ok | false | - |
