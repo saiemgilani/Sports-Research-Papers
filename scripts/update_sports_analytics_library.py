@@ -57,6 +57,13 @@ AUTH_COOKIE_DOMAINS: set[str] = set()
 BROWSER_STORAGE_STATE: Path | None = None
 BROWSER_FALLBACK = False
 UNPAYWALL_EMAIL = ""
+REQUEST_INTERVAL = 0.0
+_LAST_REQUEST = 0.0
+INSTITUTION_WORDS = re.compile(
+    r"\b(?:University|School|College|Academy|Institute|Department|Program|Center|Centre)\b",
+    re.IGNORECASE,
+)
+CLASS_YEAR = re.compile(r"(?:[A-Z]{1,4}\s?)?[\u2019\u2018']\d{2}")
 
 
 @dataclass
@@ -67,6 +74,8 @@ class FeedItem:
     authors: list[str] | None = None
     doi: str = ""
     pdf_candidates: list[str] | None = None
+    issue: str = ""
+    affiliations: list[str] | None = None
 
 
 @dataclass
@@ -83,6 +92,8 @@ class DownloadResult:
     bytes: int
     downloaded_at: str
     doi: str = ""
+    issue: str = ""
+    affiliations: list[str] | None = None
 
 
 def cookie_domain_matches(host: str, domain: str) -> bool:
@@ -101,6 +112,12 @@ def auth_cookie_for_url(url: str) -> str:
 
 
 def fetch(url: str, timeout: int = 30, accept: str = "*/*") -> tuple[bytes, str, str]:
+    global _LAST_REQUEST
+    wait = REQUEST_INTERVAL - (time.monotonic() - _LAST_REQUEST)
+    if wait > 0:
+        time.sleep(wait)
+    _LAST_REQUEST = time.monotonic()
+    url = urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": accept,
@@ -594,6 +611,12 @@ def parse_html_index(data: bytes, base_url: str, source: dict) -> list[FeedItem]
     page = text_from_bytes(data)
     include_patterns = source.get("include_href_patterns") or ["/document/doi/"]
     exclude_patterns = source.get("exclude_href_patterns") or []
+    scope = source.get("item_scope_pattern")
+    if scope:
+        page = "\n".join(match.group(0) for match in re.finditer(scope, page, re.IGNORECASE | re.DOTALL))
+    issue_pattern = source.get("issue_from_feed_url_pattern")
+    issue_match = re.search(issue_pattern, base_url, re.IGNORECASE) if issue_pattern else None
+    issue = issue_match.group(0).strip("/").replace("-", " ").title() if issue_match else ""
     seen: set[str] = set()
     items: list[FeedItem] = []
 
@@ -623,10 +646,79 @@ def parse_html_index(data: bytes, base_url: str, source: dict) -> list[FeedItem]
                 published=year_from_source_url(base_url),
                 doi=doi_from_url(url),
                 pdf_candidates=legacy_pdf_candidates(url, base_url),
+                issue=issue,
             )
         )
 
     return items
+
+
+def index_feed_urls(page: str, base_url: str, pattern: str) -> list[str]:
+    """Feed URLs linked from an index page (e.g. a journal's all-editions page)."""
+    return [url for url in unique_urls(href_values(page), base_url) if re.search(pattern, url)]
+
+
+def discover_feed_urls(source: dict) -> list[str]:
+    index_url = str(source["feed_index_url"])
+    try:
+        data, _, final_url = fetch(index_url, accept="text/html,application/xhtml+xml,*/*")
+    except (urllib.error.URLError, TimeoutError) as exc:
+        print(f"skip feed index failed: {index_url} ({exc})")
+        return []
+    urls = index_feed_urls(text_from_bytes(data), final_url, str(source["feed_index_href_pattern"]))
+    print(f"feed index: {len(urls)} feed urls from {index_url}")
+    return urls
+
+
+def split_author_names(names_html: str) -> tuple[list[str], list[str]]:
+    """Names in one stretch of an author block, plus any institution text written inline."""
+    names: list[str] = []
+    extra: list[str] = []
+    for line in names_html.split("\n"):
+        line = re.sub(r"^\s*Authors?\s*:\s*", "", clean_text(line), flags=re.IGNORECASE)
+        tokens = [token.strip() for token in re.split(r"[;,]", line)]
+        tokens = [token for token in tokens if token and not CLASS_YEAR.fullmatch(token)]
+        for index, token in enumerate(tokens):
+            if INSTITUTION_WORDS.search(token):
+                extra.append(", ".join(tokens[index:]))
+                break
+            for name in re.split(r"^and\s+|\s+and\s+", token):
+                name = re.sub(r"^(?:Dr|Mr|Ms|Mrs)\.\s*", "", name.strip())
+                if name:
+                    names.append(name)
+    return names, extra
+
+
+def author_block(page: str) -> tuple[list[str], list[str]]:
+    """Authors and their affiliations from a WordPress article's AUTHOR(S) block.
+
+    Lines read "Name, <em>Affiliation</em>"; people listed after an Advisor label
+    are not authors. Returns two lists of equal length.
+    """
+    label = re.search(r"<strong>\s*AUTHORS?\s*</strong>", page, re.IGNORECASE)
+    if not label:
+        return [], []
+    block = page[label.end() :]
+    end = re.search(r"<strong>\s*ABSTRACT\s*</strong>|Read Full Paper", block, re.IGNORECASE)
+    block = block[: end.start()] if end else block[:3000]
+    advisor = re.search(r"(?:<strong>\s*)?(?:Faculty\s+)?Advisor", block, re.IGNORECASE)
+    if advisor:
+        block = block[: advisor.start()]
+    block = re.sub(r"<br\s*/?>|</p>", "\n", block, flags=re.IGNORECASE)
+    chunks: list[tuple[str, str]] = []
+    position = 0
+    for em in re.finditer(r"<em>(.*?)(?:</em>|$)", block, re.IGNORECASE | re.DOTALL):
+        chunks.append((block[position : em.start()], clean_text(em.group(1)).strip(" ,")))
+        position = em.end()
+    chunks.append((block[position:], ""))
+    authors: list[str] = []
+    affiliations: list[str] = []
+    for names_html, em_affiliation in chunks:
+        names, extra = split_author_names(names_html)
+        affiliation = " ".join(part for part in [", ".join(extra), em_affiliation] if part)
+        authors.extend(names)
+        affiliations.extend([affiliation] * len(names))
+    return authors, affiliations
 
 
 def legacy_pdf_candidates(item_url: str, source_url: str = "") -> list[str]:
@@ -703,7 +795,7 @@ def source_feed_urls(source: dict) -> list[str]:
     return [str(source["feed_url"])]
 
 
-def enrich_from_page(item: FeedItem, page: str) -> FeedItem:
+def enrich_from_page(item: FeedItem, page: str, wordpress_article: bool = False) -> FeedItem:
     titles = meta_values(page, "citation_title")
     author_values = meta_values(page, "citation_author")
     authors: list[str] = []
@@ -715,12 +807,21 @@ def enrich_from_page(item: FeedItem, page: str) -> FeedItem:
         or meta_values(page, "citation_date")
     )
     dois = meta_values(page, "citation_doi")
+    published = dates[0] if dates else item.published
+    affiliations: list[str] = []
+    if wordpress_article:
+        if not authors:
+            authors, affiliations = author_block(page)
+        if not published:
+            published = (meta_values(page, "article:published_time") or [""])[0]
     return FeedItem(
         title=clean_text(titles[0]) if titles else item.title,
         link=item.link,
-        published=dates[0] if dates else item.published,
+        published=published,
         authors=authors if authors else item.authors,
         doi=dois[0] if dois else item.doi,
+        issue=item.issue,
+        affiliations=affiliations or None,
     )
 
 
@@ -817,6 +918,10 @@ def append_manifest(path: Path, record: DownloadResult) -> None:
         "bytes": record.bytes,
         "downloaded_at": record.downloaded_at,
     }
+    if record.issue:
+        data["issue"] = record.issue
+    if record.affiliations and any(record.affiliations):
+        data["author_affiliations"] = record.affiliations
     with path.open("a", encoding="utf-8", newline="\n") as handle:
         handle.write(json.dumps(data, sort_keys=True) + "\n")
 
@@ -857,7 +962,7 @@ def process_item(
         pdf_url = page_url
     elif page_bytes:
         page = text_from_bytes(page_bytes)
-        enriched = enrich_from_page(item, page)
+        enriched = enrich_from_page(item, page, bool(source.get("wordpress_article")))
         pdf_candidates = list(item_pdf_candidates)
         for candidate in find_pdf_candidates(page, page_url):
             if candidate not in pdf_candidates:
@@ -924,6 +1029,8 @@ def process_item(
             sha256=sha256,
             bytes=len(pdf_bytes),
             downloaded_at=datetime.now(timezone.utc).isoformat(),
+            issue=enriched.issue,
+            affiliations=enriched.affiliations,
         )
 
     print(f"skip no public pdf found: {item.title}")
@@ -931,6 +1038,8 @@ def process_item(
 
 
 def run(args: argparse.Namespace) -> int:
+    global REQUEST_INTERVAL
+    REQUEST_INTERVAL = args.request_interval
     configure_auth(args)
     config = json.loads(args.config.read_text(encoding="utf-8"))
     root = Path(config.get("download_root", "library"))
@@ -954,6 +1063,8 @@ def run(args: argparse.Namespace) -> int:
         if source.get("feed_type") == "static_items":
             items = parse_static_items(source)
         feed_urls = [] if source.get("feed_type") == "static_items" else source_feed_urls(source)
+        if source.get("feed_index_url"):
+            feed_urls = unique_values(discover_feed_urls(source) + feed_urls)
         for configured_feed_url in feed_urls:
             try:
                 feed_bytes, _, feed_url = fetch(
@@ -1081,6 +1192,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--source", action="append", help="Only process this source id. May be repeated.")
     parser.add_argument("--max-items", type=int, default=0, help="Limit items per source.")
     parser.add_argument("--sleep", type=float, default=0.5, help="Delay between item requests.")
+    parser.add_argument("--request-interval", type=float, default=0.0, help="Minimum seconds between any two HTTP requests.")
     parser.add_argument("--cookie", help="Cookie header for authorized JQAS/De Gruyter access.")
     parser.add_argument("--cookie-file", type=Path, help="Netscape cookies.txt file for authorized access.")
     parser.add_argument("--storage-state", type=Path, help="Playwright storage_state.json file for authorized access.")
