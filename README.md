@@ -29,7 +29,9 @@ python scripts/update_sports_analytics_library.py --dry-run --max-items 3
 
 `scripts/update_sports_analytics_opportunities.py` polls the official SSAC,
 NESSIS, CASSIS, CMSAC, CSAS/UCSAS, MLSA, MathSport, Hudl, NFL, and Kaggle
-surfaces. It generates a normalized JSON Feed, RSS feed, Markdown view, and a
+surfaces, plus the submission pages of two journals: the Journal of Statistics
+and Data Science in Sports (rolling submissions) and the Wharton Sports
+Analytics Journal (students only). It generates a normalized JSON Feed, RSS feed, Markdown view, and a
 source-health snapshot:
 
 ```bash

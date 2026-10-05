@@ -46,6 +46,44 @@ journal_sources:
       - The journal positions itself around practical sports analytics applications for teams, leagues, fans, and academics.
     tags: [journal, applied-analytics, sports-business, strategy]
 
+  - id: jsdss
+    name: Journal of Statistics and Data Science in Sports
+    publisher: J. Murrey Atkins Library, University of North Carolina Charlotte
+    type: journal
+    priority: core
+    homepage: https://journals.charlotte.edu/index.php/jsdss/index
+    submission_url: https://journals.charlotte.edu/index.php/jsdss/about/submissions
+    template_url: https://github.com/jsds-sports/jsdss-manuscript-template
+    feed_kind: rss
+    feed_url: https://journals.charlotte.edu/jsdss/gateway/plugin/WebFeedGatewayPlugin/rss2
+    cadence: quarterly
+    notes:
+      - The owner's target journal. Submissions are rolling; no deadline is posted.
+      - Diamond open access (free to read and free to publish); content is licensed CC BY-NC 4.0 per the journal feed.
+      - Two-stage review - a PDF through OJS, then a GitHub reproducibility review of a Quarto manuscript that must draw its own figures and tables (JASA reproducibility guide; exceptions for proprietary data).
+      - Vol. 1 No. 1 (2026) holds the founding editorial (published 2026-08-24); the about page lists first publication as January 1, 2027 with 4 issues per year.
+      - Not jsdss.org, which is the Japan Social Data Science Society.
+    tags: [journal, statistics, data-science, reproducibility, open-access]
+
+  - id: wsaj
+    name: Wharton Sports Analytics Journal
+    publisher: Wharton Sports Analytics and Business Initiative, University of Pennsylvania
+    type: journal
+    priority: core
+    homepage: https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/
+    archive_url: https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/all-editions/
+    submission_url: https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/
+    feed_kind: rss
+    feed_url: https://wsb.wharton.upenn.edu/category/wharton-sports-analytics-journal/feed/
+    cadence: biannual
+    notes:
+      - "ELIGIBILITY: students only. The submission guidelines accept research from high school, undergraduate, and graduate students worldwide; the home page's Aims & Scope also mentions independent researchers and practitioners, so confirm before submitting."
+      - Open access, ISSN 3070-4065 (online), anonymous peer review, no fees. LaTeX preferred; .docx and .doc accepted.
+      - Fall 2026 submissions are due November 16 for publication on December 7 (dates only; no time or time zone stated).
+      - Two editions a year (Spring and Fall) since Spring 2022; the public PDFs are downloaded by the wsaj source in download-sources.json.
+      - The WordPress category feed also carries non-edition posts (Rookie Review, High School Data Science Competition).
+    tags: [journal, student, applied-analytics, open-access, peer-review]
+
   - id: ijcss
     name: International Journal of Computer Science in Sport
     publisher: Paradigm Publishing Services / International Association of Computer Science in Sport

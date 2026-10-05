@@ -18,6 +18,8 @@ source registry is `opportunity-sources.json`.
 
 The core journal set starts with JQAS, Journal of Sports Analytics, IJCSS, JSSM, and International Journal of Sports Science and Engineering. JQAS, JSA, and IJCSS are the highest-signal sports analytics outlets. JSSM is broader sports science and medicine, so tag/filter for quantitative methods, modeling, performance, biomechanics, tracking, and analytics. IJSSE is included from the ASA Statistics in Sports listing and the original seed list, but should stay monitor-only until its publisher URL is refreshed.
 
+The Journal of Statistics and Data Science in Sports (JSDSS, UNC Charlotte) is a diamond open-access journal with rolling submissions and a mandatory GitHub reproducibility review. The Wharton Sports Analytics Journal (WSAJ) is open access but accepts submissions from students only (high school, undergraduate, and graduate); its public back catalogue is downloaded into `library/journals/Wharton Sports Analytics Journal/`.
+
 Static reference volumes, including the Oxford anthology and the statistical methods handbook, are included as references rather than feed sources.
 
 Springer Nature should be monitored as a discovery surface rather than a bulk
