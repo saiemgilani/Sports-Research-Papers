@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T11:46:14.866446Z",
+  "generated_at": "2026-10-09T11:46:01.010523Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
@@ -21,7 +21,7 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,7 +65,7 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -91,7 +91,7 @@
     {
       "source_id": "mlsa",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "http_status": 200,
@@ -108,7 +108,7 @@
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -121,7 +121,7 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
@@ -144,17 +144,18 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "ab18184cee249b5b5cf8a3511c331320b7e847c045f6b4696bbf65ba537f4dcd",
+      "content_sha256": "6d9a03d01411cff709ef33f2866137c1ccae41298c107685d1e81825388c50d2",
       "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
-        "dl Team Related Stories GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Young African Promises",
+        "ck, The Hudl Team Related Stories Upset Opportunities Await in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is Al",
+        "it in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Young African Promises",
         "cial Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Young African Promises: The Story Still Being Written 24 Sept 2026 Hu"
       ],
       "error": ""
@@ -162,7 +163,7 @@
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
@@ -175,7 +176,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
@@ -188,12 +189,12 @@
     {
       "source_id": "wsaj",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "final_url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "http_status": 200,
       "content_sha256": "1eaff8bca4543863a674bcc57bb196c839c87394a85191253b3b3c1fbf3c5913",
-      "changed": true,
+      "changed": false,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -201,7 +202,7 @@
     {
       "source_id": "jsdss",
       "status": "ok",
-      "checked_at": "2026-10-07T11:46:14.866446Z",
+      "checked_at": "2026-10-09T11:46:01.010523Z",
       "url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "final_url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "http_status": 200,

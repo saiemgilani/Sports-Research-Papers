@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-10-07T11:46:14.866446Z
+Generated: 2026-10-09T11:46:01.010523Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
@@ -45,4 +45,4 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | mlsa | ok | false | - |
 | nessis | ok | false | - |
 | nfl-big-data-bowl | ok | false | - |
-| wsaj | ok | true | - |
+| wsaj | ok | false | - |
