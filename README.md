@@ -13,6 +13,10 @@ The curated sports analytics research and opportunity feed lives in:
 - [feeds/sports-analytics-opportunities.json](feeds/sports-analytics-opportunities.json)
 - [feeds/sports-analytics-opportunities.xml](feeds/sports-analytics-opportunities.xml)
 
+## Weekly Roundups
+
+Dated summaries of new research, open-source package releases, and data-engineering tooling live in [roundups/](roundups/), e.g. [2026-10-12](roundups/2026-10-12.md). Papers collected in a roundup are stored as PDFs in the repo root, text in `md/`, and scored in `paper-ranking-scores.csv`.
+
 ## Automated Updates
 
 The scheduled workflow in `.github/workflows/update-sports-analytics-library.yml`
