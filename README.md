@@ -2,6 +2,10 @@
 
 A selection of sports analytics research papers.
 
+## Weekly Roundups
+
+Dated literature, package and tooling roundups live in [roundups/](roundups/); the latest is [roundups/2026-10-19.md](roundups/2026-10-19.md). arXiv papers they file land in `library/preprints/arXiv/<year>/` (PDF) and `md/library/preprints/arXiv/<year>/` (text), and are scored in `paper-ranking-scores.csv`.
+
 ## Feeds
 
 The curated sports analytics research and opportunity feed lives in:
