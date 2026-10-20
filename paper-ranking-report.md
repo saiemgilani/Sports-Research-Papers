@@ -440,3 +440,33 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+---
+
+## Weekly batch — 2026-10-20 (arXiv preprints)
+
+Eight open-access arXiv preprints from 2026-09-22 to 2026-10-19, saved under `library/preprints/arXiv/` with text in `md/library/preprints/arXiv/`. Scored from abstract, data/method section and code links (front-matter triage, same rubric as above). Preprints are not peer reviewed.
+
+| Paper | Sport | N | P | R | Σ/30 |
+|---|---|--:|--:|--:|--:|
+| Who Blocks Whom? Probabilistic Pass-Blocking Assignments (arXiv 2609.33664) | NFL | 8 | 8 | 7 | **23** |
+| Concave Processes for Multi-Task Career Trajectories, NBA aging (2609.33752) | NBA | 8 | 7 | 6 | **21** |
+| Credit Attribution in Soccer Networks with Multivariate Hawkes Processes (2610.12775) | Soccer | 7 | 6 | 8 | **21** |
+| SambaGraph: Action-Reaction Graphs for Soccer Tactical Response (2609.25569) | Soccer | 6 | 6 | 7 | **19** |
+| From Metrics to Decisions in NBA Analytics: Review and Decision-Readiness Framework (2609.27245) | NBA | 6 | 7 | 6 | **19** |
+| Strategic Multi-Agent Learning for Action Valuation in Football (2610.05961) | Soccer | 7 | 6 | 5 | **18** |
+| A Markov Chain Approach to Modeling Rugby Union (2610.04813) | Rugby | 5 | 6 | 6 | **17** |
+| MoveBench: LLM Benchmark for Sports and Health Coaching (2610.26185) | Other | 5 | 4 | 7 | **16** |
+
+### Notes
+
+- **Who Blocks Whom (23)** is the strongest of the batch. It lifts the Franks et al. (2015) defensive-matchup HMM into pass protection and turns all-or-nothing adjusted plus-minus into continuous partial credit. Data is Big Data Bowl 2021 (weeks 1–8), so it is rebuildable by anyone; no code link was found. It sits next to the 2024 pass-rush pressure and offensive-line tracking papers already in the repo and is a natural comparison for the nflverse/BDB community.
+- **Concave processes (21)** gives aging curves a shape constraint (concave prior) and a shared latent space across metrics, which fixes the usual per-metric, independent aging fits. No code or data link was found in the text, so reproducibility is capped.
+- **Hawkes credit attribution (21)** uses StatsBomb open data, so it can be rebuilt. It complements threat-crediting work (xT/"Generation of threat", in the library) with a point-process alternative. The paper's code status was not confirmed.
+- **SambaGraph (19)** ships code and a split-safe benchmark. The underlying 2022 World Cup tracking is PFF-derived: use the paper and code, but keep PFF data out of cloud sessions per repo policy.
+- **NBA decision-readiness review (19)** is useful as a rubric more than as a result: its six gates (point-in-time validity, uncertainty, context portability, action feasibility, opportunity-set observability, evaluation) map onto the Practicality axis here and could be folded into the scoring rubric.
+- **Multi-agent football valuation (18)** has interesting framing (MPE-inspired, interpretable EDMS states), but code is "upon acceptance" and tracking data source is unspecified.
+- **Rugby Markov (17)** is a clean, calibrated state-space WP/EP model; it mirrors the football Markov/WP papers in the repo (e.g., NFL overtime Markov, iWinRNFL) for a sport with little open data.
+- **MoveBench (16)** is LLM evaluation for fitness coaching. It is outside game analytics but is the only rubric-based benchmark in the batch, and the code is public.
+
+Cross-cutting: three of the eight (Who Blocks Whom, Concave processes, the NBA review) extend classic adjusted plus-minus / matchup ideas already central to this collection. Papers with public data and no code (four of eight) are the best candidates for reproduction notebooks.
