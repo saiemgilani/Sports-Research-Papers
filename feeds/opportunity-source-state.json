@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T11:45:43.524435Z",
+  "generated_at": "2026-10-20T11:45:06.042851Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
-      "content_sha256": "1dc198735a551b92258f47a039fd92f7ed9990ed090777b01f5464aa2bf9730e",
-      "changed": false,
+      "content_sha256": "72a7ffd2a13568a91c305119f86e96a4987a2e989948328bf8c98c7fbff094e6",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "7 are now open! Submit your abstract here . Abstract submissions due: Oct. 1, 2026 11:59 p.m. EST ‍ Abstracts are selected based on the novelty, academi",
@@ -21,12 +21,12 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
-      "content_sha256": "6368969714425120a8014f5248ced038d31fd3713ee8799da11bc9ab6c5989b8",
-      "changed": false,
+      "content_sha256": "6f1d022921fed999a916cd677f990e03def591f896252cee204ef46e79e2d1fe",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,7 +65,7 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -90,21 +90,25 @@
     },
     {
       "source_id": "mlsa",
-      "status": "error",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "status": "ok",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
-      "final_url": "",
-      "http_status": null,
-      "content_sha256": "",
+      "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
+      "http_status": 200,
+      "content_sha256": "92ebd8ff753cbe1f6bd25a4b0268410ebfece2c7ee52b380f8e7c5ba977d34fe",
       "changed": false,
       "missing_markers": [],
-      "date_mentions": [],
-      "error": "<urlopen error timed out>"
+      "date_mentions": [
+        "n Machine Learning and Data Mining for Sports Analytics Naples, Italy Sep 7, 2026 Call for Papers Submission Key Dates Schedule Organisers Previous Edi",
+        "located with ECML/PKDD 2026 . It will take place in Naples, Italy on September 7, 2026 . The workshop program will feature invited talks from leading resear",
+        "erformance prediction. View the full CfP → Key Dates Paper Submission June 5, 2026 Workshop Date September 7, 2026 Full schedule → Proceedings As in pre"
+      ],
+      "error": ""
     },
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -117,7 +121,7 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
@@ -140,7 +144,7 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
@@ -161,7 +165,7 @@
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
@@ -176,7 +180,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
@@ -189,7 +193,7 @@
     {
       "source_id": "wsaj",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "final_url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "http_status": 200,
@@ -202,7 +206,7 @@
     {
       "source_id": "jsdss",
       "status": "ok",
-      "checked_at": "2026-10-19T11:45:43.524435Z",
+      "checked_at": "2026-10-20T11:45:06.042851Z",
       "url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "final_url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "http_status": 200,
