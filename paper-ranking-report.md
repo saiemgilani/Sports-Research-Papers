@@ -440,3 +440,27 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+## Additions — 2026-10-21 arXiv weekly pass
+
+Ten recent arXiv preprints, same 1–10 rubric (composite appended to `paper-ranking-scores.csv`,
+`folder = library`). PDFs under `library/preprints/arXiv/2026/` where the arXiv license allows
+redistribution; the others are link + notes only. Full roundup: `feeds/weekly-roundups/2026-10-21.md`.
+
+| Paper | Yr | Sport | N | P | R | Σ/30 |
+|---|--:|---|--:|--:|--:|--:|
+| **Who Blocks Whom? Probabilistic Pass-Blocking Assignments** | 2026 | NFL | 8 | 7 | 8 | **23** |
+| Concave Processes for Multi-Task Career Trajectories (NBA aging) | 2026 | NBA | 8 | 7 | 7 | **22** |
+| Dummy RAPM | 2026 | NBA | 5 | 7 | 9 | **21** |
+| Credit Attribution … Multivariate Hawkes Processes (xGI) | 2026 | Soccer | 7 | 6 | 8 | **21** |
+| When the Strike Zone Becomes Algorithmic (MLB ABS) | 2026 | MLB | 6 | 6 | 8 | **20** |
+| Who Gains When the Umpire Is a Machine? (KBO ABS) | 2026 | MLB | 7 | 6 | 6 | **19** |
+| Throwing4 | 2026 | Athletics | 6 | 4 | 8 | **18** |
+| A Markov Chain Approach to Modeling Rugby Union | 2026 | Rugby | 5 | 6 | 5 | **16** |
+| AI Soccer Analyst | 2026 | Soccer | 6 | 5 | 5 | **16** |
+| Strategic Multi-Agent Learning for Action Valuation (J1) | 2026 | Soccer | 8 | 5 | 3 | **16** |
+
+Notes: Dummy RAPM's gain is 0.30% RMSE — consistent (13/16 seasons) but small; treat as a
+recipe, not a breakthrough. The NBA aging paper's data was scraped from Basketball-Reference;
+this repo stores the paper only. The J1 League paper uses proprietary Data Stadium tracking and
+promises code on acceptance, hence R=3.
