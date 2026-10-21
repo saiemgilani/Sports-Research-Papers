@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T11:45:06.042851Z",
+  "generated_at": "2026-10-21T11:45:49.366892Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
       "content_sha256": "72a7ffd2a13568a91c305119f86e96a4987a2e989948328bf8c98c7fbff094e6",
-      "changed": true,
+      "changed": false,
       "missing_markers": [],
       "date_mentions": [
         "7 are now open! Submit your abstract here . Abstract submissions due: Oct. 1, 2026 11:59 p.m. EST ‍ Abstracts are selected based on the novelty, academi",
@@ -21,12 +21,12 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
       "content_sha256": "6f1d022921fed999a916cd677f990e03def591f896252cee204ef46e79e2d1fe",
-      "changed": true,
+      "changed": false,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,7 +65,7 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -91,7 +91,7 @@
     {
       "source_id": "mlsa",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "http_status": 200,
@@ -108,7 +108,7 @@
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -121,7 +121,7 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
@@ -144,28 +144,29 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "b3f68c2e16f199ba8eed02caedca5ba36317f60ab36515a32a1c9a5718a2e481",
-      "changed": false,
+      "content_sha256": "92490b51afd1822cb50ad270a7df6717bc284ca975981c3a86238e2426d860e8",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
-        "t of luck, The Hudl Team Related Stories Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 202",
+        "ries Basketball Coaching Software Built for Every Part of Your Season 20 Oct 2026 Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond",
+        "or Every Part of Your Season 20 Oct 2026 Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 202",
         "3 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 GLVC Names Hudl As Off",
         "Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is Al",
-        "it in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Young African Promises",
-        "cial Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Young African Promises: The Story Still Being Written 24 Sept 2026 So"
+        "it in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Solutions High School",
+        "cial Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
       ],
       "error": ""
     },
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
@@ -180,7 +181,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
@@ -193,7 +194,7 @@
     {
       "source_id": "wsaj",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "final_url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "http_status": 200,
@@ -206,7 +207,7 @@
     {
       "source_id": "jsdss",
       "status": "ok",
-      "checked_at": "2026-10-20T11:45:06.042851Z",
+      "checked_at": "2026-10-21T11:45:49.366892Z",
       "url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "final_url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "http_status": 200,
