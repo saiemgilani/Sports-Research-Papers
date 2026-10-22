@@ -440,3 +440,21 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+---
+
+## Batch 2026-10-22: seven arXiv preprints (Sep–Oct 2026)
+
+Scored with the same N/P/R method from front-matter reads; full rows in `paper-ranking-scores.csv`, week context in `feeds/weekly-roundup-2026-10-22.md`.
+
+| Paper | Sport | N | P | R | Σ/30 |
+|---|---|--:|--:|--:|--:|
+| Who Blocks Whom? Probabilistic Pass-Blocking Assignments (Brahme et al.) | NFL | 8 | 8 | 8 | **24** |
+| Credit Attribution in Soccer Networks via Multivariate Hawkes Processes (Kornberg, Xu) | Soccer | 8 | 7 | 7 | **22** |
+| Concave Processes for Multi-Task Career Trajectories (Brahme, Franks) | NBA | 8 | 7 | 5 | **20** |
+| A Markov Chain Approach to Modeling Rugby Union (Watts, Pipping-Gamón) | Rugby | 6 | 6 | 6 | **18** |
+| Strategic Multi-Agent Learning for Action Valuation (Ide et al.) | Soccer | 8 | 5 | 4 | **17** |
+| SambaGraph (Reyes-Angulo et al.) | Soccer | 7 | 5 | 5 | **17** |
+| From Metrics to Decisions in NBA Analytics (Zhou, Guan) | NBA | 5 | 7 | 4 | **16** |
+
+Pattern: the two highest scorers are the ones that pair a transferable method with public data (Big Data Bowl, StatsBomb open). The tracking-heavy and PFF-dependent papers lose on reproducibility, which fits the earlier finding that data access drives the ranking more than model novelty. These are preprints, not yet peer reviewed.
