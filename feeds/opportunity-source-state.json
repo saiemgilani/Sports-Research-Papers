@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T11:45:15.747938Z",
+  "generated_at": "2026-10-23T11:45:02.223830Z",
   "sources": [
     {
       "source_id": "mit-ssac-research-paper-competition",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.sloansportsconference.com/research-paper-competition",
       "final_url": "https://www.sloansportsconference.com/research-paper-competition",
       "http_status": 200,
@@ -21,7 +21,7 @@
     {
       "source_id": "mit-ssac-competitions",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.sloansportsconference.com/competitions",
       "final_url": "https://www.sloansportsconference.com/competitions",
       "http_status": 200,
@@ -34,7 +34,7 @@
     {
       "source_id": "nessis",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.nessis.org/call.html",
       "final_url": "https://www.nessis.org/call.html",
       "http_status": 200,
@@ -50,7 +50,7 @@
     {
       "source_id": "cassis",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.cascadiasports.com/",
       "final_url": "https://www.cascadiasports.com/",
       "http_status": 200,
@@ -65,12 +65,12 @@
     {
       "source_id": "cmsac",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.cmsaconference.com/",
       "final_url": "https://www.cmsaconference.com/",
       "http_status": 200,
       "content_sha256": "75e4c3d61bd0a21434dee0703025f1ffe7f50d5f2902606644eec3dfdb1553a2",
-      "changed": true,
+      "changed": false,
       "missing_markers": [],
       "date_mentions": [],
       "error": ""
@@ -78,7 +78,7 @@
     {
       "source_id": "csas",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://statds.org/events/csas2026/",
       "final_url": "https://statds.org/events/csas2026/",
       "http_status": 200,
@@ -91,7 +91,7 @@
     {
       "source_id": "mlsa",
       "status": "error",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "final_url": "https://dtai.cs.kuleuven.be/events/MLSA26/",
       "http_status": 404,
@@ -104,7 +104,7 @@
     {
       "source_id": "mathsport-international",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.mathsportinternational.com/",
       "final_url": "https://www.mathsportinternational.com/",
       "http_status": 200,
@@ -117,7 +117,7 @@
     {
       "source_id": "mathsport-asia",
       "status": "markers_missing",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://iimk.ac.in/apps/mathsport26/",
       "final_url": "https://iimk.ac.in/apps/mathsport26/",
       "http_status": 200,
@@ -140,34 +140,34 @@
     {
       "source_id": "hudl-performance-insights",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "final_url": "https://www.hudl.com/blog/hpi-2026-research-competition",
       "http_status": 200,
-      "content_sha256": "92490b51afd1822cb50ad270a7df6717bc284ca975981c3a86238e2426d860e8",
-      "changed": false,
+      "content_sha256": "9e6c70335e868e6de5d8193c2c841031902364926d18a4d5af444b1d5bbca892",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "pany News Hudl Performance Insights 2026: Call For Research Proposals 10 Jun 2026 3 min Read Hudl open submissions for the Hudl Performance Insights 20",
         "submit a proposal, please complete the application process by Friday 3rd July 2026. Your proposal should clearly outline your hypothesis, the specific d",
-        "ries Basketball Coaching Software Built for Every Part of Your Season 20 Oct 2026 Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond",
+        "Related Stories Sportscode AI Scripting: Breaking the Syntax Barrier 23 Oct 2026 Week 8 is a Prove-It Spot 22 Oct 2026 Basketball Coaching Software Bu",
+        "ng: Breaking the Syntax Barrier 23 Oct 2026 Week 8 is a Prove-It Spot 22 Oct 2026 Basketball Coaching Software Built for Every Part of Your Season 20 O",
+        "2026 Basketball Coaching Software Built for Every Part of Your Season 20 Oct 2026 Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond",
         "or Every Part of Your Season 20 Oct 2026 Week 7 is Statement Saturday 13 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 202",
-        "3 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 GLVC Names Hudl As Off",
-        "Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is Al",
-        "it in Week 6 8 Oct 2026 GLVC Names Hudl As Official Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Solutions High School",
-        "cial Ticketing Partner 6 Oct 2026 Week 5 Is All About Problem-Solving 1 Oct 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
+        "3 Oct 2026 Minnesota Basketball: Beyond the Box Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 Solutions High School",
+        "Score with Sportscode 12 Oct 2026 Upset Opportunities Await in Week 6 8 Oct 2026 Solutions High School Club Collegiate Division I Colleges Fan Engagem"
       ],
       "error": ""
     },
     {
       "source_id": "nfl-big-data-bowl",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "final_url": "https://operations.nfl.com/programs-initiatives/innovation/big-data-bowl",
       "http_status": 200,
-      "content_sha256": "01704c35df7395ae036bf118a59da1b80eb8a47247be5d7d3f5dbcfcda76de0d",
-      "changed": false,
+      "content_sha256": "90889092b4683a3464367dbc4f761b1f4a6141770c85272466b7695eba094365",
+      "changed": true,
       "missing_markers": [],
       "date_mentions": [
         "2026 at the NFL football scouting combine in Indianapolis, Wednesday, Feb. 25, 2026 (AJ Mast/AP Content Services for the NFL) AP JUMP TO A SECTION: → Big"
@@ -177,7 +177,7 @@
     {
       "source_id": "kaggle-sports",
       "status": "auth_required",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://www.kaggle.com/api/v1/competitions/list?search=sports",
       "final_url": "",
       "http_status": null,
@@ -190,7 +190,7 @@
     {
       "source_id": "wsaj",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "final_url": "https://wsb.wharton.upenn.edu/wharton-sports-analytics-journal/submission-guidelines/",
       "http_status": 200,
@@ -203,7 +203,7 @@
     {
       "source_id": "jsdss",
       "status": "ok",
-      "checked_at": "2026-10-22T11:45:15.747938Z",
+      "checked_at": "2026-10-23T11:45:02.223830Z",
       "url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "final_url": "https://journals.charlotte.edu/index.php/jsdss/about/submissions",
       "http_status": 200,
