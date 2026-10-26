@@ -440,3 +440,25 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+## The arXiv batch of 2026-10-26 (weekly roundup)
+
+Six open-access arXiv preprints from Sep 6 – Oct 23, 2026, found by the weekly roundup (see `roundups/2026-10-26.md`). PDFs are at the repo root, `md/` files are `pdftotext` conversions (equations, tables and figures not preserved), scores are front-matter triage like the rest of this report.
+
+| Paper | arXiv | N / P / R = Σ | Data |
+|---|---|---|---|
+| Who Blocks Whom? Probabilistic Pass-Blocking Assignments | [2609.33664](https://arxiv.org/abs/2609.33664) | 8 / 7 / 8 = **23** | public (Big Data Bowl 2023), code on GitHub |
+| Credit Attribution in Timestamped Soccer Networks (Hawkes, xGI) | [2610.12775](https://arxiv.org/abs/2610.12775) | 8 / 6 / 7 = **21** | public (StatsBomb open data) |
+| A Markov Chain Approach to Modeling Rugby Union | [2610.04813](https://arxiv.org/abs/2610.04813) | 5 / 6 / 5 = 16 | public historical matches |
+| Mapping Academic Sports Analytics (JQAS + JSA content analysis) | [2610.32354](https://arxiv.org/abs/2610.32354) | 5 / 5 / 6 = 16 | public (journal corpus) |
+| Strategic Multi-Agent Learning for Action Valuation (J1 League) | [2610.05961](https://arxiv.org/abs/2610.05961) | 8 / 4 / 3 = 15 | proprietary tracking, no code found |
+| Offensive Impact in Professional Box Lacrosse (xG) | [2609.06610](https://arxiv.org/abs/2609.06610) | 4 / 4 / 5 = 13 | hand-annotated, 1,006 shots |
+
+- **Who Blocks Whom (23).** Ports the Franks et al. (2015) defensive-matchup HMM from basketball to pass protection: frame-by-frame probabilistic blocker→rusher assignment, then continuous-time partial blocking credit (an APM upgrade from all-or-nothing stints), block-shed survival curves and "space created for teammates". Fit to 8 weeks of 2021 on Big Data Bowl data; recovers recognised elite rushers/blockers and aligns with independent charting. The most reusable paper of the batch: public data, code released, and it fills the OL gap that EPA/PBP-only stacks cannot touch.
+- **Hawkes credit attribution (21).** Treats passes/shots as a multivariate Hawkes process so each pass's contribution to the next event is a branching probability; xGI credits buildup passers, not just the final pass. Built on StatsBomb open events, so rebuildable today; no code link seen in the text.
+- **Rugby Markov (16).** Finite state space on score differential × time × pitch location; calibration checked against final-outcome-only models. Same construction as football EP/WP Markov models, useful template for a new sport. Source of match data is thin in the paper.
+- **Content analysis (16).** ~700 JQAS/JSA papers 2005–2024 classified by sport, method and research area; top areas are tactics, player evaluation, ranking, forecasting, tournament design. Useful as a taxonomy and for gap-finding (what this collection over-/under-represents), not as a method paper.
+- **MPE action valuation (15).** Strong idea (per-player agents, successor-feature decomposition, interpretable EDMS states) but J1 League tracking is not public and no code was found, so reproducibility is low. Its headline diagnostic is notable: an independent-RL baseline rates forward movement best in 99.21% of off-ball states; the strategic formulation does not.
+- **Box lacrosse xG (13).** Small, hand-annotated sample; the honest finding is that contextual features beat the base-rate benchmark by only ~1.2% log loss / 1.5% Brier, and 5 of 9 specs failed to. Selection and evaluation share the same CV, as the author notes.
+
+Not downloaded (watch list, flagged in the roundup): *From Metrics to Decisions in NBA Analytics* (2609.27245), *A Survey of Large Models in Sports* (2608.14377).
