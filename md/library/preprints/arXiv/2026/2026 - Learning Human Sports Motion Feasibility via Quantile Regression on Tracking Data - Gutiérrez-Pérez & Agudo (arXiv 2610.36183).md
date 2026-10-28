@@ -1,0 +1,858 @@
+<!-- source: library/preprints/arXiv/2026/2026 - Learning Human Sports Motion Feasibility via Quantile Regression on Tracking Data - Gutiérrez-Pérez & Agudo (arXiv 2610.36183).pdf -->
+<!-- item: https://arxiv.org/abs/2610.36183 -->
+<!-- arXiv: 2610.36183, submitted 2026-10-26 -->
+<!-- authors: Marc Gutiérrez-Pérez; Antonio Agudo -->
+<!-- machine conversion from the stored PDF via pdftotext -layout, 2026-10-28; equations, tables and figures are NOT preserved - consult the PDF for those -->
+
+                                             Learning Human Sports Motion Feasibility via
+                                                 Quantile Regression on Tracking Data
+
+                                                             Marc Gutiérrez-Pérez and Antonio Agudo
+
+                                              Institut de Robòtica i Informàtica Industrial, CSIC-UPC, Barcelona, Spain
+                                                          {marc.gutierrez.perez, antonio.agudo}@upc.edu
+arXiv:2610.36183v1 [cs.AI] 26 Oct 2026
+
+                                                Abstract. We study time-to-arrival (TTA) in sports: the shortest plau-
+                                                sible time a player needs to reach an arbitrary location on the pitch given
+                                                their current kinematic state, estimated as the lower envelope of observed
+                                                locomotion times. Rather than modeling space ownership through po-
+                                                sition density estimation or closed-form physics-based models, we cast
+                                                TTA as a conditional quantile regression problem, estimating the lower
+                                                quantile of locomotion time so the model learns a player’s lower-envelope
+                                                arrival time. We train the model on optical tracking data from all 64
+                                                matches of the PFF FC FIFA World Cup 2022 dataset, and evaluate a
+                                                lightweight multilayer perceptron against six player-motion models from
+                                                the literature, re-expressed as TTA predictors, and a learned reachable-
+                                                hull baseline. Across our evaluation metrics, the MLP consistently out-
+                                                performs every physics-based baseline. To probe the generality of the
+                                                learned locomotion model, we further evaluate it on basketball tracking
+                                                data and a single-game NFL tracking dataset, analyzing the transferabil-
+                                                ity of player motion dynamics across sports. Our project is available at
+                                                https://github.com/mguti97/TTA-Quantile.
+
+                                                Keywords: Time-to-arrival · Human motion · Tracking data · Quantile
+                                                regression · Sports analytics.
+
+                                         1    Introduction
+                                         Over the last decade, professional team sports have undergone a shift from box-
+                                         score event logs to continuous positional tracking. Optical, radar, and GPS sys-
+                                         tems now record the locations of every player and the ball multiple times per
+                                         second in sports such as football [20, 40], basketball [36], and American foot-
+                                         ball [19]. This shift has opened a new class of technical, tactical and physical
+                                         performance indicators [21, 45].
+                                         Space is the currency of team sports: where a player can be a second from now
+                                         determines who can receive a pass, who can close a passing lane, and which re-
+                                         gions of the pitch or court a team effectively controls. Almost every method that
+                                         quantifies that (pitch control, off-ball value or pass-probability surfaces) rests, ex-
+                                         plicitly or implicitly, on a player-motion model: an answer to the question “where
+                                         can this player get to, and how fast?” The dependence spans sports: recent mod-
+                                         els of expected passes [2], dangerous accessible space [5], offside control [33] and
+2         Gutiérrez-Pérez and Agudo
+
+pressing intensity [4] in football, off-ball value in basketball [49], and safe pass
+targeting in American football [38] all inherit such a model, typically with a
+handful of fixed global parameters. Although developed in the context of sports
+analytics, player-motion models address a more general problem of predicting
+the future reachability of moving agents under physical constraints [11,12]. Sim-
+ilar formulations arise in robotics, where autonomous systems must anticipate
+the motion of humans or other robots for safe navigation and collision avoid-
+ance [9, 47], and in autonomous driving for forecasting the reachable regions of
+surrounding vehicles and pedestrians [22, 27].
+Two answers to the previous question dominate the literature. One line derives
+a reachable region analytically from an equation of motion and then validates
+or refits that closed form against tracking [30, 35, 48]. These models are inter-
+pretable and cheap, but they commit in advance to a fixed functional form with
+a handful of global parameters. A second line keeps a continuous notion of space
+but drops arrival time altogether, shaping a hand-set Gaussian influence kernel
+around a player’s velocity and position [16, 49] or fitting a kernel-density esti-
+mate over observed endpoints [6, 28, 43]. The kernel bandwidth may now be fit
+from data, but the output is a density or a behavioral commitment likelihood,
+not a feasibility bound: a location scores high because players are often there, or
+often choose it, independent of whether anyone could actually get there in time.
+We take a complementary, data-driven view that keeps that question central. We
+directly predict the minimum time-to-arrival (TTA) from a player’s kinematic
+state to any target location, and we learn it as a quantile of observed locomotion.
+The key modeling choice is to estimate a low envelope of arrival times rather than
+the mean: a player may dawdle to any location, so the upper tail is uninformative,
+but the floor on how quickly they can plausibly arrive is sharply defined and is
+exactly the quantity downstream space models need. We estimate this floor at
+τ = 0.01 rather than a looser quantile, since the target quantity is a feasibility
+bound (the player could be there in time). This turns an ill-posed counterfactual
+into a well-posed conditional-quantile regression problem. Unlike the iterative
+pursuit simulations and optimization-based fits some physical models require, the
+resulting predictor is a single compact feed-forward pass that runs comfortably
+beyond real time.
+This work makes the following key contributions:
+
+    – TTA as lower-quantile regression. We cast time-to-arrival as pinball
+      regression over physics-normalized, heading-invariant geometry.
+    – An area-aware objective and a fair, joint benchmark. We add a
+      differentiable reachable-area term to the pinball loss and evaluate jointly on
+      coverage and area against six literature motion models.
+    – Cross-sport transferability analysis of a learned locomotion model.
+      We test the same representation and objective on basketball and American-
+      football.
+                  Learning Sports Motion Feasibility via Quantile Regression        3
+
+2    Related work
+Physical motion models. The oldest strand models the region a player can
+reach in a given time from simple kinematics. Taki and Hasegawa [46] intro-
+duced a dominant-region idea using a constant-acceleration motion model, and
+Fujimura and Sugihara [18] refined the locomotion law with a resistive-force
+model that caps speed smoothly. Efthimiou [15] generalizes the Voronoi parti-
+tion to unequal characteristic speeds and reaction times, still a fixed closed-form
+law with hand-set per-player constants. Caetano et al. [8] fit dominant regions
+from instantaneous kinematic variables on real tracking. Renkin et al. [35] pro-
+vided the most systematic treatment we build on: they cataloged a family of
+motion models (constant speed, constant acceleration, capped acceleration, two-
+segment) and validated them against tracking by a reachable-area score, opti-
+mizing each model’s parameters to maximize precision at a fixed correctness
+gate. Wu and Swartz [48] propose a free-direction constant-acceleration model
+with a speed cap and a corresponding pitch-control metric. Narizuka et al. [30]
+validate the friction-damped model directly against J-League tracking, confirm-
+ing circular rather than elliptical arrival regions. Narizuka and Yamazaki [31]
+couple attacker and defender into the two-agent resistive-force pursuit of Brink
+et al. [7], which falls outside the single-player, fixed-target protocol we bench-
+mark. Augustine et al. [3] reuse the capped-acceleration model to time defenders
+in American football. We adopt all six of these models as TTA predictors and fit
+them with exactly Renkin et al.’s reachable-area objective [35], so our physics
+baselines are each model’s best-tuned variant.
+
+Probabilistic and data-driven movement models. A second strand drops
+the fixed functional form and estimates movement directly from data instead.
+Brefeld et al. [6] reframe deterministic reachable regions as probabilistic move-
+ment models and zones of control estimated from data, and Lee and Kitani [25]
+forecast a receiver’s trajectory in American football with inverse-reinforcement
+learning over a data-driven opponent-motion predictor, replacing kinematics
+with a learned, non-mechanistic trajectory model entirely. Both trade the inter-
+pretability of a closed-form law for flexibility fitted directly to tracking, the same
+trade-off the space-model literature below inherits, and the one our arrival-time
+formulation is designed to avoid. Anzer and Bauer [2] occupy an intermediate
+position we benchmark against directly: they estimate reachable regions directly
+from tracking data, as per-speed convex hulls of observed displacements, with-
+out committing to any closed-form equation of motion. Several other data-driven
+movement models exist, but, Anzer and Bauer aside, they estimate probabilistic
+occupancy rather than a physically interpretable space–time feasibility limit.
+Pitch control, space and pass models. A parallel strand turns motion
+models into team-level surfaces. Spearman et al. [42] build physics-based pass-
+probability surfaces from time-to-intercept, and Spearman [41] extends this to
+off-ball value. Fernández and Bornn [16] instead shape a heuristic Gaussian in-
+fluence kernel by velocity and ball distance, a continuous control surface with
+4       Gutiérrez-Pérez and Agudo
+
+expert-set parameters and no arrival-time semantics, and Caldeira et al. [10]
+argue that static Voronoi space suffices in finishing situations; both illustrate
+the alternative of discarding the time dimension altogether. The same pattern
+recurs outside soccer as Wu et al.’s [49] basketball visual-analytics system scores
+off-ball value with a static Gaussian kernel around a player’s current position
+masked by a Voronoi defensive term, again with no velocity, acceleration or
+arrival-time variable anywhere in the model. Fernández et al.’s later expected-
+possession-value framework [17] composes this same Gaussian influence surface
+with learned pass, drive and shot sub-models rather than replacing it, so its
+much larger downstream system still inherits the original heuristic reachability
+layer unchanged. Spencer et al. [43] go further still in Australian-rules football,
+replacing kinematics with a purely empirical kernel-density estimate of where a
+player has historically chosen to commit given the ball’s travel time, a behav-
+ioral propensity model with no notion of physical reachability at all. Narizuka
+et al. [32] go the opposite way and weight every pitch location by team-level
+arrival-time margins, a formulation that is explicitly agnostic to the arrival-time
+model plugged in. Martens et al. [28] learn space and control from data and
+evaluate a distance-to-time regression, the closest prior work to our point-error
+view. Dick et al. [14] model availability (who can receive a pass) computation-
+ally. These methods predominantly output probabilities and are evaluated as
+classifiers; our contribution is orthogonal, supplying the underlying time as a
+calibrated quantile that such surfaces can be rebuilt from.
+Applications resting on arrival times. A growing applied literature con-
+sumes arrival times wholesale. Anzer and Bauer [2] identify the intended receiver
+of a pass by intersecting a ball-flight model with data-driven reachable regions,
+and find that arrival-time slack features dominate their pass-difficulty model;
+Chawla et al. [13] rate pass quality from dominant-region features; Bischofberger
+and Baca [5] drive pass-interception rates by the player-versus-ball arrival-time
+differential; Schilling et al. [38] intersect receiver, defender and ball reachable
+regions to find safe pass targets in American football. In the same sport, Yurko
+et al. [50] build a continuous-time play-valuation framework whose ball-carrier
+model consumes Voronoi-tessellation features but predicts expected yards gained
+rather than an arrival time, underscoring that the motion-model gap we address
+is not specific to soccer. Allegre and Vuillemot [1] visualize disputed areas where
+arrival times nearly tie; and Novillo et al. [33] and da Silva et al. [39] build offside-
+control and stamina metrics on the standard reaction-plus-constant-speed heuris-
+tic. Pressing has become a particularly active consumer of this layer: Bekkers [4]
+retargets the Spearman-style time-to-intercept formula from a fixed pitch lo-
+cation to a moving player or ball to score pressing intensity, while Merckx et
+al. [29] plug an off-the-shelf pitch-control implementation into gradient-boosted
+classifiers to value pressing situations; both treat the arrival-time model purely
+as a black-box feature source. Link and Hoernig [26] similarly lean on arrival-
+time reasoning at its simplest: they decide whether a player can still reach the
+ball within a fixed one-second horizon using a constant-velocity extrapolation.
+The underlying arrival time for these approaches is inherited with fixed global
+                  Learning Sports Motion Feasibility via Quantile Regression        5
+
+Fig. 1: Predicted TTA surfaces for the attacking and defending teams in
+football (top left), basketball (top right), and American football (bottom). The color
+map represents the difference between the predicted arrival times of the attacking and
+defending teams at each location. The ball is shown in white, and player arrows are
+scaled proportionally to player speed.
+
+parameters, and is validated at best indirectly through downstream outcomes.
+Two of their findings directly motivate this work: da Silva et al. [39] show pitch-
+control surfaces are markedly sensitive to per-player top speed (matching our
+ablation, where a per-player max-speed feature is the largest single gain), and
+the horizon-dependent parameters of [30] show a fixed functional form cannot
+serve all horizons. A calibrated learned arrival time is a drop-in replacement for
+exactly this layer.
+The two strands above trade off in opposite directions: motion models are in-
+terpretable and parameter-light but committed to a fixed functional form, while
+data-driven space models are flexible but discard the physically meaningful time
+in favor of a classifier probability. This work sits at their intersection by propos-
+ing a learned model that keeps the interpretable output type of the motion-model
+literature (an arrival time, invertible to a reachable area) while inheriting the
+accuracy of a data-driven regressor, evaluated against both literatures on their
+own terms.
+
+3    Method
+We formulate TTA as conditional lower-quantile regression and present, in turn,
+the geometric duality that underpins both the model and its evaluation, the
+data pipeline from raw tracking to training tensors, the physical baselines re-
+expressed as arrival-time predictors, and the learned models and their objective.
+6       Gutiérrez-Pérez and Agudo
+
+Figure 1 shows TTA surfaces in the three evaluated sports, as the difference in
+arrival time between attacking and defending team.
+
+3.1   Problem formulation
+We predict the minimum time that a football player needs to reach an arbitrary
+location on the pitch, given their current kinematic state k = (p, v, a), where
+p is the position, v the velocity and a the acceleration. Writing x for a target
+location, the quantity of interest is the arrival time ∆t(k → x), which constitutes
+a counterfactual regression problem. At inference the model is queried at loca-
+tions the player never visited, so it must generalize from observed trajectories to
+hypothetical ones. The target is not where a player is expected to go but how
+fast they could plausibly get somewhere; that is, the lower envelope of observed
+locomotion. We therefore frame the task as conditional quantile regression [23]:
+                            τ (g) = Q0.01 (∆t | g(k, x)) ,                        (1)
+where g(k, x) is the geometry of the state–target pair and Q0.01 denotes the
+1st percentile of the arrival-time distribution. Estimating a low quantile, rather
+than the mean, forces the model to hug the fastest reliably observed behavior
+while remaining robust to the long upper tail of arrival times. We target the 1st
+percentile, rather than a looser one, because the quantity of interest is a feasibil-
+ity bound, not a typical-case estimate. The target is thus the conditional lower
+envelope of arrival times, not a per-observation minimum. A single observed tra-
+jectory only upper-bounds what the player could have done; across the ∼154 M
+extracted samples, however, many observations share the same kinematic state
+with the player fully committed to that displacement, and the pinball loss at
+the 1st percentile recovers the fast tail of that conditional distribution, discard-
+ing choice-driven slowness rather than averaging it in. Intent, fatigue, tactical
+constraints and obstacles all act in the conservative direction.
+
+Duality with reachable area. A TTA surface τ (·) is the dual of a reachable-area
+model. The region a player can reach within a horizon ∆t is exactly the sublevel
+set:
+                          R(∆t) = { x : τ (x) ≤ ∆t }.                        (2)
+This identity connects our work to the player-motion-model literature [6, 18, 35,
+46, 48], which models R(∆t) directly, and it is the bridge that lets us evaluate a
+time output with a reachable-area metric.
+
+3.2   Track cleaning
+Each player’s timeline within a match half is processed independently into a clean
+track of smoothed position, velocity and acceleration. Tracks are segmented into
+gap-free runs, smoothed with a Savitzky–Golay filter [37] following the practice
+of [41], and differentiated by finite differences to obtain velocity and acceleration.
+Frames that violate hard kinematic bounds on speed, acceleration or frame-to-
+frame velocity change are excluded as unusable states. Exact window sizes and
+thresholds are provided in Supplementary Section A.1.
+                 Learning Sports Motion Feasibility via Quantile Regression       7
+
+         Table 1: The six input features and their normalization constants.
+
+               Feature Meaning                          Normalizer
+               d/120    distance to target (m)            Dnorm = 120
+               cos θ    cosine of angle to target         ∈ [−1, 1]
+               sin θ    sine of angle to target           ∈ [−1, 1]
+               v/12     current speed (m/s)               Vnorm = 12
+               ax /10   longitudinal acceleration (m/s2 ) Anorm = 10
+               ay /10   lateral acceleration (m/s2 )      Anorm = 10
+
+3.3   Coordinate transform and input features
+Every state–target pair is expressed in the player’s heading frame, making the
+representation invariant to absolute pitch position and orientation. Given state
+position p, velocity v (heading φ = atan2(vy , vx ), speed v = ∥v∥), acceleration
+a, and a target x, we (i) translate so the player sits at the origin and (ii) rotate
+by −φ so the heading aligns with +x. By construction the player moves along
++x at speed v, so the lateral velocity component vanishes and is dropped. The
+target then lands at (d cos θ, d sin θ), where d is the distance to target and θ the
+angle from heading to target (0◦ ahead, ±180◦ a full reversal). Acceleration is ro-
+tated into longitudinal/lateral components (ax , ay ). The invariance deliberately
+discards absolute pitch position and boundary context.
+The network consumes six values, each normalized by a hard physical bound, so
+the same constants serve as clipping thresholds and feature scales (see Table 1).
+The angle is always encoded as the pair (cos θ, sin θ), never as a raw angle, which
+would introduce a 2π discontinuity.
+
+3.4   Sample extraction and label-quality filter
+For every usable state frame we emit training tuples (k, x∆t , ∆t), where x∆t
+indicates the player’s smoothed position ∆t seconds later. Each state draws five
+continuous horizon offsets uniformly from [0.10, 8.0] s. Labels are therefore self-
+supervised: every target is the player’s own observed future arrival time at the
+position they actually reached.
+SUVAT noise floor. SUVAT is a closed-form kinematic intercept model in the
+same family as the time-to-intercept models of [41, 42]. It runs in two phases
+in the heading frame: a redirect phase that keeps the component of current
+velocity toward the target as useful momentum, followed by a sprint phase that
+accelerates at a capped rate up to a capped top speed and cruises.
+Because the τ = 0.01 objective learns from the fastest realizations, a single tele-
+port artifact at a given geometry can drag the predicted floor below what is
+physically achievable. We therefore use this model to compute, for every sample,
+the fastest physically plausible arrival time ∆tSUVAT and discard any sample
+whose observed ∆t < ∆tSUVAT , along with degenerate near-zero-distance sam-
+ples. The filter is deliberately conservative: it removes only 0.3% of extracted
+samples, and its caps (8 m/s2 , 9 m/s) are stricter than the independent physical
+8         Gutiérrez-Pérez and Agudo
+
+clipping bounds of Supplementary Section A.1, so it discards only samples al-
+ready implausible under a model-free criterion. Retraining with the filter off, or
+with its caps widened to the model-free clipping bounds leaves the fitted floor
+unchanged and only degrades regularity: matched-coverage areas loosen by up
+to 31% and 12–17% respectively, and monotonicity violations (Section 4.4) rise
+from 1.4% to 23.4% of rays. This is the signature of a noise screen, not of a
+physical prior, which would move the floor itself.
+
+3.5     Literature motion models as arrival-time predictors
+To benchmark against published player-motion models on a common footing, we
+re-express six models from the literature as TTA predictors and invert each via
+Eq. (2), τ (x) = min{t : x ∈ R(t)}. All operate in the heading frame, requiring
+only (d, v, cos θ, sin θ); closed forms are provided in Supplementary Section A.2.
+
+    – Constant speed [35]: a reachable disk that grows at a capped speed, cen-
+      tered on the player.
+    – Constant acceleration [35, 46]: a disk that grows quadratically and whose
+      center drifts with the initial velocity.
+    – Constant acceleration with speed limit [35]: accelerates to a capped
+      speed, then cruises; the boundary is no longer circular.
+    – Two-segment constant speed [35]: an inertial drift segment followed by
+      free radial motion.
+    – Acceleration with free direction [48]: a constant-magnitude acceleration
+      whose direction is chosen freely on the circle, capped at a top speed, then
+      cruising at constant velocity.
+    – Friction-damped acceleration [6, 18]: a driving force opposed by a re-
+      sistive force proportional to speed, which caps speed smoothly rather than
+      with a hard limit.
+
+Each model’s free parameters are fit to the training data by the same reachable-
+area validation score used for evaluation, so the comparison is between best-
+tuned versions of each model class.
+
+3.6     Learned models
+Multilayer perceptron (primary). The primary model is a small fully con-
+nected network, 6 → 64 → 64 → 1, with ReLU hidden activations and a Softplus
+output. Because softplus of an affine map grows linearly, the network extrapo-
+lates gracefully beyond the training-horizon range.
+Player-profile MLP (personalized capacity). We augment the input with
+each player’s maximum speed, estimated as the 99th percentile of that player’s
+cleaned, state-valid speeds pooled over the 45 training matches only. The scalar
+is normalized and appended as a seventh input.
+A learned data-driven baseline. To separate the quantile formulation from
+mere data-drivenness, we additionally fit the learned reachable-hull model of
+Anzer and Bauer [2], which replaces the closed form with per-speed-bin convex
+                                                                                                                                                                                                              5s
+                                                    Learning Sports Motion Feasibility via Quantile Regression                                                                                          9
+
+                                                                                                                           4s
+                                                                                                                                                3s
+
+                                    speed = 2 m/s                                             speed = 5 m/s                                               speed = 8 m/s                           4.0
+                15
+
+                                                                                                                                                                                                  3.5
+
+                                                                                                                                                                              2s
+                10
+
+                                                                                                             2s
+                                                                                                                                                                                                  3.0
+
+                          3s
+                5
+
+                                              2s
+                                                                                                                                                                                                  2.5
+
+                                                                                                        1s
+
+                                                                                                                                                             1s
+
+                                                                                                                                                                                                    TTA (s)
+                0                                                                                                                                                                                 2.0
+
+                                         1s
+
+                                                                                                                            3s
+                               5s
+
+                                                                                                                                                                                                  1.5
+                 5
+                                                                                                                                                                                                  1.0
+          4s
+
+                10
+                                                                                                                                                                                                  0.5
+     5s
+
+                15                                                                                                                                                                                0.0
+                     15   10    5         0         5   10    15    15     10             5         0             5         10   15   15   10         5           0       5             10   15
+
+                                                                                                                                                                                                                   6s
+               Fig. 2: Predicted TTA for a player moving upward at speeds of 2, 5, and
+               8 m/s. White contours correspond to the proposed learned model, while red ones
+6s
+
+                                                                                                                                                                                   6s
+                                                                                          5s
+               correspond to the two-segment physical model [35].
+
+                                                                                                                                                     5s
+                                                                                4s
+
+                                                                                                              5s
+                                                                                     6s
+
+                                                                                                                      6s
+                               6s
+
+               hulls of the displacements observed in training tracking, evaluated under the
+               identical protocol and on the identical splits.
+               Figure 2 depicts a visual comparison of time-contours for a player moving at
+               speeds of 2, 5, and 8 m/s, with both physics-based and the proposed learned
+               models.
+
+               3.7        Quantile objective
+               All learned models minimize a pinball loss based on [23], augmented with an
+               area-aware auxiliary term. The pinball component can be written as:
+                                                                     (
+                                                                      τ (y − ŷ)       for y ≥ ŷ
+                                                        Lτ (ŷ, y) =                              ,                                                                                               (3)
+                                                                      (1 − τ )(ŷ − y) for y < ŷ
+
+               where y is the true observed TTA and ŷ is the model’s predicted arrival time for
+               that same state–target pair. At τ = 0.01, over-prediction is penalized 99× more
+               heavily than under-prediction, pushing the estimate toward the lower envelope
+               so the model learns how quickly a player can arrive.
+               Area-aware auxiliary term. The pointwise pinball loss never sees the in-
+               tegrated pitch area that the learned surface produces through the duality of
+               Eq. (2). We therefore add a differentiable relaxation of the reachable-area frac-
+               tion. Because the surface is translation/rotation-invariant, its area can be eval-
+               uated on a fixed heading-frame grid G (25 × 25 nodes at 4 m spacing spanning
+               ±48 m, the origin node excluded, |G| = 624); for a mini-batch subsample of states
+               k and horizons h ∈ {3, 5} s:
+                                                                                             
+                                                                          1 X     h − τ̂k (x)
+                                        Larea = mean                          σ                 ,                                           β = 0.25 s,                                           (4)
+                                                             k, h        |G|          β
+                                                                                x∈G
+
+               where σ(·) is the logistic sigmoid, a differentiable relaxation with β setting the
+               transition sharpness. The result is a soft count of the cells inside the horizon-h
+               reachable set. The total objective is L = Lτ + λ Larea , with λ = 0.01.
+10      Gutiérrez-Pérez and Agudo
+
+4     Experiments
+We now evaluate the proposed models, all of which are trained on identical
+samples, use the same six base features, and predict the same target quantile.
+
+4.1   Data
+We use optical tracking data from the PFF FC dataset of the FIFA World
+Cup 2022 [34], for all 64 matches, recorded at 30 fps, split by match at 45/10/9
+(train/validation/test). Holding out whole matches makes the 64-match corpus
+a genuine cross-match generalization test.
+Tracking carries intermittent gaps (occlusions, substitutions), jitter that a double
+finite difference amplifies into implausible accelerations, and a small fraction of
+identity swaps or position jumps that sit precisely at the fast tail from which
+our τ = 0.01 objective learns (see Supplementary Section A.1).
+The six input features of Table 1 are expressed entirely in physically normalized
+units (i.e., meters, m/s and m/s2 , respectively) within a player-centered head-
+ing frame. A checkpoint trained on one sport’s samples can therefore be scored
+directly against another sport’s held-out split, with no retraining or feature adap-
+tation. To probe that, we build two further corpora through the identical pipeline
+of Sections 3.2–3.4.
+For basketball, we use the NBA SportVU [44] player tracking, 2015–16 season,
+with 631 games at 25 fps, split by match at 442/95/94. Finally, for American
+football we consider the NFL Big Data Bowl 2019 [24] tracking: a single game at
+10 fps. Extraction yields 729,510 samples. Held-out splitting (509k/87k/133k) is
+by player rather than by match, a within-game rather than cross-match gener-
+alization test.
+
+4.2   Evaluation methodology
+To evaluate the point error, we report mean absolute error (MAE) and root-
+mean-square error (RMSE). We also evaluate the pinball loss of Eq. (3) at τ =
+0.01 on the held-out set.
+Moreover, we port the player-motion-model validation idea of [35] through the
+duality of Eq. (2), but report it jointly as coverage and area. For a set of exact-∆t
+trails reconstructed from the held-out split, with xt the point each player actually
+reached, coverage at horizon ∆t is the fraction of trails with τpred (xt ) ≤ ∆t —
+the reached point lies inside the predicted reachable set. The reachable area is
+the pitch area of the sublevel set {x : τpred (x) ≤ ∆t}, obtained by thresholding
+the inference grid.
+Any model reaches coverage 1.0 by inflating its reachable set to the whole pitch,
+so we never rank models on coverage or on area in isolation. Instead, we tune
+every model to a matched coverage and compare the resulting mean reachable
+area at that shared operating point: the model that covers the same fraction
+of actually-reached points with the smallest area is the tighter one. We do this
+                     Learning Sports Motion Feasibility via Quantile Regression                        11
+
+Table 2: Evaluation on PFF FC test-set. Area is mean reachable area (m2 ) at
+∆t = 1 s with every model tuned to the same 99% coverage. Learned-model point
+metrics are mean±std over five training seeds.
+
+       Model                                 MAE (s)    RMSE (s)        pinball       area @ 99% cov (m2 )
+physics Constant speed [35]                   3.166        3.75        0.0334                119.3
+        Constant accel. [35, 46]              3.043        3.63        0.0326                 46.9
+        Const. accel. + vmax [35]             3.101        4.75        0.2370                48.0
+        Two-segment [35]                      2.992        3.60        0.0581                34.1
+        Two-segment + vmax (profile) [35]     2.900        3.50        0.0421                 40.4
+        Free-direction accel. [48]            2.883        3.48        0.0307                 43.6
+        Friction-damped [6, 18]               2.984        3.57        0.0305                 35.0
+learned Reachable hulls [2]                    3.065       3.65         0.0308               34.8
+        MLP                                 2.596±0.005 3.193±0.004 0.02800±0.00001          31.6
+        MLP + vmax (profile)                2.577±0.006 3.171±0.005 0.02783±0.00001          31.7
+
+across our five canonical horizons (∆t ∈ {1, 2, 3, 4, 5} s) at the project’s 99%
+coverage target.
+
+4.3    Main comparison
+Our baselines are the physical arrival-time models: the six fitted literature motion
+models of [35], [48] and [18], plus the learned reachable-hull model of Anzer and
+Bauer [2]. Table 2 reports point error, the pinball loss and matched-coverage
+reachable area for these seven motion models and the two quantile MLPs we
+propose. Both MLPs beat every physics baseline on MAE and pinball, by a wide
+margin. Moreover, appending a single per-player capacity feature is enough to
+improve on the base MLP: the profile variant lowers test point error and pinball,
+and tightens the matched-coverage area at the longer horizons, while matching
+it at ∆t = 1 s, where acceleration out of the current state rather than top speed
+governs reach. The learned reachable-hull model trails both quantile MLPs on
+every reported metric, and even the best closed-form baselines on point error:
+being data-driven is not, by itself, what produces a tight, well-calibrated lower
+envelope — the quantile formulation is.
+Table 2 reports each learned model’s point metrics as mean ± std over five train-
+ing seeds, and the profile model’s advantage over the base model is positive in
+all five seeds. A paired cluster bootstrap over the nine held-out test matches
+puts the base-versus-profile MAE gap at +0.025 s with a 95% confidence inter-
+val of [+0.019, +0.030] s, excluding zero. The gaps to every physics baseline are
+an order of magnitude larger than this interval.
+Max speed allows the network to scale each player’s reachable envelope individ-
+ually rather than assuming one population-wide relationship between kinematic
+state and ceiling speed. Because only the profile MLP receives per-player infor-
+mation, we ran a control in which the closed-form baselines are given the same
+train-split per-player vmax table. The two-segment model benefits most, and we
+carry it through Table 2 and Fig. 4 as the representative personalized baseline.
+The pattern across the family is consistent: gains are small and concentrated
+at the long horizons, where a player’s own ceiling speed actually binds. How-
+12      Gutiérrez-Pérez and Agudo
+
+                                     Arrival-time MAE by distance band (held-out test)
+                   4.0   Two-segment
+                         Reachable hulls
+                   3.5   MLP
+                         MLP+vmax
+                   3.0
+         MAE (s)   2.5
+
+                   2.0
+
+                   1.5
+
+                   1.0
+
+                   0.5
+
+                   0.0
+                            0-5m                5-15m                   15-30m           30- m
+                                                        distance band
+Fig. 3: MAE by distance band on the PFF FC held-out test set, for the best
+precision physics baseline, the learned reachable-hull baseline and both quantile MLPs,
+stratified into four distance-to-target bands (0–5, 5–15, 15–30 and 30 m+).
+
+ever, the best personalized baseline still trails the profile MLP by 0.30 s of MAE.
+The advantage therefore stems from the learned representation, not from the
+per-player feature.
+In Fig. 2 is displayed a qualitative comparison of the predicted time contours
+produced by the physics-based and proposed learned models. Figure 3 further
+breaks down the MAE by distance band, comparing the two-segment physical
+model and the learned reachable-hull baseline with both quantile MLPs. Across
+all distance bands, both MLPs outperform both baselines by a substantial mar-
+gin.
+
+4.4   Ablation studies
+Reachable area and the coverage–precision trade-off. Figure 4 reports
+area at every combination of three coverage levels (90/95/99%) and three hori-
+zons (∆t ∈ {1, 3, 5} s), for the two quantile MLPs, all six physics baselines and
+the learned reachable-hull baseline. A quantile MLP is tightest in eight of the
+nine cells. The learned reachable-hull baseline does not change the count: it is
+looser than the base MLP in all nine cells, with the gap widening with horizon.
+Cross-sport transfer. Table 3 shows the models’ performance on the basketball
+and American-football corpora, each with its own τ = 0.01 MLP, then cross the
+three train/test checkpoint–split pairs to measure how well a locomotion model
+learned on one sport generalizes to another.
+In-domain, each sport’s own MLP beats the two-segment baseline on every one
+of the four metrics, confirming the recipe is not tuned to one sport’s geometry.
+Cross-sport transfer is markedly asymmetric. On point error and pinball, the
+American-football-trained checkpoint transfers out best: it beats the destina-
+tion’s own two-segment baseline in both directions, and its pinball stays within
+a few percent of the destination’s own in-domain MLP. The reverse direction is
+                                              Learning Sports Motion Feasibility via Quantile Regression                                                  13
+
+                                          t=1 s                                          t=3 s                                       t=5 s
+
+                                                                                                               10 3
+                                                                  10 3
+                10 2
+
+                                                                                                             3×
+mean reachable area (m2)
+
+                                                                                                               10 3
+                                                                                                             2×
+                                                                  10 2
+                                                               6×
+                                                               10 2 × 10 2
+
+                                                                                                               10 3
+                                                               3×  4
+                                                                  10 2
+
+                                                                                                               10 2
+                10 1
+
+                                                               2×
+
+                                                                                                             6×
+                            90%            95%         99%                   90%             95%      99%                  90%         95%          99%
+                                    matched coverage                                 matched coverage                          matched coverage
+                                  MLP               Reachable hulls          Constant accel.          Two-segment               Free-direction accel.
+                                  MLP+vmax          Constant speed           Const. accel.+vmax       Two-segment (profile)     Friction-damped
+
+Fig. 4: Mean reachable area at matched coverage, swept over three coverage
+levels (90/95/99%) and three horizons (∆t ∈ {1, 3, 5} s), on PFF FC test-set.
+
+weaker and sport-dependent: football transfers into American football almost as
+well as NFL’s own model but basketball’s slower, more lateral game sits furthest
+in kinematic regime.
+Every out-of-domain checkpoint in Table 3 has a larger area than the destina-
+tion’s own two-segment baseline, even where its MAE and pinball beat it: the
+lower envelope carries its point-error competitiveness across sports while pro-
+ducing a looser reachable set than a physics model tuned to the destination’s
+own geometry. The mechanism is a mismatch in label regime rather than a
+failure of the representation: American-football pass plays are short, explosive,
+straight-line sprints, with faster arrival times at matched distance and speed
+than continuous-possession football or basketball play.
+Structural audit of the learned surface. Nothing in the architecture en-
+forces the properties a reachable-set interpretation requires, so we audit them
+directly (protocol in Supplementary Section A.4). On 5,000 held-out states the
+predicted sublevel sets are a single connected region containing the player in
+100% of the 25,000 state×horizon cases examined, and are star-shaped in 100%
+of 80,000 audited rays at every canonical horizon. Radial monotonicity is violated
+on 1.4% of rays, all of them at τ > 4 s and beyond 20 m from the player, with
+a median dip of 16 ms — far outside the operating range of the reachable-area
+metric. The polygon representation the downstream literature assumes therefore
+remains valid in practice.
+
+4.5                        Real-time inference
+Both learned models are small enough to run online during a live match. The
+cost that matters in practice is a full reachable-area or pitch-control map: every
+player’s surface evaluated over the 1 m heading-frame grid of the 105 × 68 m
+pitch (7,140 cells), batched across all 22 on-field players into one forward pass
+of 157,080 rows. On an NVIDIA RTX A5000 GPU this pass takes 2.4 ms, i.e.,
+∼ 420 frames per second, an order of magnitude above the 25–30 fps a tracking
+system samples at.
+14      Gutiérrez-Pérez and Agudo
+
+Table 3: Cross-sport transfer for every sport-trained MLP checkpoint scored on
+each sport’s own held-out test split, alongside that sport’s own fitted two-segment
+baseline. NFL rows use within-game (player-based) splitting.
+
+     Test         Train        MAE (s) RMSE (s) pinball area @ 99% cov (m2 )
+                  Football    2.602       3.20    0.0280         31.6
+                  Basketball  2.631       3.36    0.0808         35.1
+     Football
+                  NFL         2.652       3.25    0.0302         46.8
+                  Two-segment 2.996       3.61    0.0581         35.7
+                  Basketball  2.462       3.08    0.0265         47.7
+                  Football    2.490       3.09    0.0276         73.0
+     Basketball
+                  NFL         2.528       3.13    0.0280         59.9
+                  Two-segment 2.945       3.56    0.0614         54.9
+                  NFL         1.297       1.82    0.0135         14.2
+                  Football    1.273       1.81    0.0165         28.3
+     Am. football
+                  Basketball  1.284       2.17    0.1525         36.5
+                  Two-segment 1.608       2.15    0.0891         20.0
+
+5    Conclusion
+We framed TTA as lower-quantile regression of locomotion time over physically
+normalized, heading-invariant geometry, augmented the pinball objective with
+a differentiable area-aware term, trained it on a 64-match World Cup track-
+ing corpus under a strict cross-match split, and benchmarked it against six
+literature motion models re-expressed as arrival-time predictors and refit at a
+matching 0.99 correctness gate, together with a learned reachable-hull baseline.
+The learned MLP beats every baseline on point error, RMSE and pinball loss
+throughout every distance band, and a single per-player max-speed feature im-
+proves on it further. At matched coverage, a quantile MLP is also the tighter
+one by reachable area in eight of the nine coverage×horizon cells swept, with
+the profile variant taking every 95% and 99% cell at the longer ∆t ∈ {3, 5} s
+horizons. Retrained unchanged on basketball and American-football tracking,
+each sport’s own model beats that sport’s two-segment baseline on every met-
+ric in-domain, and cross-sport transfer is markedly asymmetric: the American-
+football-trained checkpoint transfers out essentially for free on point error and
+pinball, whereas every transferred checkpoint’s reachable area loses to the desti-
+nation’s own physics baseline, a mismatch traced to a difference in label regime
+rather than to the representation. A fixed closed-form motion model is therefore
+not necessary to produce a physically plausible, well-calibrated reachable-area
+estimate. Natural next steps include richer conditioning for player personaliza-
+tion, and testing transfer across leagues and tracking providers within soccer
+itself.
+Acknowledgment. This work has been supported by the project GRAVATAR
+PID2023-151184OB-I00 funded by MCIU/AEI/10.13039/501100011033 and by
+ERDF, UE and by the Government of Catalonia under Joan Oró FI 2024 grant.
+                   Learning Sports Motion Feasibility via Quantile Regression           15
+
+References
+ 1. Allegre, J., Vuillemot, R.: Visualizing and analyzing disputed areas in soccer. In:
+    2020 Visualization in Data Science (VDS). pp. 52–60. IEEE (2020)
+ 2. Anzer, G., Bauer, P.: Expected passes: Determining the difficulty of a pass in
+    football (soccer) using spatio-temporal data. Data mining and knowledge discovery
+    36(1), 295–317 (2022)
+ 3. Augustine, A., Redding, G.P., Moan, S.L.: Toward explainable data and sports
+    analytics: A case study on pass completion prediction in american football. The
+    American Statistician 79(4), 435–448 (2025)
+ 4. Bekkers, J.: Pressing intensity: An intuitive measure for pressing in soccer. arXiv
+    preprint arXiv:2501.04712 (2024)
+ 5. Bischofberger, J., Baca, A.: Dangerous accessible space: a unified model of space
+    and value in team sports. Journal of Big Data (2026)
+ 6. Brefeld, U., Lasek, J., Mair, S.: Probabilistic movement models and zones of con-
+    trol. Machine Learning 108(1), 127–147 (2019)
+ 7. Brink, L., Ha, S.K., Snowdon, J., Vidal-Codina, F., Rauch, B., Wang, F., Wu, D.,
+    López-Felip, M.A., Clanet, C., Hosoi, A.E.: Measuring skill via player dynamics in
+    football dribbling. Scientific Reports 13(1), 19004 (2023)
+ 8. Caetano, F.G., Barbon Junior, S., Torres, R.d.S., Cunha, S.A., Ruffino, P.R.C.,
+    Martins, L.E.B., Moura, F.A.: Football player dominant region determined by a
+    novel model based on instantaneous kinematics variables. Scientific reports 11(1),
+    18209 (2021)
+ 9. Cai, J., Du, A., Liang, X., Li, S.: Prediction-based path planning for safe and effi-
+    cient human–robot collaboration in construction via deep reinforcement learning.
+    Journal of computing in civil engineering 37(1), 04022046 (2023)
+10. Caldeira, N., Lopes, R.J., Araujo, D., Fernandes, D.: The finishing space value for
+    shooting decision-making in high-performance football. Sports 12(8), 208 (2024)
+11. Capellera, G., Ferraz, L., Rubio, A., Agudo, A., Moreno-Noguer, F.: Transport-
+    mer: A holistic approach to trajectory understanding in multi-agent sports. In:
+    Proceedings of the Asian Conference on Computer Vision (ACCV) (2024)
+12. Capellera, G., Ferraz, L., Rubio, A., Alahi, A., Agudo, A.: JointDiff: Bridging con-
+    tinuous and discrete in multi-agent trajectory generation. In: International Con-
+    ference on Learning Representations (2026)
+13. Chawla, S., Estephan, J., Gudmundsson, J., Horton, M.: Classification of passes
+    in football matches using spatiotemporal data. ACM Transactions on Spatial Al-
+    gorithms and Systems (TSAS) 3(2), 1–30 (2017)
+14. Dick, U., Link, D., Brefeld, U.: Who can receive the pass? a computational model
+    for quantifying availability in soccer. Data mining and knowledge discovery 36(3),
+    987–1014 (2022)
+15. Efthimiou, C.J.: The voronoi diagram in soccer revisited. In: Future of Information
+    and Communication Conference. pp. 500–525. Springer (2023)
+16. Fernandez, J., Bornn, L.: Wide open spaces: A statistical technique for measuring
+    space creation in professional soccer. In: Sloan sports analytics conference. vol. 2018
+    (2018)
+17. Fernández, J., Bornn, L., Cervone, D.: A framework for the fine-grained evalua-
+    tion of the instantaneous expected value of soccer possessions. Machine Learning
+    110(6), 1389–1427 (2021)
+18. Fujimura, A., Sugihara, K.: Geometric analysis and quantitative evaluation of sport
+    teamwork. Systems and Computers in Japan 36(6), 49–58 (2005)
+16      Gutiérrez-Pérez and Agudo
+
+19. Gudmundsson, J., Horton, M.: Spatio-temporal analysis of team sports. ACM
+    Computing Surveys (CSUR) 50(2), 1–34 (2017)
+20. Gutiérrez-Pérez, M., Agudo, A.: Soccernet-v3D: Leveraging sports broadcast re-
+    plays for 3D scene understanding. In: Proceedings of the Computer Vision and
+    Pattern Recognition Conference. pp. 5978–5987 (2025)
+21. Gutiérrez-Pérez, M., Yeung, C., Fujii, K., Agudo, A.: Once upon a goal: Towards
+    orientation-based shot metrics in football. Computer Vision and Image Under-
+    standing p. 104732 (2026)
+22. Kim, J., Mahjourian, R., Ettinger, S., Bansal, M., White, B., Sapp, B., Anguelov,
+    D.: Stopnet: Scalable trajectory and occupancy prediction for urban autonomous
+    driving. In: 2022 International Conference on Robotics and Automation (ICRA).
+    pp. 8957–8963. IEEE (2022)
+23. Koenker, R., Bassett, G.: Regression quantiles. Econometrica: Journal of the
+    Econometric Society 46(1), 33–50 (1978)
+24. League, N.F.: Nfl big data bowl 2019 (2019), https://github.com/nfl-football-
+    ops/Big-Data-Bowl
+25. Lee, N., Kitani, K.M.: Predicting wide receiver trajectories in american football.
+    In: 2016 IEEE Winter Conference on Applications of Computer Vision (WACV).
+    pp. 1–9. IEEE (2016)
+26. Link, D., Hoernig, M.: Individual ball possession in soccer. PloS one 12(7),
+    e0179953 (2017)
+27. Mahjourian, R., Kim, J., Chai, Y., Tan, M., Sapp, B., Anguelov, D.: Occupancy
+    flow fields for motion forecasting in autonomous driving. IEEE Robotics and Au-
+    tomation Letters 7(2), 5639–5646 (2022)
+28. Martens, F., Dick, U., Brefeld, U.: Space and control in soccer. Frontiers in Sports
+    and Active Living 3, 676179 (2021)
+29. Merckx, S., Robberechts, P., Euvrard, Y., Davis, J.: Measuring the effectiveness of
+    pressing in soccer. In: Proceedings of the 8th Workshop on Machine Learning and
+    Data Mining for Sports Analytics (2021)
+30. Narizuka, T., Takizawa, K., Yamazaki, Y.: Validation of a motion model for soccer
+    players’ sprint by means of tracking data. Scientific reports 13(1), 865 (2023)
+31. Narizuka, T., Yamazaki, I.: Evaluating soccer player movements using the attacker-
+    defender model. arXiv preprint arXiv:2512.22596 (2025)
+32. Narizuka, T., Yamazaki, Y., Takizawa, K.: Space evaluation in football games via
+    field weighting based on tracking data. Scientific reports 11(1), 5509 (2021)
+33. Novillo, Á., del Campo, R.L., Serra, R.R., Buldú, J.M.: Offside control: A pitch
+    control parameter to evaluate the offside performance of soccer teams. Chaos,
+    Solitons & Fractals 197, 116445 (2025)
+34. PFF FC: PFF FC 2022 world cup dataset (2022), https://www.blog.fc.pff.
+    com/blog/pff-fc-release-2022-world-cup-data
+35. Renkin, M., Bischofberger, J., Schikuta, E., Baca, A.: Validation and optimisation
+    of player motion models in football. In: International Conference on Computational
+    Science. pp. 26–32. Springer (2022)
+36. Sampaio, J., McGarry, T., Calleja-González, J., Jiménez Sáiz, S., Schelling i del
+    Alcázar, X., Balciunas, M.: Exploring game performance in the national basketball
+    association using player tracking data. PloS one 10(7), e0132894 (2015)
+37. Savitzky, A., Golay, M.J.E.: Smoothing and differentiation of data by simplified
+    least squares procedures. Analytical Chemistry 36(8), 1627–1639 (1964)
+38. Schilling, M., Milani, R., Moll, M., Pickl, S.: Modeling safe passing regions in
+    american football: integrating ball trajectories and player coverage. Journal of Big
+    Data (2026)
+                  Learning Sports Motion Feasibility via Quantile Regression         17
+
+39. da Silva, M.F., Novillo, A., Aleta, A., del Campo, R.L., Resta, R., Moreno, Y.,
+    Buldu, J.: Interplay between pitch control and top speed in soccer: The stamina
+    factor. Scientific Reports 15(1), 38799 (2025)
+40. Somers, V., Joos, V., Cioppa, A., Giancola, S., Ghasemzadeh, S.A., Magera, F.,
+    Standaert, B., Mansourian, A.M., Zhou, X., Kasaei, S., et al.: Soccernet game
+    state reconstruction: End-to-end athlete tracking and identification on a minimap.
+    In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+    Recognition. pp. 3293–3305 (2024)
+41. Spearman, W.: Beyond expected goals. In: Proceedings of the 12th MIT sloan
+    sports analytics conference. pp. 1–17 (2018)
+42. Spearman, W., Basye, A., Dick, G., Hotovy, R., Pop, P.: Physics-based modeling of
+    pass probabilities in soccer. In: Proceeding of the 11th MIT Sloan Sports Analytics
+    Conference. vol. 1. Boston, MA (2017)
+43. Spencer, B., Jackson, K., Robertson, S.: Fitting motion models to contextual player
+    behavior. In: International symposium on computer science in sport. pp. 11–18.
+    Springer (2019)
+44. SportVU: NBA player movements (2017), https://github.com/linouk23/NBA-
+    Player-Movements
+45. Stein, M., Janetzko, H., Seebacher, D., Jäger, A., Nagel, M., Hölsch, J., Kosub, S.,
+    Schreck, T., Keim, D.A., Grossniklaus, M.: How to make sense of team sport data:
+    From acquisition to data modeling and research aspects. Data 2(1), 2 (2017)
+46. Taki, T., Hasegawa, J.: Visualization of dominant region in team games and its
+    application to teamwork analysis. In: Proceedings computer graphics international
+    2000. pp. 227–235. IEEE (2000)
+47. Unhelkar, V.V., Lasota, P.A., Tyroller, Q., Buhai, R.D., Marceau, L., Deml, B.,
+    Shah, J.A.: Human-aware robotic assistant for collaborative assembly: Integrating
+    human motion prediction with planning in time. IEEE Robotics and Automation
+    Letters 3(3), 2394–2401 (2018)
+48. Wu, L., Swartz, T.B.: A new metric for pitch control based on an intuitive motion
+    model. Computational Statistics 40(4), 1713–1730 (2025)
+49. Wu, Y., Deng, D., Xie, X., He, M., Xu, J., Zhang, H., Zhang, H., Wu, Y.: Ob-
+    tracker: Visual analytics of off-ball movements in basketball. IEEE Transactions
+    on Visualization and Computer Graphics 29(1), 929–939 (2022)
+50. Yurko, R., Matano, F., Richardson, L.F., Granered, N., Pospisil, T., Pelechrinis,
+    K., Ventura, S.L.: Going deep: Models for continuous-time within-play valuation
+    of game outcomes in american football with tracking data. Journal of Quantitative
+    Analysis in Sports 16(2), 163–182 (2020)
+
