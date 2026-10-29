@@ -440,3 +440,20 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+
+---
+
+## Batch 2026-10-29: arXiv preprints (weekly roundup)
+
+Five arXiv preprints from 2026-10-20 to 2026-10-27 were added under `library/preprints/arXiv/2026/` (text in `md/library/preprints/arXiv/2026/`), with scores appended to `paper-ranking-scores.csv`. Scores come from abstract and front-matter reads, like the rest of this report. See `weekly-roundups/2026-10-29.md` for the full roundup.
+
+| Paper | Sport | N | P | R | Σ/30 | Note |
+|---|---|--:|--:|--:|--:|---|
+| Learning Human Sports Motion Feasibility via Quantile Regression on Tracking Data (arXiv:2610.36183) | Soccer | 7 | 7 | 8 | **22** | Public PFF World Cup 2022 data and released code (mguti97/TTA-Quantile) make it the most reproducible of the batch. A learned time-to-arrival quantile model is a candidate input for pitch-control and space-ownership work. |
+| Mapping Academic Sports Analytics: JQAS and JSA content analysis (2610.32354) | Multi | 5 | 6 | 6 | **17** | Survey of about 700 papers; useful for gap-checking this library. No code. |
+| Zero-Shot Multimodal Event Spotting in Soccer Broadcasts (2610.37583) | Soccer | 6 | 5 | 6 | **17** | Repo link in the paper, but only 3 evaluation matches and unclear data access. |
+| Explaining Basketball Shot Classifications with Grad-CAM (2610.33263) | NBA | 5 | 4 | 6 | **15** | Qualitative saliency review of 20 maps. |
+| Economic resources, sporting efficiency and uncertainty: 2026 World Cup (2610.28344) | Soccer | 4 | 3 | 6 | **13** | The authors say the residual is not a structural efficiency estimate; the GDP and population signal is weak (9% of variance). |
+
+Pattern: the one paper that ships code and uses an open tracking dataset ranks highest, consistent with the reproducibility finding above.
