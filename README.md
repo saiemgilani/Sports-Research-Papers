@@ -13,6 +13,8 @@ The curated sports analytics research and opportunity feed lives in:
 - [feeds/sports-analytics-opportunities.json](feeds/sports-analytics-opportunities.json)
 - [feeds/sports-analytics-opportunities.xml](feeds/sports-analytics-opportunities.xml)
 
+- [feeds/weekly-roundups/](feeds/weekly-roundups/) — dated weekly literature, package and tooling roundups with rubric scores
+
 ## Automated Updates
 
 The scheduled workflow in `.github/workflows/update-sports-analytics-library.yml`

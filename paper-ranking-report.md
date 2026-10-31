@@ -440,3 +440,9 @@ Also closed access (no CC licence), and already held as a PDF from before this b
 ### What the batch says as a set
 
 Two pairs of papers in this batch ask the same question with different rigour, and the ranking gap between each pair is entirely about inferential discipline rather than data or technique. **Glazer (23) versus the naive league-average translation** she benchmarks against: same data, but a control group turns a directionally-wrong adjustment into a causal estimate. **mWAR (20) versus the NBA head-coach paper (14)**: both read a residual against a roster-based baseline, but one tests that residual against a simulated null before naming it, and one does not. If there is a single transferable lesson here, it is that in this literature **the control group and the null test are worth more than the model.**
+
+## Addendum 2026-10-31 — arXiv weekly batch
+
+Five new preprints were scored and appended to `paper-ranking-scores.csv` (files under `library/preprints/arXiv/2026/`).
+Top: *Learning Human Sports Motion Feasibility via Quantile Regression on Tracking Data* (23/30; public data, released code).
+See [feeds/weekly-roundups/2026-10-31.md](feeds/weekly-roundups/2026-10-31.md).
