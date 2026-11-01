@@ -2,7 +2,7 @@
 
 - arXiv: https://arxiv.org/abs/2610.21296
 - Published: 2026-10-15
-- PDF: ../../library/preprints/arxiv/2026/2026 On the fairness of single round-robin tournaments Evidence from European football - arXiv 2610.21296.pdf
+- PDF: [local copy](<../../../../../library/preprints/arXiv/2026/2026 - On the fairness of single round-robin tournaments Evidence from European football - Csat et al.pdf>)
 
 ## Abstract
 

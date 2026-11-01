@@ -443,7 +443,7 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 
 ## The arXiv roundup-routine backlog (added 2026-11-01)
 
-**46 arXiv preprints** surfaced by the daily *Sports analytics weekly roundup* routine between 2026-09-07 and 2026-11-01. Each run pushed its own unmerged `claude/*` branch, so most papers were re-found and re-filed several times under different names and folders; this batch is the de-duplicated union (latest copy of each paper wins). Every arXiv id was checked against arxiv.org. Scores are the routine's own rubric scores, carried over unchanged. PDFs live in `library/preprints/arXiv/2026/` with machine-converted markdown in `md/library/preprints/arXiv/2026/`; the routine's dated roundups are in [`roundups/`](roundups/).
+**46 arXiv preprints** surfaced by the daily *Sports analytics weekly roundup* routine between 2026-09-07 and 2026-11-01. Each run pushed its own unmerged `claude/*` branch, so most papers were re-found and re-filed several times under different names and folders; this batch is the de-duplicated union (latest copy of each paper wins). Every arXiv id was checked against arxiv.org. Scores are the routine's own rubric scores, carried over unchanged. PDFs live in `library/preprints/arXiv/2026/` with a markdown copy of each in `md/library/preprints/arXiv/2026/` (machine-converted full text for most; a few are summaries or triage stubs only, so follow the arXiv link for the complete paper); the routine's dated roundups are in [`roundups/`](roundups/).
 
 | Paper | Sport | N | P | R | Score | Takeaway |
 |---|---|--:|--:|--:|--:|---|
