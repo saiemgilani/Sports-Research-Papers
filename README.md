@@ -13,6 +13,14 @@ The curated sports analytics research and opportunity feed lives in:
 - [feeds/sports-analytics-opportunities.json](feeds/sports-analytics-opportunities.json)
 - [feeds/sports-analytics-opportunities.xml](feeds/sports-analytics-opportunities.xml)
 
+## Weekly Roundups
+
+Dated literature / package / tooling roundups live in [roundups/](roundups/)
+(`roundups/YYYY-MM-DD.md`). arXiv preprints they surface are saved to
+`library/preprints/arXiv/<year>/` with markdown in `md/library/preprints/arXiv/<year>/`,
+a `library/manifest.jsonl` row (dedupe key `https://arxiv.org/abs/<id>`), and a
+score row in `paper-ranking-scores.csv`.
+
 ## Automated Updates
 
 The scheduled workflow in `.github/workflows/update-sports-analytics-library.yml`
