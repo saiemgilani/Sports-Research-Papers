@@ -495,3 +495,15 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 | [TTNet - Multi-Task Deep Learning for Table Tennis Player Analysis with Smart Racket](https://arxiv.org/abs/2610.07823) | Table tennis | 4 | 3 | 5 | 12/30 | Multitask CNN/ResNet/attention on six-axis smart-racket data (AI CUP 2025) predicting gender, hand, experience, skill. |
 
 *Throwing4* (2610.16383) has a markdown copy only — no run saved its PDF.
+
+## arXiv roundup 2026-11-02
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [Can Event Detectors Leave the Broadcast Camera? Evidence from Tennis](https://arxiv.org/abs/2610.38042) | Tennis | 6 | 6 | 8 | 20/30 | Frame-level tennis bounce/hit benchmark (345 events, 8 clips): broadcast-trained spotters collapse off-broadcast (E2E-Spot bounce F1 0.130) while the pose+ball-track arbiter RallyArb holds >0.8. |
+| [How exceptional was the Big Three era? Extremes and persistence in men's professional tennis](https://arxiv.org/abs/2608.27362) | Tennis | 7 | 5 | 7 | 19/30 | Bayesian dynamic Bradley-Terry on 197,926 matches (1968-2025): only Djokovic separates on peak strength; the Big Three anomaly is duration of joint dominance, plus a compressed upper tail 1990-2002. |
+| [HoopMind: A Real-Time Neural Game-Tree System for Opponent-Aware Possession Planning](https://arxiv.org/abs/2608.29563) | NBA | 6 | 6 | 6 | 18/30 | Fuses five public sources into 4.23M shots/21 seasons (99.5-100% alignment), ShotNet MLP shot values + expectimax possession planner in a browser; two data pitfalls reported. |
+| [Forecasting the Winner of a Live Tennis Match](https://arxiv.org/abs/2609.07617) | Tennis | 5 | 7 | 6 | 18/30 | Hybrid 'Trace' live win-probability model on 8,222 Grand Slam matches/1.5M points: 76.1/82.2/88.3% accuracy at 25/50/75% progress (test 2023-24). |
+| [A 3D Pose-Based Ensemble Framework for Cricket Shot Classification and Automated Biomechanical Analysis](https://arxiv.org/abs/2609.26923) | Cricket | 5 | 5 | 5 | 15/30 | YOLO + MeTRAbs 3D pose (30 keypoints) and an ensemble classifier for four cricket shots at 97.68% accuracy, with joint-angle feedback vs expert batsmen. |
+| [Perceiving and Predicting Dynamic Sports: Spatiotemporal Intelligence in Vision Models for Egocentric Tennis Video](https://arxiv.org/abs/2610.37619) | Tennis | 6 | 3 | 5 | 14/30 | Egocentric tennis dataset + seven prediction tasks (ball 0.54 m, contact time 0.14 s error); depth helps 3D ball localization; diffusion model for whole-body motion. |
+| [Deep Learning Based Illegal Bowling Action Detection](https://arxiv.org/abs/2610.07223) | Cricket | 4 | 4 | 3 | 11/30 | Flags illegal bowling actions by elbow-angle change between shoulder and release frames (>15 deg threshold) on 62 videos of 11 bowlers. |
