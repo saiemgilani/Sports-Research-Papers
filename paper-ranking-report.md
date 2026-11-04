@@ -519,3 +519,11 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 | [BMASH: Ball-Motion-Aware Soccer Header Spotting](https://arxiv.org/abs/2609.39300) | Soccer | 5 | 4 | 5 | 14/30 | BMASH fuses Video Swin action features with ball-presence/motion features to spot headers in broadcast video, with game-level splits; relevant to head-impact monitoring. |
 | [Field Converter: Geometry-Initialized Temporal Residual Refinement for World-Grounded Player Pose Estimation from Soccer Broadcasts](https://arxiv.org/abs/2609.10498) | Soccer | 6 | 4 | 4 | 14/30 | Field Converter: ray-ground-intersection root init plus temporal residual (TCN) refinement cuts root error 49 cm to 10 cm for world-grounded 3D player pose from calibrated soccer broadcasts. |
 | [Multimodal Injury Risk Prediction in Tennis](https://arxiv.org/abs/2608.25126) | Tennis | 4 | 4 | 3 | 11/30 | PART: multimodal readiness/injury-risk framework for tennis from physiological and wearable data on nine collegiate players; very small sample. |
+
+## arXiv roundup 2026-11-04
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [Identifying the determinants of soccer coach turnover by competing risks models: a case study on Italian League Serie A](https://arxiv.org/abs/2611.04572) | Soccer | 6 | 6 | 5 | 17/30 | Competing-risks (cause-specific Cox, LASSO, Random Survival Forests) model of Serie A head-coach exits 2010-2019; recent performance (points/match) drives sacking, personal traits matter little once performance is controlled. |
+| [Beyond the Federer paradox in tennis](https://arxiv.org/abs/2611.03702) | Tennis | 7 | 6 | 8 | 21/30 | Winning with fewer points (Federer: 80% of matches on 54% of points) follows from hierarchical scoring plus crucial-point leverage; amplification is set by points per match; 4.7% of ATP 1991-2025 matches were won with fewer points, more than an iid-points model predicts. |
+| [Economic resources, sporting efficiency and uncertainty: a stochastic optimization model of football performance in Africa](https://arxiv.org/abs/2610.06967) | Soccer | 5 | 3 | 4 | 12/30 | HJB stochastic-control model of national football performance with latent efficiency SDE and investment control; relates to SFA/DEA; mostly theoretical. |
