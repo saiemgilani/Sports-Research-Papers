@@ -538,3 +538,11 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 | [Longitudinal Bayesian networks for assessing team performance in the National Basketball Association](https://arxiv.org/abs/2608.09824) | NBA | 6 | 6 | 6 | 18/30 | Static, autoregressive dynamic and further longitudinal Bayesian-network variants treating team box-score variables as stochastic processes across games. |
 | [A Bayesian bivariate conditional Poisson regression for goal dependence in the English Premier League](https://arxiv.org/abs/2608.07168) | Soccer | 6 | 6 | 7 | 19/30 | Bayesian bivariate conditional Poisson model capturing home/away goal dependence (incl. negative) beyond independent-Poisson/Dixon-Coles; fit on EPL results with match covariates. |
 | [Regional advantage in rugby sevens: Is there a home effect when nobody is home?](https://arxiv.org/abs/2608.16312) | Rugby | 6 | 5 | 6 | 17/30 | 2,672 World Rugby Sevens matches 2016-2025: continuous geographic/temporal/cultural proximity to host replaces binary home flag; finds a regional differential even without formal home teams. |
+
+## arXiv roundup 2026-11-09
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [Competitive Balance Beyond Standings: Bayesian Inference for Latent Tiers and Structural Heterogeneity](https://arxiv.org/abs/2611.08856) | Multi | 7 | 6 | 6 | 19/30 | Bradley-Terry model with an inferred number of latent competitive tiers plus a [0,1] structural balance parameter tied to tier separation; a standings-free alternative to HHI/Gini parity measures. |
+| [Semantic Action Graph: A Shared Representation for Agent Grounding and Human Interpretation of Sports Highlights](https://arxiv.org/abs/2609.20768) | Multi | 6 | 4 | 3 | 13/30 | Closed-vocabulary event graph (performer/action/recipient/moment/state) that lets an LLM highlight agent and a viewer UI share one verifiable structure (SportSAGE probe); HCI-oriented, little analytics. |
+| [Pre-game paired-comparison modeling of professional League of Legends map outcomes](https://arxiv.org/abs/2609.08060) | Esports | 6 | 6 | 6 | 18/30 | Calibrated pre-game win-probability logistic model (EWMA same-side form + ridge-shrunk Bradley-Terry strength + first-pick) vs REML/BLUP rival on 5,135 pro LoL maps; transferable walk-forward calibration recipe. |
