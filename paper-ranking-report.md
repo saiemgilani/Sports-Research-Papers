@@ -546,3 +546,10 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 | [Competitive Balance Beyond Standings: Bayesian Inference for Latent Tiers and Structural Heterogeneity](https://arxiv.org/abs/2611.08856) | Multi | 7 | 6 | 6 | 19/30 | Bradley-Terry model with an inferred number of latent competitive tiers plus a [0,1] structural balance parameter tied to tier separation; a standings-free alternative to HHI/Gini parity measures. |
 | [Semantic Action Graph: A Shared Representation for Agent Grounding and Human Interpretation of Sports Highlights](https://arxiv.org/abs/2609.20768) | Multi | 6 | 4 | 3 | 13/30 | Closed-vocabulary event graph (performer/action/recipient/moment/state) that lets an LLM highlight agent and a viewer UI share one verifiable structure (SportSAGE probe); HCI-oriented, little analytics. |
 | [Pre-game paired-comparison modeling of professional League of Legends map outcomes](https://arxiv.org/abs/2609.08060) | Esports | 6 | 6 | 6 | 18/30 | Calibrated pre-game win-probability logistic model (EWMA same-side form + ridge-shrunk Bradley-Terry strength + first-pick) vs REML/BLUP rival on 5,135 pro LoL maps; transferable walk-forward calibration recipe. |
+
+## arXiv roundup 2026-11-10
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [When Should AI Overturn a Human Decision? Controversy at the 2026 World Cup and a $\sqrt{2/π}$ Solution](https://arxiv.org/abs/2611.11819) | Soccer | 7 | 5 | 6 | 18/30 | ML rule for when a VAR measurement should overturn a referee's offside call: reversal threshold sqrt(2/pi)*sigma_AI^2/sigma_H under Gaussian errors; closed-form, calibratable, generalizes to any human-call + AI-measurement setting. |
+| [Match forecasts in UEFA club competitions: Elo ratings versus Transfermarkt valuations](https://arxiv.org/abs/2609.21674) | Soccer | 5 | 6 | 7 | 18/30 | Elo and Transfermarkt values give near-identical out-of-sample accuracy on 2020/21-2024/25 UCL/UEL matches; combining helps modestly; Elo-based seeding is near-optimal. |
