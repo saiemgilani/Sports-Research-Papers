@@ -1,6 +1,6 @@
 # Sports Analytics Opportunities
 
-Generated: 2026-11-12T11:41:27.917721Z
+Generated: 2026-11-13T11:41:14.984426Z
 
 Deadlines are normalized to the timezone shown. Always confirm details on the official page before submitting.
 
@@ -10,7 +10,6 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | open | [Journal of Statistics and Data Science in Sports rolling submissions](https://journals.charlotte.edu/index.php/jsdss/about/submissions) | rolling_submission | TBA | America/New_York | Journal of Statistics and Data Science in Sports |
 | invitation_only | [SSAC27 invited full paper submission](https://www.sloansportsconference.com/research-paper-competition) | full_paper_submission | 2026-12-04T23:59:00-05:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | invitation_only | [MathSport Asia complete paper submission](https://iimk.ac.in/apps/mathsport26/) | full_paper_submission | 2027-02-28T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
-| upcoming | [Hudl Performance Insights 2026 finalist presentations](https://www.hudl.com/blog/hpi-2026-research-competition) | event | 2026-11-13T00:00:00+00:00 | Europe/London | Hudl Performance Insights Research Competition |
 | monitor | [CMSAC research competition and poster calls](https://www.cmsaconference.com/) | conference_watch | TBA | UTC | Carnegie Mellon Sports Analytics Conference |
 | monitor | [CSAS/UCSAS data challenge, poster, and workshop calls](https://statds.org/events/csas2026/) | symposium_watch | TBA | UTC | Connecticut Sports Analytics Symposium |
 | monitor | [Kaggle sports competition index](https://www.kaggle.com/competitions?tagIds=4141-Sports) | competition_watch | TBA | UTC | Kaggle Sports Competitions |
@@ -27,6 +26,7 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | closed | [SSAC27 Research Paper Competition abstract submission](https://www.sloansportsconference.com/research-paper-competition) | abstract_submission | 2026-10-01T23:59:00-04:00 | America/New_York | MIT Sloan Sports Analytics Conference Research Paper Competition |
 | closed | [MathSport Asia 2026 final registration](https://iimk.ac.in/apps/mathsport26/) | registration | 2026-11-02T23:59:59+05:30 | Asia/Kolkata | MathSport Asia 2026 |
 | completed | [MLSA 2026 workshop](https://dtai.cs.kuleuven.be/events/MLSA26/) | event | 2026-09-07T00:00:00+02:00 | Europe/Rome | Workshop on Machine Learning and Data Mining for Sports Analytics |
+| completed | [Hudl Performance Insights 2026 finalist presentations](https://www.hudl.com/blog/hpi-2026-research-competition) | event | 2026-11-13T00:00:00+00:00 | Europe/London | Hudl Performance Insights Research Competition |
 
 ## Source Health
 
@@ -35,10 +35,10 @@ Deadlines are normalized to the timezone shown. Always confirm details on the of
 | cassis | ok | false | - |
 | cmsac | ok | false | - |
 | csas | ok | false | - |
-| hudl-performance-insights | ok | true | - |
+| hudl-performance-insights | ok | false | - |
 | jsdss | ok | false | - |
 | kaggle-sports | auth_required | false | - |
-| mathsport-asia | markers_missing | false | August 03, 2026 |
+| mathsport-asia | markers_missing | true | August 03, 2026 |
 | mathsport-international | ok | false | - |
 | mit-ssac-competitions | ok | false | - |
 | mit-ssac-research-paper-competition | ok | false | - |
