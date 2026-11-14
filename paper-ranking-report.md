@@ -580,3 +580,7 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 | [A Modified Glicko Model for Rating Soccer Clubs and National Teams Worldwide](https://arxiv.org/abs/2611.15378) | Soccer | 7 | 8 | 9 | 24/30 | Glicko with order effects, strength-dependent draws, goal adjustment and non-inflating promotion/relegation; one worldwide scale for 1.2M club and 12.6k national-team matches; beats Elo, ties score-matrix models, wins cross-league/cross-confederation; data and code public. |
 | [One Hierarchy, Many Sports: Hierarchy-Aligned Multi-Task Learning for Next-Shot Prediction](https://arxiv.org/abs/2611.15529) | Racket sports | 6 | 5 | 7 | 18/30 | MT-HTA: shot-rally-scoring-unit hierarchical multi-task Transformer for next-shot attributes in table tennis, badminton and tennis; best mean task-averaged F1 on 4 datasets; code released. |
 | [Clustering professional football players using Gaussian mixture models: A case study of the English Premier League 2024/25](https://arxiv.org/abs/2611.17024) | Soccer | 4 | 7 | 6 | 17/30 | GMM on PCA of 314 EPL outfield players: 7 archetypes with soft memberships that quantify role hybridity; simple baseline for recruitment role tagging. |
+
+## arXiv roundup 2026-11-14
+
+No new papers. The arXiv API's newest sports submissions (2026-11-08 → 11-12) are all already in the library, and the 11-13 submissions are not announced until 2026-11-15/16. See `roundups/2026-11-14.md`.
