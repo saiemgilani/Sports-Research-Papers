@@ -584,3 +584,7 @@ Two pairs of papers in this batch ask the same question with different rigour, a
 ## arXiv roundup 2026-11-14
 
 No new papers. The arXiv API's newest sports submissions (2026-11-08 → 11-12) are all already in the library, and the 11-13 submissions are not announced until 2026-11-15/16. See `roundups/2026-11-14.md`.
+
+## arXiv roundup 2026-11-15
+
+No new papers. All sports submissions dated 2026-11-08 → 11-15 in the arXiv API are already in the library; the 11-13 submissions are announced the evening of 2026-11-15 (ET). See `roundups/2026-11-15.md`.
