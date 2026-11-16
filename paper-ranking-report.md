@@ -588,3 +588,9 @@ No new papers. The arXiv API's newest sports submissions (2026-11-08 → 11-12) 
 ## arXiv roundup 2026-11-15
 
 No new papers. All sports submissions dated 2026-11-08 → 11-15 in the arXiv API are already in the library; the 11-13 submissions are announced the evening of 2026-11-15 (ET). See `roundups/2026-11-15.md`.
+
+## arXiv roundup 2026-11-16
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [Match classification in the last round of four-team round-robin tournaments](https://arxiv.org/abs/2605.25610) | Soccer | 6 | 6 | 6 | 18/30 | First head-to-head of deterministic vs probabilistic last-round match classification (World Cup groups); all 6 probabilistic types occurred in 2018; for 2026, 48 teams hurt balance, best-third qualification helps (antagonistic → offensive matches), head-to-head tie-breakers hurt. v3 revision announced 2026-11-15; first saved now. |
