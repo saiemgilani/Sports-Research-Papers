@@ -631,3 +631,7 @@ No new papers. All sports submissions dated 2026-11-08 → 11-15 in the arXiv AP
 | Paper | Sport | N | P | R | Score | Takeaway |
 |---|---|--:|--:|--:|--:|---|
 | [Volley3D: Unified 3D Full-Sequence Reconstruction from Monocular Broadcasts](https://arxiv.org/abs/2610.38358) | Volleyball (broadcast tracking) | 7 | 4 | 5 | 16/30 | A training-free (no 3D supervision) pipeline that lifts single-camera volleyball broadcasts to 3D. Pose-based jump spotting with Newtonian interpolation fixes the depth drift that ground-plane homography gives airborne players (court-depth MAE 1.05 → 0.23 m). A TCN cuts 2D ball tracks into sub-trajectories between contacts (F1 0.898 at a 1-frame tolerance on TrackNetV3 detections), and drag-aware ballistics anchored to reconstructed 3D hands give 0.27 m 3D RMSE against MonoTrack's 1.56 m. The 3D check covers only 10 triangulated rallies from VolliQ's static four-camera rig, so the full broadcast path has no 3D ground truth yet. Annotations are promised; no code. Announced 2026-10-28; missed by earlier sweeps and first saved now. |
+
+## arXiv roundup 2026-11-22
+
+No new papers. No arXiv announcement on weekends, so the newest announced sports submissions (2026-11-19) were swept on 11-20/11-21. All 80 recent sports-keyword submissions back to 2026-10-05 are already in the library or were judged off-topic. See `roundups/2026-11-22.md`.
