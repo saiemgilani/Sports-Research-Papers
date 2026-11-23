@@ -635,3 +635,9 @@ No new papers. All sports submissions dated 2026-11-08 → 11-15 in the arXiv AP
 ## arXiv roundup 2026-11-22
 
 No new papers. No arXiv announcement on weekends, so the newest announced sports submissions (2026-11-19) were swept on 11-20/11-21. All 80 recent sports-keyword submissions back to 2026-10-05 are already in the library or were judged off-topic. See `roundups/2026-11-22.md`.
+
+## arXiv roundup 2026-11-23
+
+| Paper | Sport | N | P | R | Score | Takeaway |
+|---|---|--:|--:|--:|--:|---|
+| [The Science and Mythology of Sports Rankings: Evaluating the methods, assumptions, and attributes used to rank NCAA teams](https://arxiv.org/abs/2611.27886) | NCAA multi-sport (lacrosse focus) / ranking systems | 4 | 6 | 4 | 14/30 | A conceptual framework from the former Laxpower operator, written with the NCAA MD1 lacrosse ranking committee. It treats prediction, retrospective evaluation, selection and seeding as separate tasks, and lists 25 attributes in four clusters for judging RPI/NPI/NET-style systems by what they are meant to do. Table 2 compares nine D-I sports on schedule density and connectivity, but the connectivity values are qualitative estimates. No model, data or code. Announced 2026-11-22. |
